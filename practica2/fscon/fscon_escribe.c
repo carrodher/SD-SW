@@ -39,29 +39,11 @@
  			printf("El descriptor es: %d\n",*pfd);
  		}
 
-	  	/* Lee del fichero */
- 		leer_nbytes=BUF_SIZE;
+ 		/*
 
- 		result_leer = leer_1(*pfd, leer_nbytes, clnt);
- 		if (result_leer == (LEER_result *) NULL) 
- 		{
- 			clnt_perror (clnt, "call failed");
- 		}
- 		else
- 		{
-			/* imprime los datos leidos */
- 			printf("Imprimiendo datos: \n "); 
- 			printf("Resultado: %d \n", result_leer->cod_error);
- 			if (-1 != result_leer->cod_error)
- 			{
- 				unsigned int i;
- 				printf("\nSe han leido %d octetos: \n", result_leer->datos.BUF_len);
- 				for(i=0; i<result_leer->datos.BUF_len; i++)
- 				{
- 					printf("%c",result_leer->datos.BUF_val[i]);
- 				}
- 			}
- 		}
+		CÓDIGO DE ESCRITURA
+
+ 		*/
 
 	   	/* Cierra el fichero previamente abierto */
  		result = cerrar_1(*pfd, clnt);

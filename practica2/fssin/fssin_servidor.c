@@ -10,14 +10,20 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-LEER_result * leer_1_svc(int fd, int nbytes,  struct svc_req *rqstp)
+LEER_result * leer_1_svc(string nom<MAX_PATH>, int offs, int nbytes, struct svc_req *rqstp) 
 {
   static LEER_result result;
 
-	/*
-	 * insert server code here
-	 */
-	 
+  // Abre el fichero
+  if ((fd = open(nom, O_RDWR, 0)) == -1)
+  {
+    printf("Error en apertura de fichero para lectura %s\n", nom);
+  }
+  else
+  {
+    printf("Fichero %s abierto\n", nom);
+  }
+
   int oct_leidos = 0;
   static char buf_lectura [BUF_SIZE];
 
@@ -43,16 +49,32 @@ LEER_result * leer_1_svc(int fd, int nbytes,  struct svc_req *rqstp)
     printf("Error: Se intenta leer mas de lo permitido\n");       
   }
 
+  // Cierra el fichero
+  if((close(fd)) == -1)
+  {
+    printf("Error al cerrar el fichero \n");
+  }
+  else
+  {
+    printf("Fichero cerrado \n");
+  }
+
   return &result;
 }
 
-int * escribir_1_svc(int fd, int nbytes, BUF buf, struct svc_req *rqstp)
+int * escribir_1_svc(string nom<MAX_PATH>, int offs, int nbytes, BUF buf, struct svc_req *rqstp)
 {
 	static int result;
-
-	/*
-	 * insert server code here
-	 */
+  
+  // Abre el fichero
+  if ((fd = open(nom, O_RDWR, 0)) == -1)
+  {
+    printf("Error en apertura de fichero para lectura %s\n", nom);
+  }
+  else
+  {
+    printf("Fichero %s abierto\n", nom);
+  }
 
 	int oct_escritos = 0;
   result = 0;
@@ -68,45 +90,15 @@ int * escribir_1_svc(int fd, int nbytes, BUF buf, struct svc_req *rqstp)
     printf("Error en la escritura del fichero\n");
   }
 
-  return &result;
-}
-
-int * abrir_1_svc(char *nom, struct svc_req *rqstp)
-{
-	static int result;
-
-	/*
-	 * insert server code here
-	 */
-
-  if ((result = open(nom, O_RDWR, 0)) == -1)
+  // Cierra el fichero
+  if((close(fd)) == -1)
   {
-    printf("Error en apertura de fichero para lectura %s\n", nom);
+    printf("Error al cerrar el fichero \n");
   }
   else
   {
-    printf("Fichero %s abierto\n", nom);
+    printf("Fichero cerrado \n");
   }
-
-  return &result;
-}
-
-int * cerrar_1_svc(int fd, struct svc_req *rqstp)
-{
-	static int result;
-
-	/*
-	 * insert server code here
-	 */
-
-   if((result = close(fd)) == -1)
-   {
-     printf("Error al cerrar el fichero \n ");
-   }
-   else
-   {
-     printf("Fichero cerrado \n");
-   }
 
   return &result;
 }

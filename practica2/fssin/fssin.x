@@ -10,14 +10,7 @@ struct LEER_result {
 
 program FSSIN {
    version SIN {
-
-      LEER_result leer (string nom<MAX_PATH>, int offs, int nbytes)= 1;
-
-
-
-      int escribir (string nom<MAX_PATH>, int offs, int nbytes, BUF buf)= 2;
-
-
+      LEER_result leer (string nom<MAX_PATH>, int offs, int nbytes) = 1;
+      int escribir (string nom<MAX_PATH>, int offs, int nbytes, BUF buf) = 2;
    } = 2;
 } = 999999992;
- 
