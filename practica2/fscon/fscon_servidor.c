@@ -50,17 +50,13 @@ int * escribir_1_svc(int fd, int nbytes, BUF buf, struct svc_req *rqstp)
 {
 	static int result;
 
-	/*
-	 * insert server code here
-	 */
-
 	int oct_escritos = 0;
   result = 0;
 
   if((oct_escritos = write(fd,buf.BUF_val, nbytes)) >= 0)
   {
     result = oct_escritos;
-    printf("Escritos %d octetos",oct_escritos);
+    printf("Escritos %d octetos \n",oct_escritos);
   }
   else
   {
@@ -85,7 +81,7 @@ int * abrir_1_svc(char *nom, struct svc_req *rqstp)
   }
   else
   {
-    printf("Fichero %s abierto\n", nom);
+    printf("Fichero %s abierto \n", nom);
   }
 
   return &result;

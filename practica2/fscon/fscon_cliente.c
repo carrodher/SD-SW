@@ -40,7 +40,7 @@
  		}
 
 	  	/* Lee del fichero */
- 		leer_nbytes=BUF_SIZE;
+ 		leer_nbytes = BUF_SIZE;
 
  		result_leer = leer_1(*pfd, leer_nbytes, clnt);
  		if (result_leer == (LEER_result *) NULL) 

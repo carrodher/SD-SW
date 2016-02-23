@@ -4,24 +4,25 @@
  * as a guideline for developing your own functions.
  */
 
-#include "fscon.h"
+#include "fssin.h"
 
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
 
-LEER_result * leer_1_svc(string nom<MAX_PATH>, int offs, int nbytes, struct svc_req *rqstp) 
+LEER_result * leer_2_svc(char *nom, int offs, int nbytes, struct svc_req *rqstp) 
 {
   static LEER_result result;
+  static int fd;
 
   // Abre el fichero
   if ((fd = open(nom, O_RDWR, 0)) == -1)
   {
-    printf("Error en apertura de fichero para lectura %s\n", nom);
+    printf("Error en apertura de fichero para lectura %s \n", nom);
   }
   else
   {
-    printf("Fichero %s abierto\n", nom);
+    printf("Fichero %s abierto \n", nom);
   }
 
   int oct_leidos = 0;
@@ -29,6 +30,8 @@ LEER_result * leer_1_svc(string nom<MAX_PATH>, int offs, int nbytes, struct svc_
 
   result.datos.BUF_len = 0;
   result.datos.BUF_val = buf_lectura;
+
+  lseek(fd, offs, SEEK_SET);
 
   if(nbytes <= BUF_SIZE)
   {
@@ -40,13 +43,13 @@ LEER_result * leer_1_svc(string nom<MAX_PATH>, int offs, int nbytes, struct svc_
     else
     {
      result.cod_error = -1;
-     printf("Error en la lectura del fichero\n");
+     printf("Error en la lectura del fichero \n");
     }
   }
   else
   {
     result.cod_error = -1;
-    printf("Error: Se intenta leer mas de lo permitido\n");       
+    printf("Error: Se intenta leer mas de lo permitido \n");       
   }
 
   // Cierra el fichero
@@ -62,32 +65,35 @@ LEER_result * leer_1_svc(string nom<MAX_PATH>, int offs, int nbytes, struct svc_
   return &result;
 }
 
-int * escribir_1_svc(string nom<MAX_PATH>, int offs, int nbytes, BUF buf, struct svc_req *rqstp)
+int * escribir_2_svc(char *nom, int offs, int nbytes, BUF buf, struct svc_req *rqstp)
 {
 	static int result;
+  static int fd;
   
   // Abre el fichero
   if ((fd = open(nom, O_RDWR, 0)) == -1)
   {
-    printf("Error en apertura de fichero para lectura %s\n", nom);
+    printf("Error en apertura de fichero para lectura %s \n", nom);
   }
   else
   {
-    printf("Fichero %s abierto\n", nom);
+    printf("Fichero %s abierto \n", nom);
   }
 
 	int oct_escritos = 0;
   result = 0;
 
+  lseek(fd, offs, SEEK_SET);
+
   if((oct_escritos = write(fd,buf.BUF_val, nbytes)) >= 0)
   {
     result = oct_escritos;
-    printf("Escritos %d octetos",oct_escritos);
+    printf("Escritos %d octetos \n",oct_escritos);
   }
   else
   {
     result = -1;
-    printf("Error en la escritura del fichero\n");
+    printf("Error en la escritura del fichero \n");
   }
 
   // Cierra el fichero

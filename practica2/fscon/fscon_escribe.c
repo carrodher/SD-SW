@@ -5,14 +5,17 @@
  */
 
 #include "fscon.h"
+ #include "string.h"
 
  int main (int argc, char *argv[])
  {
  	CLIENT *clnt;
  	int *pfd;
  	int *result;
- 	LEER_result  *result_leer;	
- 	int leer_nbytes;
+ 	int *result_escribir;	
+ 	int escribir_nbytes;
+ 	BUF datos;
+ 	char texto[] = "Cadena de texto";
 
  	if (argc < 3) 
  	{
@@ -36,14 +39,28 @@
  		}
  		else
  		{
- 			printf("El descriptor es: %d\n",*pfd);
+ 			printf("El descriptor es: %d \n",*pfd);
  		}
 
- 		/*
+ 		// Escribir en el fichero
+ 		escribir_nbytes = strlen(texto);
 
-		CÓDIGO DE ESCRITURA
+ 		datos.BUF_val = texto;
+ 		datos.BUF_len = escribir_nbytes;
 
- 		*/
+ 		printf("Tamaño datos: %d \n", datos.BUF_len);
+ 		printf("Texto para escribir: %s", datos.BUF_val);
+
+ 		result_escribir = escribir_1(*pfd, escribir_nbytes, datos, clnt);
+
+ 		if (result_escribir == NULL) 
+ 		{
+ 			clnt_perror (clnt, "call failed");
+ 		}
+ 		else
+ 		{
+ 			printf("\nSe han escrito %d octetos \n", *result_escribir);
+ 		}
 
 	   	/* Cierra el fichero previamente abierto */
  		result = cerrar_1(*pfd, clnt);

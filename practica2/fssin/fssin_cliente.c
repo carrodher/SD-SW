@@ -4,15 +4,17 @@
  * as a guideline for developing your own functions.
  */
 
-#include "fscon.h"
+#include "fssin.h"
+#include "string.h"
 
- int main (int argc, char *argv[])
- {
+int main (int argc, char *argv[])
+{
  	CLIENT *clnt;
- 	int *pfd;
  	int *result;
- 	LEER_result  *result_leer;	
- 	int leer_nbytes;
+ 	int *result_escribir;	
+ 	int escribir_nbytes;
+ 	BUF datos;
+ 	char texto[] = "ESTO ES UNA PRUEBA";
 
  	if (argc < 3) 
  	{
@@ -20,7 +22,7 @@
  		exit (1);
  	}
 
- 	clnt = clnt_create (argv[1], FSCON, CON, "udp");
+ 	clnt = clnt_create (argv[1], FSSIN, SIN, "udp");
  	if (clnt == NULL) 
  	{
  		clnt_pcreateerror (argv[1]);
@@ -28,13 +30,25 @@
  	}
  	else
  	{
+ 		// Escribir en el fichero
+ 		escribir_nbytes = strlen(texto);
 
- 		/*
+ 		datos.BUF_val = texto;
+ 		datos.BUF_len = escribir_nbytes;
 
-		CÓDIGO DE ESCRITURA
+ 		printf("Tamaño datos: %d \n", datos.BUF_len);
+ 		printf("Texto para escribir: %s", datos.BUF_val);
 
- 		*/
+ 		result_escribir = escribir_2(argv[2], 0, escribir_nbytes, datos, clnt);
 
+ 		if (result_escribir == NULL) 
+ 		{
+ 			clnt_perror (clnt, "call failed");
+ 		}
+ 		else
+ 		{
+ 			printf("\nSe han escrito %d octetos \n", *result_escribir);
+ 		}
  	}
  	exit (0);
  }
