@@ -1,5 +1,5 @@
 [![C](https://img.shields.io/badge/C-11-yellow.svg)](http://www.cplusplus.com/)
-[![License](https://img.shields.io/badge/license-CreativeCommons | NC-red.svg)](http://es.creativecommons.org/blog/licencias/) 
+[![License](https://img.shields.io/badge/license-CreativeCommons | NC-green.svg)](http://es.creativecommons.org/blog/licencias/) 
 [![Linkedin](https://img.shields.io/badge/LinkedIn-Carlos-blue.svg)](https://es.linkedin.com/in/carlosrodriguezhernandez)
 [![Twitter](https://img.shields.io/badge/Twitter-carrodher-blue.svg)](https://twitter.com/carrodher)
 
