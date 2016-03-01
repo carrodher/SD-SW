@@ -20,8 +20,8 @@ class ClienteEcoInv {
         try {
             // Obtiene referencia remota del servicio de rmiregistry
             ServicioEcoInv srv = (ServicioEcoInv) Naming.lookup("//" + args[0] + ":" + args[1] + "/EcoInv"); 
-                                                            /*      |               |-> Número de puerto escucha rmiregistry
-                                                                    |-> Host en el que se ejecuta rmiregistry */
+                                                                 /*      |               |-> Número de puerto escucha rmiregistry
+                                                                         |-> Host en el que se ejecuta rmiregistry */
             for (int i=2; i<args.length; i++)
                 // Llamada al método remoto
                 System.out.println(srv.ecoInv(args[i]));       

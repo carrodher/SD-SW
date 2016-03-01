@@ -20,8 +20,8 @@ class ClienteMarcaTiempo {
         try {
             // Obtiene referencia remota del servicio de rmiregistry
             ServicioMarcaTiempo srv = (ServicioMarcaTiempo) Naming.lookup("//" + args[0] + ":" + args[1] + "/MarcaTiempo");
-                                                            /*      |               |-> Número de puerto escucha rmiregistry
-                                                                    |-> Host en el que se ejecuta rmiregistry */   
+                                                                             /*      |               |-> Número de puerto escucha rmiregistry
+                                                                                     |-> Host en el que se ejecuta rmiregistry */   
             while(true) {
                 System.out.println(srv.marcaTiempo());
                 try {
