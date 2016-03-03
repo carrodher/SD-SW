@@ -3,7 +3,7 @@ import java.rmi.server.*;
 
 class ServidorChat  {
     static public void main (String args[]) {
-       if (args.length!=1) {
+        if (args.length!=1) {
             System.err.println("Uso: ServidorChat numPuertoRegistro");
             return;
         }

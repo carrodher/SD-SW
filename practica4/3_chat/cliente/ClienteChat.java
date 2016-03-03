@@ -4,16 +4,16 @@ import java.rmi.server.*;
 
 class ClienteChat {
     static public void main (String args[]) {
-        if (args.length!=3) {
+        if (args.length != 3) {
             System.err.println("Uso: ClienteChat hostregistro numPuertoRegistro apodo");
             return;
         }
 
-       if (System.getSecurityManager() == null)
+        if (System.getSecurityManager() == null){
             System.setSecurityManager(new SecurityManager());
+        }
 
         try {
-
             ServicioChat srv = (ServicioChat) Naming.lookup("//" + args[0] + ":" + args[1] + "/Chat");
             ClienteImpl c = new ClienteImpl();
             srv.alta(c);
