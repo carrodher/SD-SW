@@ -5,13 +5,6 @@
 # SD-SW
 Prácticas de la asignatura "Sistemas Distribuidos y Servicios Web"
 
-## Contenido
-- [RPC](#rpc)
-  - [Práctica 1](#práctica-1)
-  - [Práctica 2](#práctica-2)
-- [RMI](#rmi)
- - [Práctica 3](#práctica-3)
-
 ### RPC
 Cada programa RPC consta de 4 componentes:
 - El fichero RPC: ___.x
@@ -68,3 +61,6 @@ kill -9 _____   // Terminar dicho proceso
 
 #### Práctica 3
 Invocación de métodos remotos
+
+#### Práctica 4
+Referencias a objetos remotos
