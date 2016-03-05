@@ -2,6 +2,8 @@
  (3)
  Servidor. 
  Inicia el servicio remoto y lo hace accesible de manera pública usando RMI.
+
+ Dependecias: Observador.class
 */
 
 import java.rmi.*;

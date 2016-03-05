@@ -8,8 +8,8 @@
  import java.rmi.*;
 
  interface ServicioAlarma extends Remote {
- 	void addObservador(Observador o) throws RemoteException;
- 	void delObservador(Observador o) throws RemoteException;
+ 	void addObservador(Observador o, String nombre) throws RemoteException;
+ 	void delObservador(Observador o, String nombre) throws RemoteException;
  	void setTemperatura(int temp) throws RemoteException;
  	int getTemperatura() throws RemoteException;
  }

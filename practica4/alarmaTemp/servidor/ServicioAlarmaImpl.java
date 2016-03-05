@@ -10,26 +10,34 @@ import java.rmi.server.*;
 class ServicioAlarmaImpl extends UnicastRemoteObject implements ServicioAlarma {
     List<Observador> listaObservadores;                    // Lista de los observadores conectados
     ServicioAlarmaImpl() throws RemoteException {
-        listaObservadores = new LinkedList<Observador>();
+       listaObservadores = new LinkedList<Observador>();
     }
 
     int temperaturaActual = 0;
 
     // Añade un observador a la lista
-    void addObservador(Observador o) throws RemoteException {
+    public void addObservador(Observador o, String nombre) throws RemoteException {
         listaObservadores.add(o);
+        System.out.println("Añadido observador " + nombre);
     }
 
     // Elimina un observador de la lista
-    void delObservador(Observador o) throws RemoteException {
+    public void delObservador(Observador o, String nombre) throws RemoteException {
         listaObservadores.remove(listaObservadores.indexOf(o));
+        System.out.println("Eliminado observador " + nombre);
     }
 
-    void setTemperatura(int temp) throws RemoteException {
+    // Modifica el valor de la temperatura actual y avisa a los observadores
+    public void setTemperatura(int temp) throws RemoteException {
         temperaturaActual = temp;
+
+        for (Observador o: listaObservadores) {
+            o.temperaturaMaxAlcanzada(temperaturaActual);   // Llamada al método remoto 'notificacion'
+        }
     }
 
-    int getTemperatura() throws RemoteException {
+    // Obtiene el valor de la temperatura actual
+    public int getTemperatura() throws RemoteException {
         return temperaturaActual;
     }
 }
