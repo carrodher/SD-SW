@@ -35,8 +35,9 @@ class ObservadorAlarma {
             ObservadorImpl o = new ObservadorImpl();
             srv.addObservador(o,args[2]);								// Llamada al método remoto 'addObservador' del servicio
             System.out.println("Observador: " + args[2]);
-            Scanner ent = new Scanner (System.in); //Creación de un objeto Scanner
-            while (!ent.hasNextLine()) {}
+            System.out.println("Parar con Ctrl+D");
+            Scanner ent = new Scanner (System.in); 	//Creación de un objeto Scanner
+            while (ent.hasNextLine()) {}
 
             // Elimina de la lista al observador
             srv.delObservador(o,args[2]);								// Llamada al método remoto 'delObservador' del servicio
