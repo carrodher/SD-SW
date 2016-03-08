@@ -13,6 +13,7 @@ class ServicioAlarmaImpl extends UnicastRemoteObject implements ServicioAlarma {
        listaObservadores = new LinkedList<Observador>();
     }
 
+    int UMBRAL_WARN = 40;
     int temperaturaActual = 0;
 
     // Añade un observador a la lista
@@ -31,9 +32,11 @@ class ServicioAlarmaImpl extends UnicastRemoteObject implements ServicioAlarma {
     public void setTemperatura(int temp) throws RemoteException {
         temperaturaActual = temp;
 
-        for (Observador o: listaObservadores) {
-            o.temperaturaMaxAlcanzada(temperaturaActual);   // Llamada al método remoto 'notificacion'
-        }
+        if (temperaturaActual >= UMBRAL_WARN){
+     	   for (Observador o: listaObservadores) {
+        	    o.temperaturaMaxAlcanzada(temperaturaActual);   // Llamada al método remoto de 'alarma'
+        	}
+    	}
     }
 
     // Obtiene el valor de la temperatura actual
