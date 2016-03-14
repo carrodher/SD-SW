@@ -15,7 +15,8 @@ Compilación:
 ```
 cd Servidor
 javac *.java  // Genera .class
-cp Servicio.class ../Cliente
+cp Cuenta.class ../Cliente
+cp Banco.class ../Cliente
 cd ../Cliente
 javac *java   // Genera .class
 ```
