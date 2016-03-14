@@ -1,16 +1,16 @@
 /*
- (3)
+ (5)
  Servidor. 
- Inicia el servicio remoto y lo hace accesible de manera pública usando RMI.
+ Inicia el servicio remoto y lo hace accesible de manera pública usando el registro de RMI rmiregistry.
 */
 
 import java.rmi.*;
 import java.rmi.server.*;
 
-class ServidorBanco  {
+class ServidorLog  {
     static public void main (String args[]) {
-       if (args.length!=1) {
-            System.err.println("Uso: ServidorBanco numPuertoRegistro");
+       if (args.length != 1) {
+            System.err.println("Uso: ServidorLog numPuertoRegistro");
             return;
         }
         // Instancia gestor de seguridad
@@ -18,11 +18,11 @@ class ServidorBanco  {
             System.setSecurityManager(new RMISecurityManager());
         }
         try {
-        	// Crea objeto de la clase que implementa el servicio remoto
-            BancoImpl srv = new BancoImpl();
-            // Da de alta en rmi mediante rebind 
-            Naming.rebind("rmi://localhost:" + args[0] + "/Banco", srv);
-            									// |-> Número de puerto escucha
+            // Crea objeto de la clase que implementa el servicio remoto
+            FabricaLogImpl srv = new FabricaLogImpl();
+            // Da de alta en rmiregistry mediante rebind
+            Naming.rebind("rmi://localhost:" + args[0] + "/Log", srv);
+                                              // |-> Número de puerto escucha rmiregistry
         }
         // Excepción RMI
         catch (RemoteException e) {
@@ -31,7 +31,7 @@ class ServidorBanco  {
         }
         // Excepción servidor
         catch (Exception e) {
-            System.err.println("Excepcion en ServidorBanco:");
+            System.err.println("Excepcion en ServidorLog:");
             e.printStackTrace();
             System.exit(1);
         }
