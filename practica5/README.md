@@ -43,4 +43,5 @@ Se procede de igual manera en caso de que haya varios roles más, copiando el _.
 Mediante RMI se implementa un ejemplo sencillo de Banco en el que se crea una cuenta y se realizan operaciones sobre el saldo de ella.
 
 ### fabricaLog
-
+Partiendo del ServicioLog visto en la práctica 3 correspondiente a RMI, se crea una fábrica de logs llamada FabricaLog que contiene el método de creación de un servicio de log. 
+Al método de creación se le pasa como parámetro un nombre identificativo del log, este nombre sirve como el nombre del fichero log que se va a utilizar.
