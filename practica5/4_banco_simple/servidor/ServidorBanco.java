@@ -1,5 +1,5 @@
 /*
- (3)
+ (5)
  Servidor. 
  Inicia el servicio remoto y lo hace accesible de manera pública usando RMI.
 */
