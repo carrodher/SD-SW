@@ -40,7 +40,7 @@ kill -9 _____   // Terminar dicho proceso
 Se procede de igual manera en caso de que haya varios roles más, copiando el _.class_ pertinente en caso de que sea necesario para la compilación.
 
 ### bancoSimple
-
+Mediante RMI se implementa un ejemplo sencillo de Banco en el que se crea una cuenta y se realizan operaciones sobre el saldo de ella.
 
 ### fabricaLog
 
