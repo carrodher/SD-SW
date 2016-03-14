@@ -29,3 +29,6 @@ Invocación de métodos remotos
 
 #### Práctica 4
 Referencias a objetos remotos
+
+#### Práctica 5
+Referencias a objetos remotos II
