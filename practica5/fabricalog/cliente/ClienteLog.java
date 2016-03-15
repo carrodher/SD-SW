@@ -23,7 +23,7 @@ class ClienteLog {
                                                             /*      |               |-> Número de puerto escucha rmiregistry
                                                                     |-> Host en el que se ejecuta rmiregistry */   
             ServicioLog servLog = srv.crearLog(args[2]);
-            for (int i=0; i<10000; i++)
+            for (int i=0; i<1000; i++)
                 servLog.log(args[3] + " " + i);
         }
         // Excepción RMI
