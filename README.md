@@ -14,6 +14,7 @@ Dentro de cada práctica se encuentra el enunciado y el README con el contenido 
     * [Práctica 3](#práctica-3)
     * [Práctica 4](#práctica-4)
     * [Práctica 5](#práctica-5)
+    * [Práctica 6](#práctica-6)
 
 ### RPC
 
@@ -33,3 +34,6 @@ Referencias a objetos remotos
 
 #### Práctica 5
 Referencias a objetos remotos II
+
+#### Práctica 6
+Paso de clases definidas por el usuario y tipos complejos
