@@ -21,7 +21,7 @@ class ServidorLog  {
             // Crea objeto de la clase que implementa el servicio remoto
             FabricaLogImpl srv = new FabricaLogImpl();
             // Da de alta en rmiregistry mediante rebind
-            Naming.rebind("rmi://localhost:" + args[0] + "/Log", srv);
+            Naming.rebind("rmi://localhost:" + args[0] + "/FabricaLog", srv);
                                               // |-> Número de puerto escucha rmiregistry
         }
         // Excepción RMI

@@ -19,7 +19,7 @@ class ClienteLog {
 
         try {
             // Obtiene referencia remota del servicio de rmiregistry
-            FabricaLog srv = (FabricaLog) Naming.lookup("//" + args[0] + ":" + args[1] + "/Log");
+            FabricaLog srv = (FabricaLog) Naming.lookup("//" + args[0] + ":" + args[1] + "/FabricaLog");
                                                             /*      |               |-> Número de puerto escucha rmiregistry
                                                                     |-> Host en el que se ejecuta rmiregistry */   
             ServicioLog servLog = srv.crearLog(args[2]);
