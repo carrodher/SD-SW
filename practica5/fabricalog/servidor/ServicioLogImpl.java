@@ -9,11 +9,17 @@ import java.rmi.server.*;
 
 class ServicioLogImpl extends UnicastRemoteObject implements ServicioLog {
     PrintWriter fd;
+    FileWriter fw;
     ServicioLogImpl(String f) throws RemoteException {
         try {
-            fd = new PrintWriter(f);
+        	fw = new FileWriter(f,true);
+            fd = new PrintWriter(fw);
         }
         catch (FileNotFoundException e) {
+            System.err.println(e);
+            System.exit(1);
+        }
+        catch (Exception e) {
             System.err.println(e);
             System.exit(1);
         }
