@@ -13,6 +13,7 @@ Dentro de cada práctica se encuentra el enunciado y el README con el contenido 
   * [RMI](#rmi)
     * [Práctica 3](#práctica-3)
     * [Práctica 4](#práctica-4)
+    * [Práctica 5](#práctica-5)
 
 ### RPC
 
