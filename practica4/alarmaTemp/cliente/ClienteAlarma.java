@@ -1,6 +1,6 @@
 /*
  Cliente Alarma.
- Obtiene la referencia remota asociada al servicio. Invoca los métodos de forma normal, 
+ Obtiene la referencia remota asociada al servicio. Invoca los métodos de forma normal,
  lo único diferente es que pueden generar la excepción RemoteException.
 
  Actualiza la temperatura desde 35º a 50º (por defecto) dejando transcurrir 1" entre actualizaciones.
@@ -36,13 +36,13 @@ class ClienteAlarma {
         	// Obtiene referencia remota del servicio de rmiregistry
             ServicioAlarma srv = (ServicioAlarma) Naming.lookup("//" + args[0] + ":" + args[1] + "/Alarma");
                                                           		  /*      |               |-> Número de puerto escucha
-                                                                	      |-> Host en el que se ejecuta el servicio*/           
+                                                                	      |-> Host en el que se ejecuta el servicio*/
             for (int i = MIN_TEMP; i <= MAX_TEMP; i++) {
                 srv.setTemperatura(i);					// Incrementa la temperatura llamando al método remoto 'setTemperatura'
                 temperatura = srv.getTemperatura();		// Obtiene la temperatura llamando al método remoto 'getTemperatura'
 
              	System.out.println("Temperatura: " + temperatura);
-     
+
                 try {
                     Thread.sleep(1000);                 // 1000 milliseconds is 1 second
                 } catch(InterruptedException ex) {

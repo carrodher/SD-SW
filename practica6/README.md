@@ -40,5 +40,7 @@ kill -9 _____   // Terminar dicho proceso
 Se procede de igual manera en caso de que haya varios roles más, copiando el _.class_ pertinente en caso de que sea necesario para la compilación.
 
 ### banco
+Implementación de un banco en el que el servidor hace el papel de banco, el cual tiene una fábrica de cuentas, que permite realizar diferentes operaciones.
 
 ### fabricaLogCompleta
+Mejora del servicio de log implementado en prácticas anteriores, esta vez se ha introducido la opción de crear estos ficheros de log mediante la figura de una fábrica.
