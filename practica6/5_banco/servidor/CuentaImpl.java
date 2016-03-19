@@ -15,6 +15,7 @@ class CuentaImpl extends UnicastRemoteObject implements Cuenta {
         tit = t;
     }
 
+    /* Métodos */
     // Devuelve el titular de la cuenta
     public Titular obtenerTitular() throws RemoteException {
         return tit;

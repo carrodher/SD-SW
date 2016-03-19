@@ -5,6 +5,8 @@ Clase titular en la que se encuentra su constructor y los tres métodos de los  
 
 import java.io.*;
 
+/* Implementa la interfaz Serializable dado que se van a usar objetos de esta clase como parámetros y
+valores de retorno de métodos RMI */
 class Titular implements Serializable {
     private String nombre;
     private String iD;
@@ -15,6 +17,7 @@ class Titular implements Serializable {
         iD = i;
     }
 
+    /* Métodos */
     // Devuelve el nombre del titular
     public String obtenerNombre() {
         return nombre;
