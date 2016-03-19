@@ -1,8 +1,3 @@
-/*
-Titular.
-Clase titular en la que se encuentra su constructor y los tres métodos de los  que consta
-*/
-
 import java.io.*;
 
 /* Implementa la interfaz Serializable dado que se van a usar objetos de esta clase como parámetros y

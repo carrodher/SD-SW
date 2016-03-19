@@ -1,13 +1,10 @@
-/*
-Cliente.
-Obtiene la referencia remota asociada al servicio. Invoca los métodos de forma normal,
-lo único diferente es que pueden generar la excepción RemoteException.
-*/
-
 import java.util.*;
 import java.rmi.*;
 import java.rmi.server.*;
 
+/* Cliente.
+Obtiene la referencia remota asociada al servicio. Invoca los métodos de forma normal,
+lo único diferente es que pueden generar la excepción RemoteException */
 class ClienteBanco {
     static public void main (String args[]) {
         if (args.length != 4) {
@@ -30,16 +27,20 @@ class ClienteBanco {
             // Lista con las diferentes cuentas
             List <Cuenta> l;
 
-            c.operacion(30);  // Operación de suma
+            // Operación de suma
+            c.operacion(30);
             l = srv.obtenerCuentas();
             for (Cuenta i: l) {
-                System.out.println(i.obtenerTitular() + ": " +i.obtenerSaldo());    // Imprime titular y saldo
+                // Imprime titular y saldo
+                System.out.println(i.obtenerTitular() + ": " +i.obtenerSaldo());
             }
 
-            c.operacion(-5);    // Operación de resta
+            // Operación de resta
+            c.operacion(-5);
             l = srv.obtenerCuentas();
             for (Cuenta i: l) {
-                System.out.println(i.obtenerTitular() + ": " +i.obtenerSaldo());    // Imprime titular y saldo
+                // Imprime titular y saldo
+                System.out.println(i.obtenerTitular() + ": " +i.obtenerSaldo());
             }
         }
         // Excepción RMI
