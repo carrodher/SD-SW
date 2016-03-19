@@ -10,6 +10,7 @@ class CuentaImpl extends UnicastRemoteObject implements Cuenta {
     private String nombre;
     private float saldo = 0;
 
+    // Constructor con el nombre como parámetros
     CuentaImpl(String n) throws RemoteException {
         nombre = n;
     }
