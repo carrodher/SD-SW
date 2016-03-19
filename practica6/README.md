@@ -14,11 +14,12 @@ En _Cliente.java_ y _Servidor.java_ se realiza la implementación del Cliente y 
 Compilación:
 ```
 cd Servidor
-javac *.java  // Genera .class
+javac *.java                // Genera .class
 cp Cuenta.class ../Cliente
 cp Banco.class ../Cliente
+cp Titular.class ../Cliente
 cd ../Cliente
-javac *java   // Genera .class
+javac *java                 // Genera .class
 ```
 Ejecución Servidor:
 ```
@@ -41,6 +42,7 @@ Se procede de igual manera en caso de que haya varios roles más, copiando el _.
 
 ### banco
 Implementación de un banco en el que el servidor hace el papel de banco, el cual tiene una fábrica de cuentas, que permite realizar diferentes operaciones.
+Esta vez las cuentas son identificadas mediante la clase Titular.
 
 ### fabricaLogCompleta
 Mejora del servicio de log implementado en prácticas anteriores, esta vez se ha introducido la opción de crear estos ficheros de log mediante la figura de una fábrica.
