@@ -1,15 +1,11 @@
-/*
- (5)
- Servidor. 
- Inicia el servicio remoto y lo hace accesible de manera pública usando RMI.
-*/
-
 import java.rmi.*;
 import java.rmi.server.*;
 
+/* (5) Servidor.
+Inicia el servicio remoto y lo hace accesible de manera pública usando RMI. */
 class ServidorBanco  {
     static public void main (String args[]) {
-       if (args.length!=1) {
+        if (args.length != 1) {
             System.err.println("Uso: ServidorBanco numPuertoRegistro");
             return;
         }
@@ -18,11 +14,11 @@ class ServidorBanco  {
             System.setSecurityManager(new RMISecurityManager());
         }
         try {
-        	// Crea objeto de la clase que implementa el servicio remoto
+            // Crea objeto de la clase que implementa el servicio remoto
             BancoImpl srv = new BancoImpl();
-            // Da de alta en rmi mediante rebind 
+            // Da de alta en rmi mediante rebind
             Naming.rebind("rmi://localhost:" + args[0] + "/Banco", srv);
-            									// |-> Número de puerto escucha
+                                                // |-> Número de puerto escucha
         }
         // Excepción RMI
         catch (RemoteException e) {

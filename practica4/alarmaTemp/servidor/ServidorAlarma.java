@@ -1,14 +1,7 @@
-/*
- (3)
- Servidor. 
- Inicia el servicio remoto y lo hace accesible de manera pública usando RMI.
-
- Dependecias: Observador.class
-*/
-
 import java.rmi.*;
 import java.rmi.server.*;
 
+// (3) Servidor. Inicia el servicio remoto y lo hace accesible de manera pública usando RMI.
 class ServidorAlarma  {
     static public void main (String args[]) {
         if (args.length != 1) {
@@ -22,7 +15,7 @@ class ServidorAlarma  {
         try {
             // Crea objeto de la clase que implementa el servicio remoto
             ServicioAlarmaImpl srv = new ServicioAlarmaImpl();
-            // Da de alta en rmi mediante rebind 
+            // Da de alta en rmi mediante rebind
             Naming.rebind("rmi://localhost:" + args[0] + "/Alarma", srv);
                                                 // |-> Número de puerto escucha
         }

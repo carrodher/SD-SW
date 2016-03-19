@@ -1,6 +1,7 @@
 import java.rmi.*;
 import java.rmi.server.*;
 
+// Implementación del cliente
 class ClienteImpl extends UnicastRemoteObject implements Cliente {
 	ClienteImpl() throws RemoteException {
 	}

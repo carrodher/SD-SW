@@ -1,12 +1,9 @@
-/*
- Cliente.
- Obtiene la referencia remota asociada al servicio (a traves de rmiregistry). Invoca los métodos de forma normal, 
- lo único diferente es que pueden generar la excepción RemoteException.
-*/
-
 import java.rmi.*;
 import java.rmi.server.*;
 
+/*  Cliente.
+Obtiene la referencia remota asociada al servicio (a traves de rmiregistry). Invoca los métodos de forma normal,
+lo único diferente es que pueden generar la excepción RemoteException.*/
 class ClienteEcoInv {
     static public void main (String args[]) {
         if (args.length < 2) {
@@ -19,12 +16,13 @@ class ClienteEcoInv {
         }
         try {
             // Obtiene referencia remota del servicio de rmiregistry
-            ServicioEcoInv srv = (ServicioEcoInv) Naming.lookup("//" + args[0] + ":" + args[1] + "/EcoInv"); 
-                                                                 /*      |               |-> Número de puerto escucha rmiregistry
-                                                                         |-> Host en el que se ejecuta rmiregistry */
-            for (int i=2; i<args.length; i++)
+            ServicioEcoInv srv = (ServicioEcoInv) Naming.lookup("//" + args[0] + ":" + args[1] + "/EcoInv");
+                                                /*      |               |-> Número de puerto escucha rmiregistry
+                                                        |-> Host en el que se ejecuta rmiregistry */
+            for (int i=2; i<args.length; i++) {
                 // Llamada al método remoto
-                System.out.println(srv.ecoInv(args[i]));       
+                System.out.println(srv.ecoInv(args[i]));
+            }
         }
         // Excepción RMI
         catch (RemoteException e) {

@@ -1,13 +1,9 @@
-/*
- (2)
- Desarrollo la implementación de los servicios remotos.
-*/
-
 import java.io.*;
 import java.rmi.*;
 import java.rmi.server.*;
 import java.util.Date;
 
+//  (2) Desarrollo la implementación de los servicios remotos.
 class ServicioMarcaTiempoImpl extends UnicastRemoteObject implements ServicioMarcaTiempo {
     ServicioMarcaTiempoImpl() throws RemoteException {
     }

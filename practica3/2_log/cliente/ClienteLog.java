@@ -1,12 +1,9 @@
-/*
- Cliente.
- Obtiene la referencia remota asociada al servicio (a traves de rmiregistry). Invoca los métodos de forma normal, 
- lo único diferente es que pueden generar la excepción RemoteException.
-*/
-
 import java.rmi.*;
 import java.rmi.server.*;
 
+/*  Cliente.
+Obtiene la referencia remota asociada al servicio (a traves de rmiregistry). Invoca los métodos de forma normal,
+lo único diferente es que pueden generar la excepción RemoteException.*/
 class ClienteLog {
     static public void main (String args[]) {
         if (args.length != 3) {
@@ -15,7 +12,7 @@ class ClienteLog {
         }
         // Instancia gestor de seguridad
         if (System.getSecurityManager() == null)
-            System.setSecurityManager(new SecurityManager());
+        System.setSecurityManager(new SecurityManager());
 
         try {
             // Obtiene referencia remota del servicio de rmiregistry
@@ -23,7 +20,7 @@ class ClienteLog {
                                                             /*      |               |-> Número de puerto escucha rmiregistry
                                                                     |-> Host en el que se ejecuta rmiregistry */   
             for (int i=0; i<10000; i++)
-                srv.log(args[2] + " " + i);
+            srv.log(args[2] + " " + i);
         }
         // Excepción RMI
         catch (RemoteException e) {

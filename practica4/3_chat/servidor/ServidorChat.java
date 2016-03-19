@@ -1,12 +1,7 @@
-/*
- (3)
- Servidor. 
- Inicia el servicio remoto y lo hace accesible de manera pública usando RMI.
-*/
-
 import java.rmi.*;
 import java.rmi.server.*;
 
+// (3) Servidor. Inicia el servicio remoto y lo hace accesible de manera pública usando RMI.
 class ServidorChat  {
     static public void main (String args[]) {
         if (args.length != 1) {
@@ -20,7 +15,7 @@ class ServidorChat  {
         try {
             // Crea objeto de la clase que implementa el servicio remoto
             ServicioChatImpl srv = new ServicioChatImpl();
-            // Da de alta en rmi mediante rebind 
+            // Da de alta en rmi mediante rebind
             Naming.rebind("rmi://localhost:" + args[0] + "/Chat", srv);
                                                 // |-> Número de puerto escucha
         }

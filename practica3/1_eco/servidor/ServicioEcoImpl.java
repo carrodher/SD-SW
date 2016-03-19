@@ -1,11 +1,7 @@
-/*
- (2)
- Desarrollo la implementación de los servicios remotos.
-*/
-
 import java.rmi.*;
 import java.rmi.server.*;
 
+// (2) Desarrollo la implementación de los servicios remotos.
 class ServicioEcoImpl extends UnicastRemoteObject implements ServicioEco {
     ServicioEcoImpl() throws RemoteException {
     }

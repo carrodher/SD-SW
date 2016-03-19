@@ -1,15 +1,11 @@
-/*
- (3)
- Servidor. 
- Inicia el servicio remoto y lo hace accesible de manera pública usando el registro de RMI rmiregistry.
-*/
-
 import java.rmi.*;
 import java.rmi.server.*;
 
+/* (3) Servidor.
+Inicia el servicio remoto y lo hace accesible de manera pública usando el registro de RMI rmiregistry.*/
 class ServidorMarcaTiempo  {
     static public void main (String args[]) {
-       if (args.length != 2) {
+        if (args.length != 2) {
             System.err.println("Uso: ServidorMarcaTiempo numPuertoRegistro");
             return;
         }
@@ -22,7 +18,7 @@ class ServidorMarcaTiempo  {
             ServicioMarcaTiempoImpl srv = new ServicioMarcaTiempoImpl();
             // Da de alta en rmiregistry mediante rebind
             Naming.rebind("rmi://localhost:" + args[0] + "/MarcaTiempo", srv);
-                                              // |-> Número de puerto escucha rmiregistry
+                                                // |-> Número de puerto escucha rmiregistry
         }
         // Excepción RMI
         catch (RemoteException e) {

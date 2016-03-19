@@ -1,14 +1,11 @@
-/*
- (2)
- Desarrollo la implementación de los servicios remotos.
-*/
-
 import java.util.*;
 import java.rmi.*;
 import java.rmi.server.*;
 
+// (2) Desarrollo la implementación de los servicios remotos.
 class ServicioChatImpl extends UnicastRemoteObject implements ServicioChat {
-    List<Cliente> listaClientes;                    // Lista de los clientes conectados
+    // Lista de los clientes conectados
+    List<Cliente> listaClientes;
     ServicioChatImpl() throws RemoteException {
         listaClientes = new LinkedList<Cliente>();
     }
@@ -27,7 +24,8 @@ class ServicioChatImpl extends UnicastRemoteObject implements ServicioChat {
     public void envio(Cliente esc, String apodo, String m) throws RemoteException {
         for (Cliente c: listaClientes) {
             if (!c.equals(esc)){
-                c.notificacion(apodo, m);   // Llamada al método remoto 'notificacion'
+                // Llamada al método remoto 'notificacion'
+                c.notificacion(apodo, m);
             }
         }
     }

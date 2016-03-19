@@ -1,11 +1,7 @@
-/*
- (4)
- Desarrollo la implementación de los servicios remotos.
-*/
-
 import java.rmi.*;
 import java.rmi.server.*;
 
+// (4) Desarrollo la implementación de los servicios remotos.
 class CuentaImpl extends UnicastRemoteObject implements Cuenta {
     private String nombre;
     private float saldo = 0;
