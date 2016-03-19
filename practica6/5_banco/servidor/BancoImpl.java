@@ -1,3 +1,8 @@
+/*
+(2)
+Desarrollo la implementación de los servicios remotos.
+*/
+
 import java.util.*;
 import java.rmi.*;
 import java.rmi.server.*;
@@ -13,6 +18,6 @@ class BancoImpl extends UnicastRemoteObject implements Banco {
         return c;
     }
     public List<Cuenta> obtenerCuentas() throws RemoteException {
-       return l;
+        return l;
     }
 }
