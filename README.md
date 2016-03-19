@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/6ce6cf62247540e5b7445c725e7b137e)](https://www.codacy.com/app/carrodher1179/SDSW)
 [![License](https://img.shields.io/badge/license-CC | By+NC-green.svg)](http://es.creativecommons.org/blog/licencias/) 
 [![Linkedin](https://img.shields.io/badge/LinkedIn-Carlos-blue.svg)](https://es.linkedin.com/in/carlosrodriguezhernandez)
 [![Twitter](https://img.shields.io/badge/Twitter-carrodher-blue.svg)](https://twitter.com/carrodher)
