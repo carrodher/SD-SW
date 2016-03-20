@@ -9,9 +9,9 @@ Actualiza la temperatura desde 35º a 50º (por defecto) dejando transcurrir 1" 
 class ClienteAlarma {
     static public void main (String args[]) {
         // Mínimo valor de temperatura
-        int MIN_TEMP = 35;
+        int MIN = 35;
         // Máximo valor de temperatura
-        int MAX_TEMP = 50;
+        int MAX = 50;
 
         if (args.length != 2 && args.length != 4) {
             System.err.println("Uso: ClienteAlarma hostregistro numPuertoRegistro [minTemp] [maxTemp]");
@@ -19,9 +19,9 @@ class ClienteAlarma {
         }
         else if (args.length == 4) {
             // Mínimo valor de temperatura
-            MIN_TEMP = Integer.parseInt(args[2]);
+            MIN = Integer.parseInt(args[2]);
             // Máximo valor de temperatura
-            MAX_TEMP = Integer.parseInt(args[3]);
+            MAX = Integer.parseInt(args[3]);
         }
 
         // Temperatura actual
@@ -36,7 +36,7 @@ class ClienteAlarma {
             ServicioAlarma srv = (ServicioAlarma) Naming.lookup("//" + args[0] + ":" + args[1] + "/Alarma");
                                                                 /*      |               |-> Número de puerto escucha
                                                                         |-> Host en el que se ejecuta el servicio*/
-            for (int i = MIN_TEMP; i <= MAX_TEMP; i++) {
+            for (int i = MIN; i <= MAX; i++) {
                 // Incrementa la temperatura llamando al método remoto 'setTemperatura'
                 srv.setTemperatura(i);
                 // Obtiene la temperatura llamando al método remoto 'getTemperatura'

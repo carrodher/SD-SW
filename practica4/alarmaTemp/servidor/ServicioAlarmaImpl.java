@@ -4,14 +4,14 @@ import java.rmi.server.*;
 
 // (2) Desarrollo la implementación de los servicios remotos
 class ServicioAlarmaImpl extends UnicastRemoteObject implements ServicioAlarma {
+    int WRN = 40;
+    int temperaturaActual = 0;
+
     // Lista de los observadores conectados
     List<Observador> listaObservadores;
     ServicioAlarmaImpl() throws RemoteException {
         listaObservadores = new LinkedList<Observador>();
     }
-
-    int UMBRAL_WARN = 40;
-    int temperaturaActual = 0;
 
     // Añade un observador a la lista
     public void addObservador(Observador o, String nombre) throws RemoteException {
@@ -29,7 +29,7 @@ class ServicioAlarmaImpl extends UnicastRemoteObject implements ServicioAlarma {
     public void setTemperatura(int temp) throws RemoteException {
         temperaturaActual = temp;
 
-        if (temperaturaActual >= UMBRAL_WARN){
+        if (temperaturaActual >= WRN){
             for (Observador o: listaObservadores) {
                 // Llamada al método remoto de 'alarma'
                 o.temperaturaMaxAlcanzada(temperaturaActual);
