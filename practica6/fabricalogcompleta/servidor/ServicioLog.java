@@ -1,5 +1,7 @@
+import java.io.*;
 import java.rmi.*;
-import java.util.Date;
+import java.rmi.server.*;
+import java.util.*;
 
 /* (3)
 Define una interfaz que deriva de la interfaz Remote y contiene los métodos requeridos
