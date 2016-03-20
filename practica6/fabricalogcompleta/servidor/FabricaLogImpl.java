@@ -5,7 +5,7 @@ import java.rmi.server.*;
 
 // (2) Desarrollo la implementación de los servicios remotos
 class FabricaLogImpl extends UnicastRemoteObject implements FabricaLog {
-    List<ServicioLog> l;
+    private List<ServicioLog> l;
 
     // Constructor de la fábrica
     FabricaLogImpl() throws RemoteException {

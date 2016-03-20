@@ -4,7 +4,7 @@ import java.rmi.server.*;
 
 // (2) Desarrollo la implementación de los servicios remotos.
 class BancoImpl extends UnicastRemoteObject implements Banco {
-    List<Cuenta> l;
+    private List<Cuenta> l;
 
     // Constructor del banco
     BancoImpl() throws RemoteException {

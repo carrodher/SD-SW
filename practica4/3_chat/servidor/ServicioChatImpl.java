@@ -5,11 +5,14 @@ import java.rmi.server.*;
 // (2) Desarrollo la implementación de los servicios remotos.
 class ServicioChatImpl extends UnicastRemoteObject implements ServicioChat {
     // Lista de los clientes conectados
-    List<Cliente> listaClientes;
+    private List<Cliente> listaClientes;
+
+    // Constructor
     ServicioChatImpl() throws RemoteException {
         listaClientes = new LinkedList<Cliente>();
     }
 
+    /* Métodos */
     // Añade un cliente a la lista
     public void alta(Cliente c) throws RemoteException {
         listaClientes.add(c);

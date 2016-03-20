@@ -4,7 +4,9 @@ import java.rmi.server.*;
 
 // (2) Desarrollo la implementación de los servicios remotos.
 class ServicioLogImpl extends UnicastRemoteObject implements ServicioLog {
-    PrintWriter fd;
+    private PrintWriter fd;
+
+    // Constructor
     ServicioLogImpl(String f) throws RemoteException {
         try {
             fd = new PrintWriter(f);
@@ -14,6 +16,7 @@ class ServicioLogImpl extends UnicastRemoteObject implements ServicioLog {
             System.exit(1);
         }
     }
+
     // Añadir synchronized antes de void para garantizar exclusión mútua entre los hilos al acceder al ḿétodo
     public void log(String m) throws RemoteException {
         /* 1º Escribe en la salida estándar */

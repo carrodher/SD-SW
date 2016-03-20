@@ -5,8 +5,8 @@ import java.util.*;
 
 // (4) Desarrollo la implementación de los servicios remotos
 class ServicioLogImpl extends UnicastRemoteObject implements ServicioLog {
-    PrintWriter fd;
-    FileWriter fw;
+    private PrintWriter fd;
+    private FileWriter fw;
     private Log log;
     private Date date;
 
