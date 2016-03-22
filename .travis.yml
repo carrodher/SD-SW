@@ -7,3 +7,4 @@ notifications:
 
 script:
   - cd practica3/1_eco/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+  - cd practica3/2_log/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
