@@ -6,7 +6,18 @@ notifications:
     on_failure: never
 
 script:
+    # Practica 3
   - cd practica3/1_eco/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
   - cd ../../2_log/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
   - cd ../../ecoInv/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
   - cd ../../marcaTiempo/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+    # Practica 4
+  - cd ../../../practica4/3_chat/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+  - cd ../../alarmaTemp/observador && javac Observador.java && ObservadorImpl.java && cp *.class ../servidor && cd ../servidor && javac *.java
+  - cp *.class ../observador && cp *.class ../cliente && cd ../observador && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+    # Practica 5
+  - cd ../../../practica5/4_banco_simple/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+  - cd ../../fabricalog/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+    # Practica 6
+  - cd ../../../practica6/5_banco/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+  - cd ../../fabricalogcompleta/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
