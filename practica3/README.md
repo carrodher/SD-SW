@@ -1,4 +1,5 @@
 # Práctica 3
+[![Build Status](https://travis-ci.org/carrodher/SDSW.svg?branch=master)](https://travis-ci.org/carrodher/SDSW)
 
 ## RMI
 Cada programa RMI consta de, al menos, dos directorios con los siguientes componentes:

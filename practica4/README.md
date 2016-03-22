@@ -1,4 +1,5 @@
 # Práctica 4
+[![Build Status](https://travis-ci.org/carrodher/SDSW.svg?branch=master)](https://travis-ci.org/carrodher/SDSW)
 
 ## RMI
 Cada programa RMI consta de, al menos, dos directorios con los siguientes componentes:
@@ -42,7 +43,7 @@ Se procede de igual manera en caso de que haya varios roles más, copiando el _.
 Cliente y servidor que hacen eco de los argumentos pasados usando RMI.
 
 ### alarmaTemp
-Cliente, Servidor y varios Observadores. 
+Cliente, Servidor y varios Observadores.
 - El servidor registra la suscripción y eliminación de los Observadores.
 - El cliente incrementa cada segundo la temperatura en 1º. Por defecto comienza en 35º y acaba en 50º, aunque se puede modificar esto por línea de comandos.
 - Los observadores reciben las actualizaciones de temperatura cuando se supera el umbral inferior (warning), modificando el color y la alerta en función de varios umbrales: WARNING +40º y DANGER +45º.
