@@ -7,18 +7,28 @@ notifications:
 
 script:
     # Practica 3
+    ## 1_eco
   - cd practica3/1_eco/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+    ## 2_log
   - cd ../../2_log/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+    ## ecoInv
   - cd ../../ecoInv/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+    ## marcaTiempo
   - cd ../../marcaTiempo/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
     # Practica 4
+    ## 3_chat
   - cd ../../../practica4/3_chat/cliente && javac Cliente.java && cp *.class ../servidor && cd ../servidor && javac *.java
   - cp *.class ../cliente && cd ../cliente && javac *.java
+    ## alarmaTemp
   - cd ../../alarmaTemp/observador && javac Observador.java && javac ObservadorImpl.java && cp *.class ../servidor && cd ../servidor && javac *.java
   - cp *.class ../observador && cp *.class ../cliente && cd ../observador && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
     # Practica 5
+    ## 4_banco
   - cd ../../../practica5/4_banco_simple/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+    ## fabricaLog
   - cd ../../fabricalog/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
     # Practica 6
+    ## 5_banco
   - cd ../../../practica6/5_banco/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+    ## fabricalogcompleta
   - cd ../../fabricalogcompleta/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
