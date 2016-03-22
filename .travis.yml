@@ -6,4 +6,4 @@ notifications:
     on_failure: never
 
 script:
-  - cd practica3/1_eco/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java && cd ../../2_log/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java && ../../ecoInv/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java && ../../marcaTiempo/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java 
+  - cd practica3/1_eco/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java && cd ../../2_log/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java && cd ../../ecoInv/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java && cd ../../marcaTiempo/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java 
