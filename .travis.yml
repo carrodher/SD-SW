@@ -12,7 +12,8 @@ script:
   - cd ../../ecoInv/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
   - cd ../../marcaTiempo/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
     # Practica 4
-  - cd ../../../practica4/3_chat/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+  - cd ../../../practica4/3_chat/cliente && javac Cliente.java && cp *.class ../servidor && cd ../servidor && javac *.java
+  - cp *.class ../cliente && cd ../cliente && javac *.java
   - cd ../../alarmaTemp/observador && javac Observador.java && ObservadorImpl.java && cp *.class ../servidor && cd ../servidor && javac *.java
   - cp *.class ../observador && cp *.class ../cliente && cd ../observador && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
     # Practica 5
