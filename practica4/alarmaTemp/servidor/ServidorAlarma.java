@@ -17,7 +17,7 @@ class ServidorAlarma  {
             ServicioAlarmaImpl srv = new ServicioAlarmaImpl();
             // Da de alta en rmi mediante rebind
             Naming.rebind("rmi://localhost:" + args[0] + "/Alarma", srv);
-                                                // |-> Número de puerto escucha
+            //                                  |-> Número de puerto escucha
         }
         // Excepción RMI
         catch (RemoteException e) {

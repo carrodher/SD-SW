@@ -18,7 +18,7 @@ class ServidorMarcaTiempo  {
             ServicioMarcaTiempoImpl srv = new ServicioMarcaTiempoImpl();
             // Da de alta en rmiregistry mediante rebind
             Naming.rebind("rmi://localhost:" + args[0] + "/MarcaTiempo", srv);
-                                                // |-> Número de puerto escucha rmiregistry
+            //                                  |-> Número de puerto escucha rmiregistry
         }
         // Excepción RMI
         catch (RemoteException e) {

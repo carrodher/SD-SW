@@ -7,7 +7,6 @@ class ObservadorImpl extends UnicastRemoteObject implements Observador {
 	}
 
 	public void temperaturaMaxAlcanzada(int tempAct) throws RemoteException {
-
 		int DNG = 45;
 
 		if (tempAct < DNG) {

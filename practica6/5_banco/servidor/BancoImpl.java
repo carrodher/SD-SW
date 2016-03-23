@@ -10,7 +10,7 @@ class BancoImpl extends UnicastRemoteObject implements Banco {
     BancoImpl() throws RemoteException {
         l = new LinkedList<Cuenta>();
     }
-
+    
     /* Métodos */
     // Añade y devuelve una nueva cuenta creada con su titular como parámetro
     public Cuenta crearCuenta(Titular t) throws RemoteException {

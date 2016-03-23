@@ -3,8 +3,8 @@ import java.rmi.*;
 import java.rmi.server.*;
 
 /* Cliente.
- Obtiene la referencia remota asociada al servicio. Invoca los métodos de forma normal,
- lo único diferente es que pueden generar la excepción RemoteException. */
+Obtiene la referencia remota asociada al servicio. Invoca los métodos de forma normal,
+lo único diferente es que pueden generar la excepción RemoteException. */
 class ClienteChat {
     static public void main (String args[]) {
         if (args.length != 3) {
@@ -16,10 +16,10 @@ class ClienteChat {
             System.setSecurityManager(new SecurityManager());
         }
         try {
-        	// Obtiene referencia remota del servicio de rmiregistry
+            // Obtiene referencia remota del servicio de rmiregistry
             ServicioChat srv = (ServicioChat) Naming.lookup("//" + args[0] + ":" + args[1] + "/Chat");
-                                                            /*      |               |-> Número de puerto escucha
-                                                                    |-> Host en el que se ejecuta el servicio*/
+            //                                                        |               |-> Número de puerto escucha
+            //                                                        |-> Host en el que se ejecuta el servicio
             // Crea nuevo cliente y lo registra en la lista
             ClienteImpl c = new ClienteImpl();
             // Llamada al método remoto 'alta' del servicio

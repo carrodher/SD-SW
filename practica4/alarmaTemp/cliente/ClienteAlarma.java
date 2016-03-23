@@ -34,8 +34,8 @@ class ClienteAlarma {
         try {
             // Obtiene referencia remota del servicio de rmiregistry
             ServicioAlarma srv = (ServicioAlarma) Naming.lookup("//" + args[0] + ":" + args[1] + "/Alarma");
-                                                                /*      |               |-> Número de puerto escucha
-                                                                        |-> Host en el que se ejecuta el servicio*/
+            //                                                           |               |-> Número de puerto escucha
+            //                                                           |-> Host en el que se ejecuta el servicio
             for (int i = MIN; i <= MAX; i++) {
                 // Incrementa la temperatura llamando al método remoto 'setTemperatura'
                 srv.setTemperatura(i);

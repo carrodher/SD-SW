@@ -18,8 +18,8 @@ class ClienteBanco {
 		try {
 			// Obtiene referencia remota del servicio de rmiregistry
 			Banco srv = (Banco) Naming.lookup("//" + args[0] + ":" + args[1] + "/Banco");
-											/*      |               |-> Número de puerto escucha
-													|-> Host en el que se ejecuta el servicio */
+			//										      |               |-> Número de puerto escucha
+			//											  |-> Host en el que se ejecuta el servicio */
 			// Crea nueva cuenta
 			Cuenta c = srv.crearCuenta(args[2]);
 

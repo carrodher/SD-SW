@@ -21,8 +21,8 @@ class ObservadorAlarma {
         try {
             // Obtiene referencia remota del servicio de rmiregistry
             ServicioAlarma srv = (ServicioAlarma) Naming.lookup("//" + args[0] + ":" + args[1] + "/Alarma");
-            /*      |               |-> Número de puerto escucha
-            |-> Host en el que se ejecuta el servicio*/
+            //                                                            |               |-> Número de puerto escucha
+            //                                                            |-> Host en el que se ejecuta el servicio
             // Crea nuevo observador y lo registra en la lista
             ObservadorImpl o = new ObservadorImpl();
             // Llamada al método remoto 'addObservador' del servicio

@@ -8,8 +8,9 @@ int main (int argc, char **argv)
 	int *sum1;
 	int *sum2;
 
-	if (argc!=4)
+	if (argc!=4){
 		printf("Uso: %s host sumando1 sumando2\n", argv[0]);
+	}
 	else
 	{
 		host = argv[1];
@@ -20,14 +21,17 @@ int main (int argc, char **argv)
 		if (sv != NULL)
 		{
 			res = sumar_1(sum1,sum2,sv);
-			if (res != NULL)
+			if (res != NULL) {
 				printf("%d + %d = %d\n", sum1, sum2, *res);
-			else
+			}
+			else {
 				clnt_perror(sv, "error en RPC");
+			}
 			clnt_destroy(sv);
 		}
-		else
+		else{
 			clnt_pcreateerror(host);
+		}
 	}
 	return (0);
 }

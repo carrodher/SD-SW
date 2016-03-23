@@ -9,7 +9,7 @@ class ServicioLogImpl extends UnicastRemoteObject implements ServicioLog {
 
     ServicioLogImpl(String f) throws RemoteException {
         try {
-        	fw = new FileWriter(f,true);
+            fw = new FileWriter(f,true);
             fd = new PrintWriter(fw);
         }
         catch (FileNotFoundException e) {
@@ -27,7 +27,7 @@ class ServicioLogImpl extends UnicastRemoteObject implements ServicioLog {
         System.out.println(m);
         // Sleep para aumentar la diferencia entre salida estándar y fichero
         try {
-           Thread.sleep(1);
+            Thread.sleep(1);
         }
         catch(InterruptedException e)
         {

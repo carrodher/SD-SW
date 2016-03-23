@@ -17,12 +17,12 @@ class ClienteMarcaTiempo {
         try {
             // Obtiene referencia remota del servicio de rmiregistry
             ServicioMarcaTiempo srv = (ServicioMarcaTiempo) Naming.lookup("//" + args[0] + ":" + args[1] + "/MarcaTiempo");
-                                                                            /*      |               |-> Número de puerto escucha rmiregistry
-                                                                                    |-> Host en el que se ejecuta rmiregistry */
+            //                                                                      |               |-> Número de puerto escucha rmiregistry
+            //                                                                      |-> Host en el que se ejecuta rmiregistry
             while(true) {
                 System.out.println(srv.marcaTiempo());
                 try {
-                     // 5000 milliseconds is 5 seconds
+                    // 5000 milliseconds is 5 seconds
                     Thread.sleep(5000);
                 } catch(InterruptedException ex) {
                     Thread.currentThread().interrupt();

@@ -14,7 +14,7 @@ class ServicioAlarmaImpl extends UnicastRemoteObject implements ServicioAlarma {
     ServicioAlarmaImpl() throws RemoteException {
         listaObservadores = new LinkedList<Observador>();
     }
-
+    
     /* Métodos */
     // Añade un observador a la lista
     public void addObservador(Observador o, String nombre) throws RemoteException {

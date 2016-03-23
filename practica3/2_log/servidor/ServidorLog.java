@@ -19,7 +19,7 @@ class ServidorLog  {
             ServicioLogImpl srv = new ServicioLogImpl(args[1]);
             // Da de alta en rmiregistry mediante rebind
             Naming.rebind("rmi://localhost:" + args[0] + "/Log", srv);
-                                                // |-> Número de puerto escucha rmiregistry
+            //                                   |-> Número de puerto escucha rmiregistry
         }
         // Excepción RMI
         catch (RemoteException e) {

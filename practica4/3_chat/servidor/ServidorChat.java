@@ -17,7 +17,7 @@ class ServidorChat  {
             ServicioChatImpl srv = new ServicioChatImpl();
             // Da de alta en rmi mediante rebind
             Naming.rebind("rmi://localhost:" + args[0] + "/Chat", srv);
-                                                // |-> Número de puerto escucha
+            //                                  |-> Número de puerto escucha
         }
         // Excepción RMI
         catch (RemoteException e) {

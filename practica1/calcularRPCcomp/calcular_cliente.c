@@ -8,8 +8,9 @@ int main (int argc, char **argv)
 	int oper1;
 	int oper2;
 
-	if (argc != 5)
+	if (argc != 5){
 		printf("Uso: %s <host> <operador1> <operador2> <r/s/m>\n", argv[0]);
+	}
 	else
 	{
 		host = argv[1];
@@ -22,28 +23,34 @@ int main (int argc, char **argv)
 			if (strcmp(argv[4], "s") == 0)
 			{
 				res = sumar_1(oper1,oper2,sv);
-				if (res != NULL)
+				if (res != NULL){
 					printf("%d + %d = %d\n", oper1, oper2, *res);
-				else
+				}
+				else{
 					clnt_perror(sv, "error en RPC");
+				}
 				clnt_destroy(sv);
 			}
 			else if (strcmp(argv[4], "r") == 0)
 			{
 				res = restar_1(oper1,oper2,sv);
-				if (res != NULL)
+				if (res != NULL){
 					printf("%d - %d = %d\n", oper1, oper2, *res);
-				else
+				}
+				else{
 					clnt_perror(sv, "error en RPC");
+				}
 				clnt_destroy(sv);
 			}
 			else if (strcmp(argv[4], "m") == 0)
 			{
 				res = multiplicar_1(oper1,oper2,sv);
-				if (res != NULL)
+				if (res != NULL){
 					printf("%d x %d = %d\n", oper1, oper2, *res);
-				else
+				}
+				else {
 					clnt_perror(sv, "error en RPC");
+				}
 				clnt_destroy(sv);
 			}
 			else
@@ -52,8 +59,9 @@ int main (int argc, char **argv)
 				clnt_destroy(sv);
 			}
 		}
-		else
+		else{
 			clnt_pcreateerror(host);
+		}
 	}
 	return (0);
 }

@@ -17,8 +17,8 @@ class ClienteLog {
         try {
             // Obtiene referencia remota del servicio de rmiregistry
             ServicioLog srv = (ServicioLog) Naming.lookup("//" + args[0] + ":" + args[1] + "/Log");
-                                                            /*      |               |-> Número de puerto escucha rmiregistry
-                                                                    |-> Host en el que se ejecuta rmiregistry */   
+            //                                                   |               |-> Número de puerto escucha rmiregistry
+            //                                                   |-> Host en el que se ejecuta rmiregistry
             for (int i=0; i<10000; i++)
             srv.log(args[2] + " " + i);
         }

@@ -18,8 +18,8 @@ class ClienteBanco {
         try {
             // Obtiene referencia remota del servicio de rmiregistry
             Banco srv = (Banco) Naming.lookup("//" + args[0] + ":" + args[1] + "/Banco");
-                                                /*      |               |-> Número de puerto escucha
-                                                        |-> Host en el que se ejecuta el servicio */
+            //                                           |               |-> Número de puerto escucha
+            //                                           |-> Host en el que se ejecuta el servicio
             // Crea titular con su nombre e identificador
             Titular tit = new Titular(args[2], args[3]);
             // Crea nueva cuenta pasándole el Titular

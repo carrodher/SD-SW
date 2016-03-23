@@ -18,7 +18,7 @@ class ServidorBanco  {
             BancoImpl srv = new BancoImpl();
             // Da de alta en rmi mediante rebind
             Naming.rebind("rmi://localhost:" + args[0] + "/Banco", srv);
-                                                // |-> Número de puerto escucha
+            //                                  |-> Número de puerto escucha
         }
         // Excepción RMI
         catch (RemoteException e) {
