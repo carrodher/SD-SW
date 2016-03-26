@@ -3,7 +3,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/6ce6cf62247540e5b7445c725e7b137e)](https://www.codacy.com/app/carrodher1179/SDSW)
 [![Linkedin](https://img.shields.io/badge/LinkedIn-Carlos-blue.svg)](https://es.linkedin.com/in/carlosrodriguezhernandez)
 [![Twitter](https://img.shields.io/badge/Twitter-carrodher-blue.svg)](https://twitter.com/carrodher)
-[![License](https://img.shields.io/badge/License-BY/NC-yellow.svg)](https://github.com/carrodher/SDSW/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/License-BY/NC-yellow.svg)](https://github.com/carrodher/SDSW/blob/master/LICENSE.markdown)
 
 Prácticas de la asignatura "Sistemas Distribuidos y Servicios Web" de 4º curso del Grado de Teleco.
 
