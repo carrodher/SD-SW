@@ -32,3 +32,4 @@ script:
   - cd ../../../practica6/5_banco/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
         ## fabricalogcompleta
   - cd ../../fabricalogcompleta/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
+# TODO: Añadir nuevos script para la práctica de cada semana
