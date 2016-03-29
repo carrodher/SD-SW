@@ -1,4 +1,4 @@
-// (4) Desarrollo la implementación de los servicios remotos.
+// (2.1) Desarrollo la implementación de los servicios remotos.
 
 import java.rmi.*;
 import java.rmi.server.*;
