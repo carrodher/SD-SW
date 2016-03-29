@@ -3,7 +3,7 @@ import java.rmi.*;
 import java.rmi.server.*;
 @SuppressWarnings("serial")
 
-// (2) Desarrollo la implementación de los servicios remotos
+// (1.1) Desarrollo la implementación de los servicios remotos
 class FabricaLogImpl extends UnicastRemoteObject implements FabricaLog {
     private List<ServicioLog> l;
 

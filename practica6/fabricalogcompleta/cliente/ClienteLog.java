@@ -2,7 +2,8 @@ import java.util.*;
 import java.rmi.*;
 import java.rmi.server.*;
 
-/* Cliente. Obtiene la referencia remota asociada al servicio (a traves de rmiregistry).
+/* Cliente.
+Obtiene la referencia remota asociada al servicio (a traves de rmiregistry).
 Invoca los métodos de forma normal, lo único diferente es que pueden generar
 la excepción RemoteException. */
 class ClienteLog {

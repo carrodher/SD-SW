@@ -3,7 +3,7 @@ import java.rmi.*;
 import java.rmi.server.*;
 import java.util.*;
 
-// (4) Desarrollo la implementación de los servicios remotos
+// (3.1) Desarrollo la implementación de los servicios remotos
 class ServicioLogImpl extends UnicastRemoteObject implements ServicioLog {
     private PrintWriter fd;
     private FileWriter fw;

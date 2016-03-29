@@ -1,7 +1,7 @@
 import java.rmi.*;
 import java.rmi.server.*;
 
-/* (5) Servidor.
+/* (4) Servidor.
 Inicia el servicio remoto y lo hace accesible de manera pública usando el registro de RMI rmiregistry */
 class ServidorLog  {
     static public void main (String args[]) {
