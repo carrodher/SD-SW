@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 @SuppressWarnings("serial")
 
-/* (2) 
+/* (2)
 Clase Log. Alamcena la información (nombre del fichero e ID de la aplicación)
 de los objetos del Servicio de Log */
 class Log implements Serializable {
