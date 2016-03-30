@@ -15,7 +15,7 @@ Se pretende diseñar un sistema de alertas de emergencias centralizado (estilo 1
 
  ![alt tag](https://github.com/carrodher/SDSW/blob/master/proyectoRMI/Diagramas/EsquemaInicial.png "Esquema inicial")
 
-## Implemenentación
+## Implementación
 Este proyecto consta de 3 partes diferenciadas:
 
 1. **Clientes**
