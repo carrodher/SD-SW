@@ -6,3 +6,8 @@
 
 # Ficheros de log
 log*
+
+# Ficheros de word/openOffice
+*.odt
+*.doc
+*.docx
