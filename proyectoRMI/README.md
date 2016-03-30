@@ -1,6 +1,11 @@
 # Proyecto RMI
 [![Build Status](https://travis-ci.org/carrodher/SDSW.svg?branch=master)](https://travis-ci.org/carrodher/SDSW)
 
+## Autores
+[Ana Lucero Fernández @analucfer](https://github.com/analucfer "Ana")
+[Carlos Rodríguez Hernández @carrodher](https://github.com/carrodher "Carlos")
+
+
 ## Motivación
 En este primer trabajo de la asignatura se pide realizar un proyecto basado en RMI usando los conceptos de sistemas distribuidos que se han dado a lo largo de las primeras 6 prácticas.
 
