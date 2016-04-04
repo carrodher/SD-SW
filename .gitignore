@@ -3,6 +3,7 @@
 
 # Java
 *.class
+axis-1_4/
 
 # Ficheros de log
 log*
