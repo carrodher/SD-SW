@@ -5,6 +5,7 @@
 *.class
 axis-1_4/
 *.jar
+*.wsdd
 
 
 # Ficheros de log
