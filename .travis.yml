@@ -33,4 +33,4 @@ notifications:
         ## fabricalogcompleta
         - cd ../../fabricalogcompleta/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
     # Práctica 9
-        # Hay que pasar axis-1_4
+        # Hay que pasar axis-1_4 y es mucho lío
