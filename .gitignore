@@ -4,6 +4,8 @@
 # Java
 *.class
 axis-1_4/
+*.jar
+
 
 # Ficheros de log
 log*
@@ -12,3 +14,6 @@ log*
 *.odt
 *.doc
 *.docx
+
+# Comprimidos
+*.tar.gz
