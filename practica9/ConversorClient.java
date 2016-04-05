@@ -33,9 +33,10 @@ public class ConversorClient
         // Con el método setReturnType se indica el tipo esperado como resultado
         call.setReturnType(XMLType.XSD_INT);
 
-        // Con el método invoke se lleva a cabo la invocación remota
         try {
-            int ret = (int) call.invoke(new Object[]{ "55" });
+            /* Con el método invoke se lleva a cabo la invocación remota.
+            Se pasa lo introducido por la línea de comandos */
+            int ret = (int) call.invoke(new Object[]{ args[0] });
             System.out.println(ret);
         }
         catch (Exception e){

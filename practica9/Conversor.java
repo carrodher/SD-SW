@@ -1,7 +1,8 @@
 public class Conversor
 {
-    public int conversor(String nombre)
+    public int convierte(String nombre)
     {
-        return Integer.parseInt(nombre);
+        int valor = Integer.parseInt(nombre);
+        return valor;
     }
 }
