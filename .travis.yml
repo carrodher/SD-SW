@@ -33,5 +33,3 @@ notifications:
         - cd ../../../practica6/5_banco/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
         ## fabricalogcompleta
         - cd ../../fabricalogcompleta/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
-    # Práctica 9
-        # Hay que pasar axis-1_4 y es mucho lío
