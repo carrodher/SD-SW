@@ -12,8 +12,7 @@ public class HolaMundoClient
         // Captura los parámetros de entrada al cliente
         Options options = new Options(args);
 
-        String endpoint = "http://localhost:" + options.getPort() +
-        "/axis/HolaMundo.jws";
+        String endpoint = "http://localhost:" + options.getPort() + "/axis/HolaMundo.jws";
 
         /* Construye un objeto Service y un objeto Call que representan el servicio a invocar
         y una llamada o invocación a ese servicio */

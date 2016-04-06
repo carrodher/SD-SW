@@ -1,12 +1,10 @@
 // Este fichero usa las clases generadas por axis a partir del WSDL
-
+// Cambiado ubuntu por lenevo en el import
 import es.uc3m.www.WS.Periodico.*;
-    import ubuntu.axis.services.Periodico.*;
+import lenovo.axis.services.Periodico.*;
 
-    public class PeriodicoClient2 {
-
-      public static void main(String [] args) throws Exception {
-
+public class PeriodicoClient2 {
+    public static void main(String [] args) throws Exception {
         // Crear un servicio periodico
         PeriodicoService service = new PeriodicoServiceLocator();
 
@@ -20,6 +18,5 @@ import es.uc3m.www.WS.Periodico.*;
         Noticia vn[] = port.query("Titular");
 
         System.out.println(vn[0].getTitular());
-      }
     }
-
+}
