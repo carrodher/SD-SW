@@ -4,6 +4,7 @@ notifications:
     email:
         on_success: never
         on_failure: never
+    slack: proyectoscarlos:quyUXvpLXPctdsK53REk5ypl
 
     script:
     # Practica 3
