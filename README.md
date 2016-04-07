@@ -20,6 +20,7 @@ Dentro de cada práctica se encuentra el enunciado y el README con el contenido 
     * [Proyecto RMI](https://github.com/carrodher/SDSW/tree/master/proyectoRMI)
   * [Servicios Web](#servicios-web)
     * [Práctica 9](https://github.com/carrodher/SDSW/tree/master/practica9)
+    * [Práctica 10](https://github.com/carrodher/SDSW/tree/master/practica10)
 
 ### RPC
 
@@ -50,3 +51,6 @@ Proyecto haciendo uso de RMI
 
 #### [Práctica 9](https://github.com/carrodher/SDSW/tree/master/practica9)
 Servicios Web
+
+#### [Práctica 10](https://github.com/carrodher/SDSW/tree/master/practica10)
+Servicios Web II
