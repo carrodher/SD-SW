@@ -6,7 +6,7 @@ import org.apache.axis.utils.Options;
 import javax.xml.rpc.ParameterMode;
 import javax.xml.namespace.QName;
 
-import agendaPackage.*;
+import agendawebservice.*;
 
 // Cliente del servicio web
 public class AgendaClient
@@ -76,9 +76,9 @@ public class AgendaClient
             Call call = (Call) service.createCall();
             QName qn = new QName("http://www.uc3m.es/WS/Agenda", "Telefono");
 
-            call.registerTypeMapping(agendaPackage.Telefono.class, qn,
-            new org.apache.axis.encoding.ser.BeanSerializerFactory(agendaPackage.Telefono.class, qn),
-            new org.apache.axis.encoding.ser.BeanDeserializerFactory(agendaPackage.Telefono.class, qn));
+            call.registerTypeMapping(agendawebservice.Telefono.class, qn,
+            new org.apache.axis.encoding.ser.BeanSerializerFactory(agendawebservice.Telefono.class, qn),
+            new org.apache.axis.encoding.ser.BeanDeserializerFactory(agendawebservice.Telefono.class, qn));
 
             call.setTargetEndpointAddress(new java.net.URL(endpoint));
             call.setOperationName("insert");
@@ -98,9 +98,9 @@ public class AgendaClient
             QName qn = new QName("http://www.uc3m.es/WS/Agenda", "Telefono");
             QName qna = new QName("http://www.uc3m.es/WS/Agenda", "ArrayOfTelefono");
 
-            call.registerTypeMapping(agendaPackage.Telefono.class, qn,
-            new org.apache.axis.encoding.ser.BeanSerializerFactory(agendaPackage.Telefono.class, qn),
-            new org.apache.axis.encoding.ser.BeanDeserializerFactory(agendaPackage.Telefono.class, qn));
+            call.registerTypeMapping(agendawebservice.Telefono.class, qn,
+            new org.apache.axis.encoding.ser.BeanSerializerFactory(agendawebservice.Telefono.class, qn),
+            new org.apache.axis.encoding.ser.BeanDeserializerFactory(agendawebservice.Telefono.class, qn));
 
             call.setTargetEndpointAddress(new java.net.URL(endpoint));
             call.setOperationName("query");

@@ -1,4 +1,4 @@
-package agendaPackage;
+package agendawebservice;
 
 import java.util.Vector;
 

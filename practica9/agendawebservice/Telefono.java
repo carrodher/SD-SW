@@ -1,4 +1,4 @@
-package agendaPackage;
+package agendawebservice;
 
 public class Telefono implements java.io.Serializable {
     private String nombre;

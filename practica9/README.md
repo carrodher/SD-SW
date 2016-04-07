@@ -103,12 +103,12 @@ java -cp axis-1_4/lib/axis-ant.jar:axis-1_4/lib/commons-logging-1.0.4.jar:axis-1
 
 #### Compila Agenda
 ```
-javac agendaPackage/Agenda.java
+javac agendawebservice/Agenda.java
 ```
 
 #### Compila Telefono
 ```
-javac agendaPackage/Telefono.java
+javac agendawebservice/Telefono.java
 ```
 
 #### Compila AgendaClient
@@ -116,14 +116,14 @@ javac agendaPackage/Telefono.java
 javac -cp axis-1_4/lib/axis-ant.jar:axis-1_4/lib/commons-logging-1.0.4.jar:axis-1_4/lib/axis.jar:axis-1_4/lib/jaxrpc.jar:axis-1_4/lib/saaj.jar:axis-1_4/lib/commons-discovery-0.2.jar:axis-1_4/lib/log4j-1.2.8.jar:axis-1_4/lib/wsdl4j-1.5.1.jar:mail.jar:activation.jar:./ AgendaClient.java
 ```
 
-#### Crea agendaPackage.jar con Agenda y Telefono
+#### Crea agendawebservice.jar con Agenda y Telefono
 ```
-jar cvf agendaPackage.jar agendaPackage/*.class
+jar cvf agendawebservice.jar agendawebservice/*.class
 ```
 
 #### Para ejecutar el SimpleAxisServer en el directorio axis-1_4/webapps para el ejemplo agenda:
 ```
-java -cp ../lib/axis-ant.jar:../lib/commons-logging-1.0.4.jar:../lib/axis.jar:../lib/jaxrpc.jar:../lib/saaj.jar:../lib/commons-discovery-0.2.jar:../lib/log4j-1.2.8.jar:../lib/wsdl4j-1.5.1.jar:../../mail.jar:../../activation.jar:../../agendaPackage.jar:./ org.apache.axis.transport.http.SimpleAxisServer -p 8888
+java -cp ../lib/axis-ant.jar:../lib/commons-logging-1.0.4.jar:../lib/axis.jar:../lib/jaxrpc.jar:../lib/saaj.jar:../lib/commons-discovery-0.2.jar:../lib/log4j-1.2.8.jar:../lib/wsdl4j-1.5.1.jar:../../mail.jar:../../activation.jar:../../agendawebservice.jar:./ org.apache.axis.transport.http.SimpleAxisServer -p 8888
 ```
 
 #### Para desplegar el servidor del ejemplo agenda en el directorio axis-1_4/webapps:
