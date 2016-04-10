@@ -24,8 +24,8 @@ public class BancoSoapBindingStub extends org.apache.axis.client.Stub implements
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("retirar");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.setName("ingresar");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
@@ -35,8 +35,8 @@ public class BancoSoapBindingStub extends org.apache.axis.client.Stub implements
         _operations[0] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("ingresar");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.setName("retirar");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
@@ -47,7 +47,7 @@ public class BancoSoapBindingStub extends org.apache.axis.client.Stub implements
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("crearCuenta");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.uc3m.es/WS/Banco", "Titular"), es.uc3m.www.WS.Banco.Titular.class, false, false);
         oper.addParameter(param);
@@ -58,7 +58,7 @@ public class BancoSoapBindingStub extends org.apache.axis.client.Stub implements
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("cerrarCuenta");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
@@ -66,23 +66,23 @@ public class BancoSoapBindingStub extends org.apache.axis.client.Stub implements
         _operations[3] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("titularDeCuenta");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.setName("cuentasDelTitular");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.uc3m.es/WS/Banco", "Titular"));
-        oper.setReturnClass(es.uc3m.www.WS.Banco.Titular.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "titularDeCuentaReturn"));
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.uc3m.es/WS/Banco", "ArrayOfCuenta"));
+        oper.setReturnClass(es.uc3m.www.WS.Banco.Cuenta[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "cuentasDelTitularReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
         _operations[4] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("cuentasDelTitular");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.setName("titularDeCuenta");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.uc3m.es/WS/Banco", "ArrayOfCuenta"));
-        oper.setReturnClass(es.uc3m.www.WS.Banco.Cuenta[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "cuentasDelTitularReturn"));
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.uc3m.es/WS/Banco", "Titular"));
+        oper.setReturnClass(es.uc3m.www.WS.Banco.Titular.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "titularDeCuentaReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
         _operations[5] = oper;
@@ -208,7 +208,7 @@ public class BancoSoapBindingStub extends org.apache.axis.client.Stub implements
         }
     }
 
-    public void retirar(java.lang.String in0, int in1) throws java.rmi.RemoteException {
+    public void ingresar(java.lang.String in0, int in1) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -217,7 +217,7 @@ public class BancoSoapBindingStub extends org.apache.axis.client.Stub implements
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://bancowebservice", "retirar"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://bancowebservice", "ingresar"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -232,7 +232,7 @@ public class BancoSoapBindingStub extends org.apache.axis.client.Stub implements
 }
     }
 
-    public void ingresar(java.lang.String in0, int in1) throws java.rmi.RemoteException {
+    public void retirar(java.lang.String in0, int in1) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -241,7 +241,7 @@ public class BancoSoapBindingStub extends org.apache.axis.client.Stub implements
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://bancowebservice", "ingresar"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://bancowebservice", "retirar"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -304,43 +304,12 @@ public class BancoSoapBindingStub extends org.apache.axis.client.Stub implements
 }
     }
 
-    public es.uc3m.www.WS.Banco.Titular titularDeCuenta(java.lang.String in0) throws java.rmi.RemoteException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[4]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://bancowebservice", "titularDeCuenta"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {in0});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (es.uc3m.www.WS.Banco.Titular) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (es.uc3m.www.WS.Banco.Titular) org.apache.axis.utils.JavaUtils.convert(_resp, es.uc3m.www.WS.Banco.Titular.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
-    }
-
     public es.uc3m.www.WS.Banco.Cuenta[] cuentasDelTitular(java.lang.String in0) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[5]);
+        _call.setOperation(_operations[4]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
@@ -359,6 +328,37 @@ public class BancoSoapBindingStub extends org.apache.axis.client.Stub implements
                 return (es.uc3m.www.WS.Banco.Cuenta[]) _resp;
             } catch (java.lang.Exception _exception) {
                 return (es.uc3m.www.WS.Banco.Cuenta[]) org.apache.axis.utils.JavaUtils.convert(_resp, es.uc3m.www.WS.Banco.Cuenta[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public es.uc3m.www.WS.Banco.Titular titularDeCuenta(java.lang.String in0) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[5]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://bancowebservice", "titularDeCuenta"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {in0});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (es.uc3m.www.WS.Banco.Titular) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (es.uc3m.www.WS.Banco.Titular) org.apache.axis.utils.JavaUtils.convert(_resp, es.uc3m.www.WS.Banco.Titular.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
