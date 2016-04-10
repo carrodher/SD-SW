@@ -39,4 +39,4 @@ script:
     # Práctica 9
     - cd ../../../practica9 && make all
     # Práctica 10
-    - cd ../practica10 && make all
+    - cd ../practica10 && make banco && make cuenta && make titular && make bancowebservice
