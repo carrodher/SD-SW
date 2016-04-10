@@ -28,7 +28,7 @@ public class PeriodicoClient
                 descripcion = args[2];
                 url = args[3];
 
-                // Crea la noticia con la enrada
+                // Crea la noticia con la entrada
                 n = new Noticia();
                 n.setTitular(titular);
                 n.setDescripcion(descripcion);
