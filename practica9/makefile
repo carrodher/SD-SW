@@ -1,3 +1,7 @@
+.PHONY: newswebservice agendawebservice clean
+
+all: periodico_comp noticia_comp newswebservice agenda_comp telefono_comp agendawebservice
+
 holamundo_comp:
 	javac -cp axis-1_4/lib/axis-ant.jar:axis-1_4/lib/commons-logging-1.0.4.jar:axis-1_4/lib/axis.jar:axis-1_4/lib/jaxrpc.jar:axis-1_4/lib/saaj.jar:axis-1_4/lib/commons-discovery-0.2.jar:axis-1_4/lib/log4j-1.2.8.jar:axis-1_4/lib/wsdl4j-1.5.1.jar:mail.jar:activation.jar HolaMundoClient.java
 
@@ -21,6 +25,9 @@ conversor_exe:
 
 periodico_comp:
 	javac newswebservice/Periodico.java
+
+noticia_comp:
+	javac newswebservice/Noticia.java
 
 periodicoclient_comp:
 	javac -cp axis-1_4/lib/axis-ant.jar:axis-1_4/lib/commons-logging-1.0.4.jar:axis-1_4/lib/axis.jar:axis-1_4/lib/jaxrpc.jar:axis-1_4/lib/saaj.jar:axis-1_4/lib/commons-discovery-0.2.jar:axis-1_4/lib/log4j-1.2.8.jar:axis-1_4/lib/wsdl4j-1.5.1.jar:mail.jar:activation.jar:./ PeriodicoClient.java

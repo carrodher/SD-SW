@@ -1,4 +1,6 @@
-all: banco cuenta titular bancowebservice bancoClient
+.PHONY: clean bancowebservice
+
+all: banco cuenta titular bancowebservice bancoClient bancoClient2
 
 # Compilaciones
 banco:
