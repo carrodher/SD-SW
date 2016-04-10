@@ -39,4 +39,4 @@ script:
     # Práctica 9
     - cd ../../../practica9 && make periodico_comp && make agenda_comp && make telefono_comp
     # Práctica 10
-    - cd ../../../practica10 && make banco && make cuenta && make titular
+    - cd ../practica10 && make banco && make cuenta && make titular
