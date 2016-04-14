@@ -36,7 +36,7 @@ class ClienteCentralita {
             mensaje = input.nextLine();
             System.out.print("Gracias por su alerta, estamos procesando su mensaje.\n");
 
-            // Envía el texto a la centralita para su procesamiento (no se si se puede devolver así)
+            // Envía el texto a la centralita para su procesamiento
             String servicio = srv.procesaAlerta(nombre, tlfn, address, mensaje);
             System.out.print("Se ha avisado a los siguientes servicios: " + servicio);
         }
