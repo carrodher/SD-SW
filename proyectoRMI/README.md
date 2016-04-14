@@ -13,7 +13,7 @@ En este primer trabajo de la asignatura se pide realizar un proyecto basado en R
 ## Introducción
 Se pretende diseñar un sistema de alertas de emergencias centralizado (estilo 112) en el que se disponga de un servicio de centralita al que llegan los diferentes mensajes de los clientes. A esta centralita estánconectados, como observadores, los diferentes Servicios de Emergencia (bomberos, sanitarios, guardia civil, policía local, policía nacional, etc), de manera que cuando la centralita recibe un mensaje con alguna incidencia, determina a qué servicio o servicios redirigir esta incidencia. En paralelo, la centralita incorpora un servicio de log para dejar constancia de todos los eventos procesados.
 
- ![alt tag](https://github.com/carrodher/SDSW/blob/master/proyectoRMI/Diagramas/EsquemaInicial.png "Esquema inicial")
+ ![alt tag](https://github.com/carrodher/SDSW/blob/master/proyectoRMI/Documentos/EsquemaInicial.png "Esquema inicial")
 
 ## Implementación
 Este proyecto consta de 3 partes diferenciadas:
