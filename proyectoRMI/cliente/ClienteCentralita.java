@@ -29,12 +29,12 @@ class ClienteCentralita {
             ServicioCentralita srv = (ServicioCentralita) Naming.lookup("//" + args[0] + ":" + args[1] + "/Centralita");
             //                                                                  |               |-> Número de puerto escucha
             //                                                                  |-> Host en el que se ejecuta el servicio
-            
+
             // Almacena el texto por parte del cliente
             Scanner input = new Scanner(System.in);
             System.out.print(nombre + "> ");
             mensaje = input.nextLine();
-            System.out.print("Gracias por su alerta, estamos procesando su mensaje.");
+            System.out.print("Gracias por su alerta, estamos procesando su mensaje.\n");
 
             // Envía el texto a la centralita para su procesamiento (no se si se puede devolver así)
             String servicio = srv.procesaAlerta(nombre, tlfn, address, mensaje);
