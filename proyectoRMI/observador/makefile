@@ -3,14 +3,14 @@
 all: obs
 
 # Compilaciones distribuidas
-obs: observador observadorImpl
+obs: obs obsImpl
 	cp *.class ../cliente
 	cp *.class ../centralita
 
-observador:
+obsr:
 	javac Observador.java
 
-observadorImpl:
+obsImpl:
 	javac ObservadorImpl.java
 
 # Compilación local
