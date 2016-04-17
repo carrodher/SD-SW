@@ -40,3 +40,7 @@ script:
     - cd ../../../practica9 && make all
     # Práctica 10
     - cd ../practica10 && make banco && make cuenta && make titular && make bancowebservice
+
+    # Proyecto RMI
+    - cd ../proyectoRMI/observador && make all && cd ../centralita && make all && cd ../cliente && make all
+    - cd ../observador && make observador && cd ../centralita && make centralita
