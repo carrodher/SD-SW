@@ -12,10 +12,10 @@ class ObservadorImpl extends UnicastRemoteObject implements Observador {
 	// Recibe e imprime la información de la alerta por parte de la centralita
 	public void servicioSolicitado(String nombre, String tlfn, String address, String mensaje) throws RemoteException {
 		System.out.println("\u001B[31m \nALERTA!! \u001B[0m");
-		System.out.println("Nombre: " + nombre);
-		System.out.println("Teléfono: " + tlfn);
-		System.out.println("Dirección: " + address);
-		System.out.println("Mensaje: " + mensaje);
+		System.out.println("\tNombre: " + nombre);
+		System.out.println("\tTeléfono: " + tlfn);
+		System.out.println("\tDirección: " + address);
+		System.out.println("\tMensaje: " + mensaje);
 	}
 
 	// Devuelve el nombre del servicio para este objeto
