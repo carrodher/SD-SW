@@ -20,7 +20,6 @@ class ServicioCentralitaImpl extends UnicastRemoteObject implements ServicioCent
     public void addObservador(Observador o, String nombre) throws RemoteException {
         listaObservadores.add(o);
         System.out.println("Añadido observador " + nombre);
-        o.setNombre(nombre);
     }
 
     // Elimina un observador de la lista
@@ -51,30 +50,27 @@ class ServicioCentralitaImpl extends UnicastRemoteObject implements ServicioCent
         // Comprueba cuáles han coincidido
         if (matchBomb.matches()){
             servicios[0] = "Bomberos";
-            System.out.println("Match con " + servicios[0]);
-        }
-        if (matchPol.matches()){
-            servicios[1] = "Policia";
-            System.out.println("Match con " + servicios[1]);
-        }
-        if (matchGC.matches()){
-            servicios[2] = "Guardia Civil";
-            System.out.println("Match con " + servicios[2]);
+            System.out.println("\u001B[31m Match con " + servicios[0] + "\u001B[0m");
         }
         if (matchSani.matches()){
-            servicios[3] = "Sanitarios";
-            System.out.println("Match con " + servicios[3]);
+            servicios[1] = "Sanitarios";
+            System.out.println("\u001B[35m Match con " + servicios[1] + "\u001B[0m");
+        }
+        if (matchPol.matches()){
+            servicios[2] = "Policia";
+            System.out.println("\u001B[34m Match con " + servicios[2] + "\u001B[0m");
+        }
+        if (matchGC.matches()){
+            servicios[3] = "Guardia Civil";
+            System.out.println("\u001B[32m Match con " + servicios[3] + "\u001B[0m");
         }
 
         // Busca en la lista los servicios elegidos
         for (int i = 0; i < servicios.length; i++) {
             if (servicios[i] != null) {
-                System.out.println("Dentro del bucle " + servicios[i]);
                 // Recorre la lista de todos los observadores registrados
                 for (Observador o: listaObservadores) {
-                    System.out.println("Dentro del for lista");
-                    if(o.getNombre() == servicios[i]) {
-                        System.out.println("Dentro del if");
+                    if(o.getNombre().equals(servicios[i])) {
                         o.servicioSolicitado(nombre, tlfn, address, mensaje);
                     }
                 }
