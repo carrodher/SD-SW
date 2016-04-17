@@ -7,5 +7,5 @@ sobre errores relacionados con la comunicación. */
 interface ServicioCentralita extends Remote {
     void addObservador(Observador o, String nombre) throws RemoteException;
     void delObservador(Observador o, String nombre) throws RemoteException;
-    String procesaAlerta(String nombre, String tlfn, String address, String mensaje) throws RemoteException;
+    String[] procesaAlerta(String nombre, String tlfn, String address, String mensaje) throws RemoteException;
 }
