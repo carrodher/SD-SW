@@ -9,16 +9,10 @@ lo único diferente es que pueden generar la excepción RemoteException.
 class ClienteCentralita {
     static public void main (String args[]) {
 
-        if (args.length != 5) {
-            System.err.println("Uso: ClienteCentralita hostregistro numPuertoRegistro Nombre Teléfono Dirección");
+        if (args.length != 2) {
+            System.err.println("Uso: ClienteCentralita hostregistro numPuertoRegistro");
             return;
         }
-
-        // Almacena los datos recibidos por el cliente
-        String nombre = args[2];
-        String tlfn = args[3];
-        String address = args[4];
-        String mensaje;
 
         // Instancia gestor de seguridad
         if (System.getSecurityManager() == null){
@@ -30,15 +24,33 @@ class ClienteCentralita {
             //                                                                  |               |-> Número de puerto escucha
             //                                                                  |-> Host en el que se ejecuta el servicio
 
-            // Almacena el texto por parte del cliente
+            /* Almacena los datos recibidos por el cliente */
             Scanner input = new Scanner(System.in);
+            // Nombre
+            System.out.print("\nCentralita> Bienvenido al servicio de alerta ¿Cuál es su nombre? ");
+            String nombre = input.nextLine();
+            // Teléfono
+            System.out.print("\nCentralita> ¿Podría indicar un teléfono de contacto?\n");
             System.out.print(nombre + "> ");
-            mensaje = input.nextLine();
-            System.out.print("Gracias por su alerta, estamos procesando su mensaje.\n");
+            String tlfn = input.nextLine();
+            // Dirección
+            System.out.print("\nCentralita> ¿Cuál es la dirección del suceso?\n");
+            System.out.print(nombre + "> ");
+            String address = input.nextLine();
+            // Mensaje
+            System.out.print("\nCentralita> Detalle a continuación la situación que requiere nuestra intervención:\n");
+            System.out.print(nombre + "> ");
+            String mensaje = input.nextLine();
 
             // Envía el texto a la centralita para su procesamiento
-            String servicio = srv.procesaAlerta(nombre, tlfn, address, mensaje);
-            System.out.print("Se ha avisado a los siguientes servicios: " + servicio);
+            String [] servicios = srv.procesaAlerta(nombre, tlfn, address, mensaje);
+            System.out.print("\nCentralita> Se ha avisado a los siguientes servicios:\n");
+
+            for (int i = 0; i < servicios.length; i++) {
+                if (servicios[i] != null) {
+                    System.out.print("\t\t[" + (i+1) + "] " + servicios[i] + "\n");
+                }
+            }
         }
         // Excepción RMI
         catch (RemoteException e) {
