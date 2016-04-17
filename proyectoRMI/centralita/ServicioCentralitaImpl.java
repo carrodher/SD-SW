@@ -20,12 +20,40 @@ class ServicioCentralitaImpl extends UnicastRemoteObject implements ServicioCent
     public void addObservador(Observador o, String nombre) throws RemoteException {
         listaObservadores.add(o);
         System.out.println("Añadido observador " + nombre);
+
+        // Comrpeuba el nombre del servicio para imprimir código de color
+        if (nombre.equals("Bomberos")){
+            System.out.println("\u001B[31mAñadido Observador " + nombre + "\u001B[0m");
+        }
+        else if (nombre.equals("Sanitarios")){
+            System.out.println("\u001B[35mAñadido observador " + nombre + "\u001B[0m");
+        }
+        else if (nombre.equals("Policia")){
+            System.out.println("\u001B[34mAñadido observador " + nombre + "\u001B[0m");
+        }
+        else if (nombre.equals("Guardia Civil")){
+            System.out.println("\u001B[32mAñadido observador " + nombre + "\u001B[0m");
+        }
     }
 
     // Elimina un observador de la lista
     public void delObservador(Observador o, String nombre) throws RemoteException {
         listaObservadores.remove(listaObservadores.indexOf(o));
         System.out.println("Eliminado observador " + nombre);
+
+        // Comrpeuba el nombre del servicio para imprimir código de color
+        if (nombre.equals("Bomberos")){
+            System.out.println("\u001B[31mEliminado Observador " + nombre + "\u001B[0m");
+        }
+        else if (nombre.equals("Sanitarios")){
+            System.out.println("\u001B[35mEliminado observador " + nombre + "\u001B[0m");
+        }
+        else if (nombre.equals("Policia")){
+            System.out.println("\u001B[34mEliminado observador " + nombre + "\u001B[0m");
+        }
+        else if (nombre.equals("Guardia Civil")){
+            System.out.println("\u001B[32mEliminado observador " + nombre + "\u001B[0m");
+        }
     }
 
     /* Extrae la información destacada del mensaje del cliente y avisa a los servicios
