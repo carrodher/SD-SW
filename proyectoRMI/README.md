@@ -1,12 +1,6 @@
 # Proyecto RMI
 [![Build Status](https://travis-ci.org/carrodher/SDSW.svg?branch=master)](https://travis-ci.org/carrodher/SDSW)
 
-## Autores
-Ana Lucero Fernández [@analucfer](https://github.com/analucfer "Ana")
-
-Carlos Rodríguez Hernández [@carrodher](https://github.com/carrodher "Carlos")
-
-
 ## Motivación
 En este primer trabajo de la asignatura se pide realizar un proyecto basado en RMI usando los conceptos de sistemas distribuidos que se han dado a lo largo de las primeras 6 prácticas.
 
@@ -46,5 +40,49 @@ Este proyecto consta de 3 partes diferenciadas:
 
 ![alt tag](https://github.com/carrodher/SDSW/blob/master/proyectoRMI/Documentos/EsquemaLlamadas.png "Esquema llamadas")
 
+## Compilación y ejecución
+Compilación limpia, los diferentes _makefiles_ copian los ficheros _.class_ necesarios de un directorio a otro:
+```
+cd observador
+make clean
+make all
+
+cd ../centralita
+make all
+
+cd ../observador
+make observador
+
+cd ../centralita
+make centralita
+
+cd ../cliente
+make all
+```
+Para ejecutarlo se abren diferentes terminales.
+
+Terminal 1 (centralita):
+```
+cd centralita
+rmiregistry 54321 &
+make exeCentralita
+```
+Terminal 2 (observador):
+```
+cd observador
+make exeObservador
+```
+Terminal 3 (cliente):
+```
+cd cliente
+make exeCliente
+```
+NOTA: Para ejecutarlo en diferentes equipos hay que cambiar en los _makefiles_ la IP en la orden de ejcución. Sustituir _localhost_ por las IPs deseadas.
+
 ## Relación con la asignatura
 Como se puede observar, en este proyecto se va a hacer uso de casi todos los elementos vistos en las prácticas, utilizando conceptos de todas ellas, tales como aspectos relacionados con el servicio de chat, la fábrica de logs, el servicio de alarmas, las marcas de tiempo, etc.
+
+## Autores
+Ana Lucero Fernández [@analucfer](https://github.com/analucfer "Ana")
+
+Carlos Rodríguez Hernández [@carrodher](https://github.com/carrodher "Carlos")
