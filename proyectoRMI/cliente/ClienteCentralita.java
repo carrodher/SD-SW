@@ -27,24 +27,24 @@ class ClienteCentralita {
             /* Almacena los datos recibidos por el cliente */
             Scanner input = new Scanner(System.in);
             // Nombre
-            System.out.print("\nCentralita> Bienvenido al servicio de alerta ¿Cuál es su nombre? ");
+            System.out.print("\n\u001B[33mCentralita>\u001B[0m Bienvenido al servicio de alerta ¿Cuál es su nombre? ");
             String nombre = input.nextLine();
             // Teléfono
-            System.out.print("\nCentralita> ¿Podría indicar un teléfono de contacto?\n");
-            System.out.print(nombre + "> ");
+            System.out.print("\n\u001B[33mCentralita>\u001B[0m ¿Podría indicar un teléfono de contacto?\n");
+            System.out.print("\u001B[36m" + nombre + ">\u001B[0m ");
             String tlfn = input.nextLine();
             // Dirección
-            System.out.print("\nCentralita> ¿Cuál es la dirección del suceso?\n");
-            System.out.print(nombre + "> ");
+            System.out.print("\n\u001B[33mCentralita>\u001B[0m ¿Cuál es la dirección del suceso?\n");
+            System.out.print("\u001B[36m" + nombre + ">\u001B[0m ");
             String address = input.nextLine();
             // Mensaje
-            System.out.print("\nCentralita> Detalle a continuación la situación que requiere nuestra intervención:\n");
-            System.out.print(nombre + "> ");
+            System.out.print("\n\u001B[33mCentralita>\u001B[0m Detalle a continuación la situación que requiere nuestra intervención:\n");
+            System.out.print("\u001B[36m" + nombre + ">\u001B[0m");
             String mensaje = input.nextLine();
 
             // Envía el texto a la centralita para su procesamiento
             String [] servicios = srv.procesaAlerta(nombre, tlfn, address, mensaje);
-            System.out.print("\nCentralita> Se ha avisado a los siguientes servicios:\n");
+            System.out.print("\n\u001B[33mCentralita>\u001B[0m Se ha avisado a los siguientes servicios:\n");
 
             for (int i = 0; i < servicios.length; i++) {
                 if (servicios[i] != null) {
