@@ -3,7 +3,7 @@
 all: obs
 
 # Compilaciones distribuidas
-obs: obs obsImpl
+obs: obsr obsImpl
 	cp *.class ../cliente
 	cp *.class ../centralita
 

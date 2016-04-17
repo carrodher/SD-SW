@@ -3,14 +3,14 @@
 all: cent
 
 # Compilaciones distribuidas
-cent: centralita centralitaImpl
+cent: central centralImpl
 	cp *.class ../cliente
 	cp *.class ../observador
 
-centralita:
+central:
 	javac ServicioCentralita.java
 
-centralitaImpl:
+centralImpl:
 	javac ServicioCentralitaImpl.java
 
 # Compilación local
