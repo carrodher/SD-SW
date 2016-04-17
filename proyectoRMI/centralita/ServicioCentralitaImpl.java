@@ -19,7 +19,6 @@ class ServicioCentralitaImpl extends UnicastRemoteObject implements ServicioCent
     // Añade un observador a la lista
     public void addObservador(Observador o, String nombre) throws RemoteException {
         listaObservadores.add(o);
-        System.out.println("Añadido observador " + nombre);
 
         // Comrpeuba el nombre del servicio para imprimir código de color
         if (nombre.equals("Bomberos")){
@@ -39,7 +38,6 @@ class ServicioCentralitaImpl extends UnicastRemoteObject implements ServicioCent
     // Elimina un observador de la lista
     public void delObservador(Observador o, String nombre) throws RemoteException {
         listaObservadores.remove(listaObservadores.indexOf(o));
-        System.out.println("Eliminado observador " + nombre);
 
         // Comrpeuba el nombre del servicio para imprimir código de color
         if (nombre.equals("Bomberos")){
