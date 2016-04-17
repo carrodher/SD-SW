@@ -8,32 +8,32 @@ class ServicioAlarmaImpl extends UnicastRemoteObject implements ServicioAlarma {
     private int temperaturaActual = 0;
 
     // Lista de los observadores conectados
-    private List<Observador> listaObservadores;
+    private List<Observer> listaObservers;
 
     // Constructor
     ServicioAlarmaImpl() throws RemoteException {
-        listaObservadores = new LinkedList<Observador>();
+        listaObservers = new LinkedList<Observer>();
     }
-    
+
     /* Métodos */
-    // Añade un observador a la lista
-    public void addObservador(Observador o, String nombre) throws RemoteException {
-        listaObservadores.add(o);
-        System.out.println("Añadido observador " + nombre);
+    // Añade un Observer a la lista
+    public void addObserver(Observer o, String nombre) throws RemoteException {
+        listaObservers.add(o);
+        System.out.println("Añadido Observer " + nombre);
     }
 
-    // Elimina un observador de la lista
-    public void delObservador(Observador o, String nombre) throws RemoteException {
-        listaObservadores.remove(listaObservadores.indexOf(o));
-        System.out.println("Eliminado observador " + nombre);
+    // Elimina un Observer de la lista
+    public void delObserver(Observer o, String nombre) throws RemoteException {
+        listaObservers.remove(listaObservers.indexOf(o));
+        System.out.println("Eliminado Observer " + nombre);
     }
 
-    // Modifica el valor de la temperatura actual y avisa a los observadores
+    // Modifica el valor de la temperatura actual y avisa a los Observeres
     public void setTemperatura(int temp) throws RemoteException {
         temperaturaActual = temp;
 
         if (temperaturaActual >= WRN){
-            for (Observador o: listaObservadores) {
+            for (Observer o: listaObservers) {
                 // Llamada al método remoto de 'alarma'
                 o.temperaturaMaxAlcanzada(temperaturaActual);
             }
