@@ -29,35 +29,49 @@ class ObservadorCentralita {
                 // Captura el nombre del servicio
                 System.out.println("Elija el servicio:\n\t[1] Bomberos\n\t[2] Sanitarios\n\t[3] Policía\n\t[4] Guardia Civil");
                 Scanner input = new Scanner(System.in);
-                int tipoServicio = input.nextInt();
+                String tipoServicio = input.nextLine();
 
                 switch (tipoServicio) {
-                    case 1:
-                    nombreServicio = "Bomberos";
-                    break;
-                    case 2:
-                    nombreServicio = "Sanitarios";
-                    break;
-                    case 3:
-                    nombreServicio = "Policia";
-                    break;
-                    case 4:
-                    nombreServicio = "Guardia Civil";
-                    break;
+                    case "1":
+                        nombreServicio = "Bomberos";
+                        break;
+                    case "2":
+                        nombreServicio = "Sanitarios";
+                        break;
+                    case "3":
+                        nombreServicio = "Policia";
+                        break;
+                    case "4":
+                        nombreServicio = "Guardia Civil";
+                        break;
                     default:
-                    nombreServicio = "default";
-                    break;
+                        nombreServicio = "default";
+                        break;
                 }
             }
 
             // Crea nuevo observador y lo registra en la lista
-            ObservadorImpl o = new ObservadorImpl();
+            ObservadorImpl o = new ObservadorImpl(nombreServicio);
 
             // Llamada al método remoto 'addObservador' del servicio
             srv.addObservador(o,nombreServicio);
-            System.out.println("Observador " + nombreServicio + " registrado en la centralita.\n");
-            System.out.println("Para salir, pulsar Ctrl+D");
 
+            // Comrpeuba el nombre del servicio para imprimir código de color
+            if (nombreServicio.equals("Bomberos")){
+                System.out.println("\u001B[31mObservador " + nombreServicio + " registrado en la centralita\u001B[0m\n");
+            }
+            else if (nombreServicio.equals("Sanitarios")){
+                System.out.println("\u001B[35mObservador " + nombreServicio + " registrado en la centralita\u001B[0m\n");
+            }
+            else if (nombreServicio.equals("Policia")){
+                System.out.println("\u001B[34mObservador " + nombreServicio + " registrado en la centralita\u001B[0m\n");
+            }
+            else if (nombreServicio.equals("Guardia Civil")){
+                System.out.println("\u001B[32mObservador " + nombreServicio + " registrado en la centralita\u001B[0m\n");
+            }
+
+            // Se mantiene esperando hasta que se para con Ctrl+D
+            System.out.println("Para salir, pulsar Ctrl+D\n");
             Scanner sleep = new Scanner(System.in);
             while (sleep.hasNextInt()) {
 
