@@ -81,15 +81,19 @@ NOTA: Para ejecutarlo en diferentes equipos hay que cambiar en los _makefiles_ l
 
 ## Funcionamiento
 Ejecución del cliente por parte de un usuario. Preguntas de la centralita y respuestas del usuario. Como se puede ver, el mensaje hace referencia a un incendio con heridos, por tanto la centralita determina que hay que avisar a Bomberos y Sanitarios:
+
 ![alt tag](https://github.com/carrodher/SDSW/blob/master/proyectoRMI/Documentos/Cliente.png "Cliente")
 
 Registro de 4 observadores (cada uno identificado por su nombre y código de color):
+
 ![alt tag](https://github.com/carrodher/SDSW/blob/master/proyectoRMI/Documentos/Observadores.png "Observadores")
 
 Ejecución de la centralita en la que se ve el registro/baja de los observadores y cuando se hace _match_:
+
 ![alt tag](https://github.com/carrodher/SDSW/blob/master/proyectoRMI/Documentos/Centralita.png "Centralita")
 
 Alerta en los observadores avisados (Bomberos y Sanitarios) y no en el resto:
+
 ![alt tag](https://github.com/carrodher/SDSW/blob/master/proyectoRMI/Documentos/ObservadoresAlertas.png "ObservadoresAlertas")
 
 ## Relación con la asignatura
