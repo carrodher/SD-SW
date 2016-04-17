@@ -14,12 +14,12 @@ observadorImpl:
 	javac ObservadorImpl.java
 
 # Compilación local
-cliente:
+observador:
 	javac ObservadorCentralita.java
 
 # Activación servicios
 exeObservador:
-	java -Djava.security.policy=observador.permisos ObservadorCentralita localhost 54321 
+	java -Djava.security.policy=observador.permisos ObservadorCentralita localhost 54321
 
 # Limpieza
 clean:

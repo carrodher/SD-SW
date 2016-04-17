@@ -14,13 +14,12 @@ centralitaImpl:
 	javac ServicioCentralitaImpl.java
 
 # Compilación local
-cliente:
+centralita:
 	javac Servidor.java
 
 # Activación servicios
 exeCentralita:
 	java -Djava.security.policy=servidor.permisos Servidor 54321
-
 
 # Limpieza
 clean:
