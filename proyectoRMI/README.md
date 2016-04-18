@@ -2,12 +2,12 @@
 [![Build Status](https://travis-ci.org/carrodher/SDSW.svg?branch=master)](https://travis-ci.org/carrodher/SDSW)
 
 ## Índice
-1. [Motivación](#motivacion)
-2. [Introducción](#introduccion)
-3. [Implementación](#implementacion)
-4. [Compilación y ejecución](#compilacion-y-ejecucion)
+1. [Motivación](#motivación)
+2. [Introducción](#introducción)
+3. [Implementación](#implementación)
+4. [Compilación y ejecución](#compilación-y-ejecución)
 5. [Funcionamiento](#funcionamiento)
-6. [Relación con la asignatura](#relacion-con-la-asignatura)
+6. [Relación con la asignatura](#relación-con-la-asignatura)
 7. [Autores](#autores)
 
 ## Motivación
