@@ -1,6 +1,15 @@
 # Proyecto RMI
 [![Build Status](https://travis-ci.org/carrodher/SDSW.svg?branch=master)](https://travis-ci.org/carrodher/SDSW)
 
+## Índice
+1. [Motivación](#motivacion)
+2. [Introducción](#introduccion)
+3. [Implementación](#implementacion)
+4. [Compilación y ejecución](#compilacion-y-ejecucion)
+5. [Funcionamiento](#funcionamiento)
+6. [Relación con la asignatura](#relacion-con-la-asignatura)
+7. [Autores](#autores)
+
 ## Motivación
 En este primer trabajo de la asignatura se pide realizar un proyecto basado en RMI usando los conceptos de sistemas distribuidos que se han dado a lo largo de las primeras 6 prácticas.
 
