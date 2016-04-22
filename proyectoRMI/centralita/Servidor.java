@@ -14,7 +14,7 @@ class Servidor  {
         }
         try {
             // Crea objeto de la clase que implementa el servicio remoto
-            ServicioCentralitaImpl srv = new ServicioCentralitaImpl();
+            ServicioCentralitaImpl srv = new ServicioCentralitaImpl("log.txt");
             // Da de alta en rmi mediante rebind
             Naming.rebind("rmi://localhost:" + args[0] + "/Centralita", srv);
             //                                  |-> Número de puerto escucha
