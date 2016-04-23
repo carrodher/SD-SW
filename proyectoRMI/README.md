@@ -51,38 +51,24 @@ Este proyecto consta de 3 partes diferenciadas:
 
 ## Compilación y ejecución
 Compilación limpia, los diferentes _makefiles_ copian los ficheros _.class_ necesarios de un directorio a otro:
-```
-cd observador
-make clean
-make all
-
-cd ../centralita
-make all
-
-cd ../observador
-make observador
-
-cd ../centralita
-make centralita
-
-cd ../cliente
-make all
+```bash
+bash ./compila.sh
 ```
 Para ejecutarlo se abren diferentes terminales.
 
 Terminal 1 (centralita):
-```
+```bash
 cd centralita
 rmiregistry 54321 &
 make exeCentralita
 ```
 Terminal 2 (observador):
-```
+```bash
 cd observador
 make exeObservador
 ```
 Terminal 3 (cliente):
-```
+```bash
 cd cliente
 make exeCliente
 ```
