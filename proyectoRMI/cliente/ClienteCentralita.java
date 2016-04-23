@@ -24,38 +24,38 @@ class ClienteCentralita {
             //                                                                  |               |-> Número de puerto escucha
             //                                                                  |-> Host en el que se ejecuta el servicio
 
-            /* Almacena los datos recibidos por el cliente */
+            // Almacena los datos recibidos por el cliente
             Scanner input = new Scanner(System.in);
-            String nombre = null;
-            String tlfn = null;
-            String address = null;
-            String mensaje = null;
+
             // Nombre
-            while (nombre == null || nombre == ""){
+            String nombre = null;
+            while (nombre == null || nombre.isEmpty()){
               System.out.print("\n\u001B[33mCentralita>\u001B[0m Bienvenido al servicio de alerta ¿Cuál es su nombre? ");
               nombre = input.nextLine();
             }
             // Teléfono
-            while (tlfn == null || tlfn == ""){
+            String tlfn = null;
+            while (tlfn == null || tlfn.isEmpty()){
               System.out.print("\n\u001B[33mCentralita>\u001B[0m ¿Podría indicar un teléfono de contacto?\n");
               System.out.print("\u001B[36m" + nombre + ">\u001B[0m ");
               tlfn = input.nextLine();
-              System.out.println("tlfn = " + tlfn);
             }
             // Dirección
-            while (address == null || address == ""){
+            String address = null;
+            while (address == null || address.isEmpty()){
               System.out.print("\n\u001B[33mCentralita>\u001B[0m ¿Cuál es la dirección del suceso?\n");
               System.out.print("\u001B[36m" + nombre + ">\u001B[0m ");
               address = input.nextLine();
             }
             // Mensaje
-            while (mensaje == null || mensaje == ""){
+            String mensaje = null;
+            while (mensaje == null || mensaje.isEmpty()){
               System.out.print("\n\u001B[33mCentralita>\u001B[0m Detalle a continuación la situación que requiere nuestra intervención:\n");
               System.out.print("\u001B[36m" + nombre + ">\u001B[0m");
               mensaje = input.nextLine();
             }
 
-            // Envía el texto a la centralita para su procesamiento
+            // Envía el texto a la centralita para su procesamiento y espera la respuesta en servicios[]
             String [] servicios = srv.procesaAlerta(nombre, tlfn, address, mensaje);
             System.out.print("\n\u001B[33mCentralita>\u001B[0m Se ha avisado a los siguientes servicios:\n");
 
