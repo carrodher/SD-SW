@@ -37,7 +37,7 @@ class ServicioCentralitaImpl extends UnicastRemoteObject implements ServicioCent
     // Añade un observador a la lista
     public void addObservador(Observador o, String nombre) throws RemoteException {
         listaObservadores.add(o);
-        this.crearLog("Añadido Observador" + nombre);
+        this.crearLog("Añadido Observador " + nombre);
         // Comprueba el nombre del servicio para imprimir código de color
         if (nombre.equals("Bomberos")){
             System.out.println("\u001B[31mAñadido Observador " + nombre + "\u001B[0m");
@@ -56,7 +56,7 @@ class ServicioCentralitaImpl extends UnicastRemoteObject implements ServicioCent
     // Elimina un observador de la lista
     public void delObservador(Observador o, String nombre) throws RemoteException {
         listaObservadores.remove(listaObservadores.indexOf(o));
-        this.crearLog("Eliminado Observador" + nombre);
+        this.crearLog("Eliminado Observador " + nombre);
         // Comprueba el nombre del servicio para imprimir código de color
         if (nombre.equals("Bomberos")){
             System.out.println("\u001B[31mEliminado Observador " + nombre + "\u001B[0m");
@@ -79,7 +79,8 @@ class ServicioCentralitaImpl extends UnicastRemoteObject implements ServicioCent
         // Almacena los servicios determinados por las expresiones regulares
         String[] servicios = new String[4];
 
-        this.crearLog("ALERTA!!\nNombre: " + nombre + "\nTelefono: " + tlfn + "\nDireccion: " + address + "\nMensaje: " + mensaje);
+        this.crearLog("ALERTA!!\n\t\tNombre: " + nombre + "\n\t\tTelefono: " + tlfn +
+                      "\n\t\tDireccion: " + address + "\n\t\tMensaje: " + mensaje);
 
         // Patrón de palabras para cada servicio
         Pattern patronBomb = Pattern.compile("^.*(bomberos|gas[e]s?|encerrad[o|a]s?|fuegos?|incendios?|humos?|derrumbes?|llamas?|atrapad[o|a]s?).*$",Pattern.CASE_INSENSITIVE);
@@ -97,22 +98,22 @@ class ServicioCentralitaImpl extends UnicastRemoteObject implements ServicioCent
         if (matchBomb.matches()){
             servicios[0] = "Bomberos";
             System.out.println("\u001B[31m Match con " + servicios[0] + "\u001B[0m");
-            this.crearLog("Match con" + servicios[0]);
+            this.crearLog("Match con " + servicios[0]);
         }
         if (matchSani.matches()){
             servicios[1] = "Sanitarios";
             System.out.println("\u001B[35m Match con " + servicios[1] + "\u001B[0m");
-            this.crearLog("Match con" + servicios[1]);
+            this.crearLog("Match con " + servicios[1]);
         }
         if (matchPol.matches()){
             servicios[2] = "Policia";
             System.out.println("\u001B[34m Match con " + servicios[2] + "\u001B[0m");
-            this.crearLog("Match con" + servicios[2]);
+            this.crearLog("Match con " + servicios[2]);
         }
         if (matchGC.matches()){
             servicios[3] = "Guardia Civil";
             System.out.println("\u001B[32m Match con " + servicios[3] + "\u001B[0m");
-            this.crearLog("Match con" + servicios[3]);
+            this.crearLog("Match con " + servicios[3]);
         }
 
         // Busca en la lista los servicios elegidos
