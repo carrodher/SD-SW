@@ -4,7 +4,6 @@ import java.io.*;
 import java.rmi.server.*;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
-import java.util.Calendar;
 
 // (2) Desarrollo la implementación de los servicios remotos
 class ServicioCentralitaImpl extends UnicastRemoteObject implements ServicioCentralita {
@@ -29,16 +28,9 @@ class ServicioCentralitaImpl extends UnicastRemoteObject implements ServicioCent
 
     /* Métodos */
     //Añade logs al fichero
-    public void crearLog(String msg) throws RemoteException{
-       Calendar fechaActual = Calendar.getInstance();
+    public void crearLog(String msg) throws RemoteException {
        //Empieza a escribir en el archivo
-       file.println((String.valueOf(fechaActual.get(Calendar.DAY_OF_MONTH))
-                 + "/" + String.valueOf(fechaActual.get(Calendar.MONTH)+1)
-                 + "/" + String.valueOf(fechaActual.get(Calendar.YEAR))
-                 + ";" + String.valueOf(fechaActual.get(Calendar.HOUR_OF_DAY))
-                 + ":" + String.valueOf(fechaActual.get(Calendar.MINUTE))
-                 + ":" + String.valueOf(fechaActual.get(Calendar.SECOND)))
-                 + ";" + msg + "\r\n");
+       file.println("[" + new Date() + "] " + msg);
        file.flush();
     }
 
@@ -87,7 +79,7 @@ class ServicioCentralitaImpl extends UnicastRemoteObject implements ServicioCent
         // Almacena los servicios determinados por las expresiones regulares
         String[] servicios = new String[4];
 
-        this.crearLog("ALERTA!! \n Nombre: " + nombre + "\nTelefono: " + tlfn + "\nDireccion: " + address + "\nMensaje: " + mensaje);
+        this.crearLog("ALERTA!!\nNombre: " + nombre + "\nTelefono: " + tlfn + "\nDireccion: " + address + "\nMensaje: " + mensaje);
 
         // Patrón de palabras para cada servicio
         Pattern patronBomb = Pattern.compile("^.*(bomberos|gas[e]s?|encerrad[o|a]s?|fuegos?|incendios?|humos?|derrumbes?|llamas?|atrapad[o|a]s?).*$",Pattern.CASE_INSENSITIVE);
