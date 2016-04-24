@@ -51,7 +51,7 @@ class ClienteCentralita {
             String mensaje = null;
             while (mensaje == null || mensaje.isEmpty()){
               System.out.print("\n\u001B[33mCentralita>\u001B[0m Detalle a continuación la situación que requiere nuestra intervención:\n");
-              System.out.print("\u001B[36m" + nombre + ">\u001B[0m");
+              System.out.print("\u001B[36m" + nombre + ">\u001B[0m ");
               mensaje = input.nextLine();
             }
 
