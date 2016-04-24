@@ -39,7 +39,7 @@ Este proyecto consta de 3 partes diferenciadas:
     * Mediante expresiones regulares trata el campo "mensaje" para determinar a qué Servicio o Servicios de Emergencia redirigir la alerta. Por ejmplo, si detecta que en el campo texto se hace uso de las palabras _fuego_, _incendio_, _humo_, etc; la centralita determinará que esa alerta debe dirigirla hacia los bomberos.
     * Una vez que sabe a qué Servicio de Emergencia avisar, forma el mensaje de salida y lo manda hacia el servicio en cuestión. De igual manera avisa al usuario con los Servicios que han sido alertados.
 
-    A parte de avisar a los diferentes Servicios de Emergencia, la centralita también realiza un control interno tanto de los mensajes recibidos como de los mensajes enviados haciendo uso de servicios de log y mostrando por pantalla toda esta información.
+    Aparte de avisar a los diferentes Servicios de Emergencia, la centralita también realiza un control interno tanto de los mensajes recibidos como de los mensajes enviados haciendo uso de servicios de log y mostrando por pantalla toda esta información.
 
 3. **Observadores**
 
