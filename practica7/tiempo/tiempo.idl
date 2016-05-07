@@ -1,18 +1,16 @@
 module TiempoApp
 {
-   interface Tiempo
-   {
-      struct tiempo {
-         long hora;
-         long minutos;
-         long segundos;
-      };
-   
-      long getHora();
-      long getMinutos();
-      long getSegundos();
-      
-      tiempo getTiempo();
-   
-   };
+    interface Tiempo
+    {
+        struct tiempo {
+            long hora;
+            long minutos;
+            long segundos;
+        };
+        long getHora();
+        long getMinutos();
+        long getSegundos();
+
+        tiempo getTiempo();
+    };
 };
