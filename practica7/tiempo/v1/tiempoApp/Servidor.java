@@ -30,21 +30,21 @@ public class Servidor {
             rootPOA.the_POAManager().activate();
 
             // Crear el objeto implementación: Se crea el objeto sirviente del tipo TiempoImpl
-            tiempoApp.TiempoImpl calcImpl = new tiempoApp.TiempoImpl();
+            tiempoApp.TiempoImpl timeImpl = new tiempoApp.TiempoImpl();
 
             /* Registrarlo en el POA: Mediante el método servant_to_reference se obtiene una
             referencia de objeto remoto a partir del sirviente y se registra en el POA raíz */
-            o = rootPOA.servant_to_reference(calcImpl);
+            o = rootPOA.servant_to_reference(timeImpl);
 
             /* Mediante el método narrow del helper se convierte la referencia o del tipo
             Org.omg.CORBA.Object a una referencia a tiempoApp.Tiempo. Esto se puede ver de
             forma similar a un cast de C, pero algo más complejo. Este paso no es realmente
             necesario pero se muestra por completitud */
-            tiempoApp.Tiempo calc = tiempoApp.TiempoHelper.narrow(o);
+            tiempoApp.Tiempo time = tiempoApp.TiempoHelper.narrow(o);
 
             /* Producir la dirección del objeto: Mediante el método object_to_string del orb se obtiene
-            la referencia del objeto remoto calculadora en un string */
-            String ior = orb.object_to_string(calc);
+            la referencia del objeto remoto time en un string */
+            String ior = orb.object_to_string(time);
             // Imprime IOR como string en la salida estándar. String ior = orb.object_to_string(o);
             System.out.println(ior);
 

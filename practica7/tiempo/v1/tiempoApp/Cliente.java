@@ -22,13 +22,13 @@ public class Cliente {
             /* Convertir el IOR en un objeto: A partir del string que se ha leído del fichero, se obtiene la
             referencia al objeto usando el método string_to_object del orb */
             org.omg.CORBA.Object o = orb.string_to_object(IOR);
-            Tiempo calc = TiempoHelper.narrow(o);
+            Tiempo time = TiempoHelper.narrow(o);
 
             // Usar el servicio
-            System.out.println("\n\tHora:     " + calc.getHora());
-            System.out.println("\tMinutos:  " + calc.getMinutos());
-            System.out.println("\tSegundos: " + calc.getSegundos() + "\n");
-            System.out.println("\t" + calc.getHora() + ":" + calc.getMinutos() + ":" + calc.getSegundos());
+            System.out.println("\n\tHora:     " + time.getHora());
+            System.out.println("\tMinutos:  " + time.getMinutos());
+            System.out.println("\tSegundos: " + time.getSegundos() + "\n");
+            System.out.println("\t" + time.getHora() + ":" + time.getMinutos() + ":" + time.getSegundos());
         }
         catch(Exception e) {
             e.printStackTrace();
