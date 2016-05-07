@@ -1,7 +1,7 @@
 module HelloApp
 {
-   interface Hello
-   {
-      string sayHello();
-   };
+    interface Hello
+    {
+        string sayHello();
+    };
 };
