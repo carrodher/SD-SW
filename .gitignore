@@ -16,3 +16,6 @@ log*
 
 # Comprimidos
 *.tar.gz
+
+#CORBA
+orb.db
