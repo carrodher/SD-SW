@@ -11,15 +11,15 @@ idl:
 
 # Compilación ficheros java
 comp:
-	javac tiempoApp/*.java
+	javac TiempoApp/*.java
 
 # Ejecución servidor
 exeServidor:
-	java tiempoApp.Servidor | tee IOR
+	java TiempoApp.Servidor | tee IOR
 
 # Ejecución cliente
 exeCliente:
-	java tiempoApp.Cliente
+	java TiempoApp.Cliente
 
 # Limpieza
 clean:

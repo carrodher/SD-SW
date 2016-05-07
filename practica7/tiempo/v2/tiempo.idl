@@ -2,7 +2,7 @@ module TiempoApp
 {
     interface Tiempo
     {
-        struct tiempo {
+        struct Tiempo {
             long hora;
             long minutos;
             long segundos;
@@ -10,6 +10,6 @@ module TiempoApp
         long getHora();
         long getMinutos();
         long getSegundos();
-        tiempo getTiempo();
+        Tiempo getTiempo();
     };
 };
