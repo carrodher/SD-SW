@@ -1,0 +1,9 @@
+module tiempoApp
+{
+    interface Tiempo
+    {
+        long getHora();
+        long getMinutos();
+        long getSegundos();
+    };
+};
