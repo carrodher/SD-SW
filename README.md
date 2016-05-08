@@ -19,6 +19,7 @@ Dentro de cada práctica se encuentra el enunciado y el README con el contenido 
     * [Práctica 6](https://github.com/carrodher/SDSW/tree/master/practica6)
     * [Proyecto RMI](https://github.com/carrodher/SDSW/tree/master/proyectoRMI)
   * [Servicios Web](#servicios-web)
+    * [Práctica 7](https://github.com/carrodher/SDSW/tree/master/practica7)
     * [Práctica 9](https://github.com/carrodher/SDSW/tree/master/practica9)
     * [Práctica 10](https://github.com/carrodher/SDSW/tree/master/practica10)
 
@@ -48,6 +49,9 @@ Paso de clases definidas por el usuario y tipos complejos
 Proyecto haciendo uso de RMI
 
 ### Servicios Web
+
+#### [Práctica 7](https://github.com/carrodher/SDSW/tree/master/practica7)
+CORBA
 
 #### [Práctica 9](https://github.com/carrodher/SDSW/tree/master/practica9)
 Servicios Web
