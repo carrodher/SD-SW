@@ -1,9 +1,6 @@
 .PHONY: clean
 
-all: calc
-
-# Compilaciones distribuidas
-calc: idl comp
+all: comp
 
 # Compilación interfaz IDL
 idl:
