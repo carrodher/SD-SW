@@ -1,9 +1,9 @@
 .PHONY: clean
 
-all: calc
+all: tiempo
 
 # Compilaciones distribuidas
-calc: idl comp
+tiempo: idl comp
 
 # Compilación interfaz IDL
 idl:
@@ -23,4 +23,4 @@ exeCliente:
 
 # Limpieza
 clean:
-	rm -rf ./*/*.class
+	rm -rf ./tiempoApp/*.class

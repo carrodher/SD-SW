@@ -1,9 +1,9 @@
 .PHONY: clean
 
-all: calc
+all: hello
 
 # Compilaciones distribuidas
-calc: idl comp nombr
+hello: idl comp nombr
 
 # Compilación interfaz IDL
 idl:
@@ -26,4 +26,5 @@ exeCliente:
 
 # Limpieza
 clean:
-	rm -rf ./prueba/*.class
+	rm -rf ./HelloApp/*.class
+	rm -rf ./*.class

@@ -20,4 +20,4 @@ exeCliente:
 
 # Limpieza
 clean:
-	rm -rf ./*/*.class
+	rm -rf ./TiempoApp/*.class
