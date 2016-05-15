@@ -1,0 +1,10 @@
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+    <service name="Parking" provider="java:RPC">
+        <parameter name="scope" value="application"/>
+        <parameter name="className" value="parkingwebservice.Parking"/>
+        <parameter name="allowedMethods" value="*"/>
+        <beanMapping qname="ns:Coche" xmlns:ns="http://www.uc3m.es/WS/Parking" languageSpecificType="java:parkingwebservice.Coche"/>
+        <beanMapping qname="ns:Titular" xmlns:ns="http://www.uc3m.es/WS/Parking" languageSpecificType="java:parkingwebservice.Titular"/>
+        <arrayMapping qname="ns:ArrayOfCoche" xmlns:ns="http://www.uc3m.es/WS/Parking" languageSpecificType="java:parkingwebservice.Coche[]" innerType="ns:Coche" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </service>
+</deployment>
