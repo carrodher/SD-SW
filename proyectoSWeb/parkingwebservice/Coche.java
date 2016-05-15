@@ -4,6 +4,9 @@ import java.util.Date;
 
 public class Coche implements java.io.Serializable {
     private String matricula;
+    private String marca;
+    private String modelo;
+    private String color;
     private Propietario propietario;
     private boolean aparcado;
     private Date llegada;
@@ -15,7 +18,22 @@ public class Coche implements java.io.Serializable {
         this.matricula = m;
     }
 
-    // Establece el titular
+    // Establece la marca
+    public void setMarca(String ma) {
+        this.marca = ma;
+    }
+
+    // Establece el modelo
+    public void setModelo(String mo) {
+        this.modelo = mo;
+    }
+
+    // Establece el color
+    public void setColor(String c) {
+        this.color = c;
+    }
+
+    // Establece el propietario
     public void setPropietario(Propietario p) {
         this.propietario = p;
     }
@@ -43,6 +61,21 @@ public class Coche implements java.io.Serializable {
     // Obtiene la matricula
     public String getMatricula() {
         return this.matricula;
+    }
+
+    // Obtiene la marca
+    public String getMarca() {
+        return this.marca;
+    }
+
+    // Obtiene el modelo
+    public String getModelo() {
+        return this.modelo;
+    }
+
+    // Obtiene el color
+    public String getColor() {
+        return this.color;
     }
 
     // Obtiene el propietario

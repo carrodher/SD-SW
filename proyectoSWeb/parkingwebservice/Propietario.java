@@ -2,7 +2,9 @@ package parkingwebservice;
 
 public class Propietario implements java.io.Serializable {
     private String nombre;
+    private String apellidos;
     private String dni;
+    private String telefono;
     private boolean conPlaza = false;
 
     // Establece el dni
@@ -13,6 +15,16 @@ public class Propietario implements java.io.Serializable {
     // Establece el nombre
     public void setNombre(String n) {
         this.nombre = n;
+    }
+
+    // Establece los apellidos
+    public void setApellidos(String a) {
+        this.apellidos = a;
+    }
+
+    // Establece el telefono
+    public void setTelefono(String t) {
+        this.telefono = t;
     }
 
     // Establece si tiene plaza
@@ -28,6 +40,16 @@ public class Propietario implements java.io.Serializable {
     // Obtiene el nombre
     public String getNombre() {
         return this.nombre;
+    }
+
+    // Obtiene los apellidos
+    public String getApellidos() {
+        return this.apellidos;
+    }
+
+    // Obtiene el telefono
+    public String getTelefono() {
+        return this.telefono;
     }
 
     // Obtiene si tiene plaza

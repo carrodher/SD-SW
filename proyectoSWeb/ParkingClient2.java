@@ -13,22 +13,22 @@ public class ParkingClient2 {
 
         /* Invocar los métodos */
         // Creamos 2 titulares
-        Titular t1 = new Titular();
+        PRopietario t1 = new Propietario();
         t1.setNombre("Carlos");
         t1.setDni("05663221K");
 
-        Titular t2 = new Titular();
+        Propietario t2 = new Propietario();
         t2.setNombre("Antonio");
         t2.setDni("96854750L");
 
         // Cramos 4 cuentas
-        port.crearCuenta("635478965",t1);
-        port.crearCuenta("366852001",t1);
-        port.crearCuenta("480000221",t1);
-        port.crearCuenta("006998525",t2);
+        port.anadeCoche("1234BDS",t1);
+        port.anadeCoche("8520RTY",t1);
+        port.anadeCoche("7413JKL",t1);
+        port.anadeCoche("9510DCV",t2);
 
         // Eliminamos una de las cuentas
-        port.cerrarCuenta("366852001");
+        port.borraCoche("7413JKL");
 
         // Ingresamos y retiramos dinero
         port.ingresar("635478965",100);

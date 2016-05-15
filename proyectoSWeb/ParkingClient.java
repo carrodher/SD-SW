@@ -92,12 +92,12 @@ public class ParkingClient
             }
         }
 
-        // Si parámetro introducido = retirar...
-        /*else if (args[0].equals("retirar")) {
-            // Debe haber 3 parámetros (retirar + numCuenta + cantidad)
-            if (args.length == 3) {
+        // Si parámetro introducido = alquilaPlaza...
+        else if (args[0].equals("alquilaPlaza")) {
+            // Debe haber 2 parámetros (alquilaPlaza + DNI)
+            if (args.length == 2) {
                 try {
-                    invoca_retirar(args[1], Integer.parseInt(args[2]));
+                    invoca_alquilaPlaza(args[1]);
                     System.exit(0);
                 }
                 catch (Exception ex) {
@@ -109,7 +109,7 @@ public class ParkingClient
                 System.out.println("\nError en el paso de parámetros");
                 System.exit(1);
             }
-        }*/
+        }
 
         // Si parámetro introducido = coches...
         else if (args[0].equals("coches")) {
@@ -167,7 +167,7 @@ public class ParkingClient
             call.addParameter("propietario", qn, ParameterMode.IN);
             call.addParameter("plaza", XMLType.XSD_BOOLEAN, ParameterMode.IN);
             call.setReturnType(XMLType.AXIS_VOID);
-            call.invoke(new Object [] { matricula, propietario, plaza });
+            call.invoke(new Object [] { matricula, propietario });
 
             System.out.println("\nCoche añadido.");
         }
@@ -227,6 +227,22 @@ public class ParkingClient
         }
     }
 
+    private static void invoca_alquilaPlaza(String dni) {
+        try {
+            Service service = new Service();
+            Call call = (Call) service.createCall();
+
+            call.setTargetEndpointAddress(new java.net.URL(endpoint));
+            call.setOperationName("alquilaPlaza");
+            call.addParameter("dni", XMLType.XSD_STRING, ParameterMode.IN);
+            call.setReturnType(XMLType.AXIS_VOID);
+            call.invoke(new Object [] { dni });
+        }
+        catch (Exception ex) {
+            System.out.println("\n" + ex);
+        }
+    }
+
     private static void invoca_cochesDelPropietario(String dni) {
         try {
             Service service = new Service();
@@ -253,8 +269,8 @@ public class ParkingClient
             for (int k=0; k < obj.length; k++) {
                 Coche c = obj[k];
 
-                System.out.println("\nMatricula del coche: " + c.getNumCuenta());
-                System.out.println("Propietario: " + c.getTitular().toString());
+                System.out.println("\nMatricula del coche: " + c.getMatricula());
+                System.out.println("Propietario: " + c.getPropietario().toString());
                 //System.out.println("Balance: " + c.getBalance());
             }
         }
@@ -263,7 +279,7 @@ public class ParkingClient
         }
     }
 
-    private static void invoca_propietarioDeCoche(String numCuenta) {
+    private static void invoca_propietarioDeCoche(String matricula) {
         try {
             Service service = new Service();
             Call call = (Call) service.createCall();
