@@ -45,16 +45,20 @@ Referencias a objetos remotos II
 #### [Práctica 6](https://github.com/carrodher/SDSW/tree/master/practica6)
 Paso de clases definidas por el usuario y tipos complejos
 
+#### [Práctica 7](https://github.com/carrodher/SDSW/tree/master/practica7)
+CORBA
+
 #### [Proyecto RMI](https://github.com/carrodher/SDSW/tree/master/proyectoRMI)
 Proyecto haciendo uso de RMI
 
 ### Servicios Web
-
-#### [Práctica 7](https://github.com/carrodher/SDSW/tree/master/practica7)
-CORBA
 
 #### [Práctica 9](https://github.com/carrodher/SDSW/tree/master/practica9)
 Servicios Web
 
 #### [Práctica 10](https://github.com/carrodher/SDSW/tree/master/practica10)
 Servicios Web II
+
+#### [Proyecto Servicios Web](https://github.com/carrodher/SDSW/tree/master/proyectoSWeb)
+Proyecto haciendo uso de Servicios Web
+
