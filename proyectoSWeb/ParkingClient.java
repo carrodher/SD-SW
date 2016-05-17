@@ -121,46 +121,48 @@ public class ParkingClient
 				}
 			}
 			else {
-				System.out.println("\nError en el paso de parámetros");
+				System.out.println("\nError al eliminar");
 				System.exit(1);
 			}
 		}
 
-        // Si parámetro introducido = entrar...
-        else if (args[0].equals("entrar")) {
-            // Debe haber 2 parámetros (entrar + matricula)
-            if (args.length == 2) {
-                try {
-                    invoca_entrar(args[1]);
-                    System.exit(0);
-                }
-                catch (Exception ex) {
-                    System.out.println("\n" + ex);
-                    System.exit(1);
-                }
-            } else {
-                System.out.println("\nError en el paso de parámetros");
-                System.exit(1);
-            }
-        }
+		// Si parámetro introducido = aparcar...
+		else if (args[0].equals("aparcar")) {
+			// Debe haber 2 parámetros (aparcar + matricula)
+			if (args.length == 2) {
+				try {
+					invoca_aparcar(args[1]);
+					System.exit(0);
+				}
+				catch (Exception ex) {
+					System.out.println("\n" + ex);
+					System.exit(1);
+				}
+			}
+			else {
+				System.out.println("\nError al aparcar");
+				System.exit(1);
+			}
+		}
 
-        // Si parámetro introducido = salir...
-        else if (args[0].equals("salir")) {
-            // Debe haber 2 parámetros (salir + matricula)
-            if (args.length == 2) {
-                try {
-                    invoca_salir(args[1]);
-                    System.exit(0);
-                }
-                catch (Exception ex) {
-                    System.out.println("\n" + ex);
-                    System.exit(1);
-                }
-            } else {
-                System.out.println("\nError en el paso de parámetros");
-                System.exit(1);
-            }
-        }
+		// Si parámetro introducido = salir...
+		else if (args[0].equals("salir")) {
+			// Debe haber 2 parámetros (salir + matricula)
+			if (args.length == 2) {
+				try {
+					invoca_salir(args[1]);
+					System.exit(0);
+				}
+				catch (Exception ex) {
+					System.out.println("\n" + ex);
+					System.exit(1);
+				}
+			}
+			else {
+				System.out.println("\nError al salir");
+				System.exit(1);
+			}
+		}
 
         // Si parámetro introducido = alquilaPlaza...
         else if (args[0].equals("alquilaPlaza")) {
@@ -267,37 +269,41 @@ public class ParkingClient
 	}
 
 
-    private static void invoca_entrar(String matricula) {
-        try {
-            Service service = new Service();
-            Call call = (Call) service.createCall();
+	private static void invoca_aparcar(String matricula) {
+		try {
+			Service service = new Service();
+			Call call = (Call) service.createCall();
 
-            call.setTargetEndpointAddress(new java.net.URL(endpoint));
-            call.setOperationName("entrar");
-            call.addParameter("matricula", XMLType.XSD_STRING, ParameterMode.IN);
-            call.setReturnType(XMLType.AXIS_VOID);
-            call.invoke(new Object [] { matricula });
-        }
-        catch (Exception ex) {
-            System.out.println("\n" + ex);
-        }
-    }
+			call.setTargetEndpointAddress(new java.net.URL(endpoint));
+			call.setOperationName("aparcar");
+			call.addParameter("matricula", XMLType.XSD_STRING, ParameterMode.IN);
+			call.setReturnType(XMLType.AXIS_VOID);
+			call.invoke(new Object [] { matricula });
 
-    private static void invoca_salir(String matricula) {
-        try {
-            Service service = new Service();
-            Call call = (Call) service.createCall();
+			System.out.println("\nCoche aparcado");
+		}
+		catch (Exception ex) {
+			System.out.println("\n" + ex);
+		}
+	}
 
-            call.setTargetEndpointAddress(new java.net.URL(endpoint));
-            call.setOperationName("salir");
-            call.addParameter("matricula", XMLType.XSD_STRING, ParameterMode.IN);
-            call.setReturnType(XMLType.AXIS_VOID);
-            call.invoke(new Object [] { matricula });
-        }
-        catch (Exception ex) {
-            System.out.println("\n" + ex);
-        }
-    }
+	private static void invoca_salir(String matricula) {
+		try {
+			Service service = new Service();
+			Call call = (Call) service.createCall();
+
+			call.setTargetEndpointAddress(new java.net.URL(endpoint));
+			call.setOperationName("salir");
+			call.addParameter("matricula", XMLType.XSD_STRING, ParameterMode.IN);
+			call.setReturnType(XMLType.AXIS_VOID);
+			call.invoke(new Object [] { matricula });
+
+			System.out.println("\nCoche fuera");
+		}
+		catch (Exception ex) {
+			System.out.println("\n" + ex);
+		}
+	}
 
     private static void invoca_alquilaPlaza(String dni) {
         try {
