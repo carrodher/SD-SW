@@ -6,38 +6,106 @@ import org.apache.axis.utils.Options;
 import javax.xml.rpc.ParameterMode;
 import javax.xml.namespace.QName;
 
+import java.util.*;
+
 import parkingwebservice.*;
 
 // Cliente del servicio web
 public class ParkingClient
 {
-    static String endpoint = "http://localhost:8888/axis/services/Parking";
+	static String endpoint = "http://localhost:8888/axis/services/Parking";
 
-    public static void main(String [] args) throws Exception {
-        // Propietario
-        Propietario propietario;
+	public static void main(String [] args) throws Exception {
+		// Propietario
+		Propietario propietario;
 
-        // Si parámetro introducido = crear...
-        if (args[0].equals("anadir")) {
-            // Debe haber 4 parámetros (crear + matricula + nombre + dni )
-            if (args.length == 4) {
-                // Crea el titular
-                propietario = new Propietario();
-                propietario.setNombre(args[2]);
-                propietario.setDni(args[3]);
-                try {
-                    invoca_anadirCoche(args[1], propietario);
-                    System.exit(0);
-                }
-                catch (Exception ex) {
-                    System.out.println("\n" + ex);
-                    System.exit(1);
-                }
-            } else {
-                System.out.println("\nError en el paso de parámetros");
-                System.exit(1);
-            }
-        }
+		// Si parámetro introducido = añadir...
+		if (args[0].equals("anadir")) {
+			if (args.length == 1) {
+				// Almacena los datos recibidos por el cliente
+				Scanner input = new Scanner(System.in);
+
+				// Nombre
+				String nombre = null;
+				while (nombre == null || nombre.isEmpty()){
+					System.out.print("\nCliente> Bienvenido al servicio de párking ¿Cuál es su nombre? ");
+					nombre = input.nextLine();
+				}
+				// Apellidos
+				String apellidos = null;
+				while (apellidos == null || apellidos.isEmpty()){
+					System.out.print("\nCliente> ¿Apellidos?\n");
+					System.out.print(nombre + "> ");
+					apellidos = input.nextLine();
+				}
+				// DNI
+				String dni = null;
+				while (dni == null || dni.isEmpty()){
+					System.out.print("\nCliente> ¿DNI?\n");
+					System.out.print(nombre + "> ");
+					dni = input.nextLine();
+				}
+				// Teléfono
+				String tlf = null;
+				while (tlf == null || tlf.isEmpty()){
+					System.out.print("\nCliente> ¿Teléfono?\n");
+					System.out.print(nombre + "> ");
+					tlf = input.nextLine();
+				}
+				// Abonado
+				String abonado = null;
+				while (abonado == null || abonado.isEmpty()){
+					System.out.print("\nCliente> ¿Abonado? (Si/No)\n");
+					System.out.print(nombre + "> ");
+					abonado = input.nextLine();
+				}
+				// Marca
+				String marca = null;
+				while (marca == null || marca.isEmpty()){
+					System.out.print("\nCliente> ¿Marca del coche?\n");
+					System.out.print(nombre + "> ");
+					marca = input.nextLine();
+				}
+				// Modelo
+				String modelo = null;
+				while (modelo == null || modelo.isEmpty()){
+					System.out.print("\nCliente> ¿Modelo del coche?\n");
+					System.out.print(nombre + "> ");
+					modelo = input.nextLine();
+				}
+				// Color
+				String color = null;
+				while (color == null || color.isEmpty()){
+					System.out.print("\nCliente> ¿Color del coche?\n");
+					System.out.print(nombre + "> ");
+					color = input.nextLine();
+				}
+
+				// Crea el propietario
+				propietario = new Propietario();
+				propietario.setNombre(nombre);
+				propietario.setApellidos(apellidos);
+				propietario.setDni(dni);
+				propietario.setTelefono(tlf);
+				if (abonado.equals("Si"))
+					propietario.setAbono(true);
+				else
+					propietario.setAbono(false);
+
+				try {
+					invoca_anadirCoche(matricula, propietario, marca, modelo, color);
+					System.exit(0);
+				}
+				catch (Exception ex) {
+					System.out.println("\n" + ex);
+					System.exit(1);
+				}
+			}
+			else {
+				System.out.println("\nError al añadir");
+				System.exit(1);
+			}
+		}
         // Si parámetro introducido = eliminar...
         else if (args[0].equals("eliminar")) {
             // Debe haber 2 parámetros (eliminar + matricula)
@@ -151,30 +219,32 @@ public class ParkingClient
         System.exit(1);
     }
 
-    private static void invoca_anadirCoche(String matricula, Propietario propietario) {
-        try {
-            Service service = new Service();
-            Call call = (Call) service.createCall();
-            QName qn = new QName("http://www.uc3m.es/WS/Parking", "Propietario");
+	private static void invoca_addCoche(String matricula, Propietario propietario, String marca, String modelo, String color) {
+		try {
+			Service service = new Service();
+			Call call = (Call) service.createCall();
+			QName qn = new QName("http://www.uc3m.es/WS/Parking", "Propietario");
 
-            call.registerTypeMapping(parkingwebservice.Propietario.class, qn,
-            new org.apache.axis.encoding.ser.BeanSerializerFactory(parkingwebservice.Propietario.class, qn),
-            new org.apache.axis.encoding.ser.BeanDeserializerFactory(parkingwebservice.Propietario.class, qn));
+			call.registerTypeMapping(parkingwebservice.Propietario.class, qn,
+			new org.apache.axis.encoding.ser.BeanSerializerFactory(parkingwebservice.Propietario.class, qn),
+			new org.apache.axis.encoding.ser.BeanDeserializerFactory(parkingwebservice.Propietario.class, qn));
 
-            call.setTargetEndpointAddress(new java.net.URL(endpoint));
-            call.setOperationName("anadirCoche");
-            call.addParameter("matricula", XMLType.XSD_STRING, ParameterMode.IN);
-            call.addParameter("propietario", qn, ParameterMode.IN);
-            call.addParameter("plaza", XMLType.XSD_BOOLEAN, ParameterMode.IN);
-            call.setReturnType(XMLType.AXIS_VOID);
-            call.invoke(new Object [] { matricula, propietario });
+			call.setTargetEndpointAddress(new java.net.URL(endpoint));
+			call.setOperationName("addCoche");
+			call.addParameter("matricula", XMLType.XSD_STRING, ParameterMode.IN);
+			call.addParameter("propietario", qn, ParameterMode.IN);
+			call.addParameter("marca", XMLType.XSD_STRING, ParameterMode.IN);
+			call.addParameter("modelo", XMLType.XSD_STRING, ParameterMode.IN);
+			call.addParameter("color", XMLType.XSD_STRING, ParameterMode.IN);
+			call.setReturnType(XMLType.AXIS_VOID);
+			call.invoke(new Object [] { matricula, propietario, marca, modelo, color });
 
-            System.out.println("\nCoche añadido.");
-        }
-        catch (Exception ex) {
-            System.out.println("\n" + ex);
-        }
-    }
+			System.out.println("\nCoche añadido.");
+		}
+		catch (Exception ex) {
+			System.out.println("\n" + ex);
+		}
+	}
 
     private static void invoca_eliminarCoche(String matricula) {
         try {
