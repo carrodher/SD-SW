@@ -164,31 +164,32 @@ public class Parking {
 		}
 	}
 
-    // Devuelve el propietario de la matricula indicada
-    public Propietario propietarioDeCoche(String matricula) throws Exception {
-        Propietario prop = new Propietario();
+	// Devuelve el propietario de la matricula indicada
+	public Propietario propietarioDeCoche(String matricula) throws Exception {
+		Propietario prop = new Propietario();
 
-        if (matricula != null){
-            int flag = 0;   // flag = 1 => Encontrada
+		if (matricula != null && !matricula.isEmpty()) {
+			int flag = 0;   						// flag = 0 => No encontrada
 
-            // Recorre todo el vector de coches
-            for (int i=0; i < coches.size(); i++) {
-                // Coche de la iteracción i
-                Coche c = coches.get(i);
+			// Recorre todo el vector de coches
+			for (int i = 0; i < coches.size(); i++) {
+				// Coche de la iteracción i
+				Coche c = coches.get(i);
 
-                // Si el coche c tiene la matricula que buscamos...
-                if (c.getMatricula().equals(matricula)) {
-                    // ... devuelve el propietario de este coche
-                    prop = c.getPropietario();
-                    flag = 1;
-                }
-            }
-            if (flag == 0) {
-                throw new Exception("¡El coche no existe!");
-            }
-            return prop;
-        } else {
-            throw new Exception("Coche inválido.");
-        }
-    }
+				// Si el coche c tiene la matricula que buscamos...
+				if (c.getMatricula().equals(matricula)) {
+					// ... devuelve el propietario de este coche
+					prop = c.getPropietario();
+					flag = 1;
+				}
+			}
+			if (flag == 0) {
+				throw new Exception("Intentando buscar coche no registrado");
+			}
+			return prop;
+		}
+		else {
+			throw new Exception("Matrícula inválida");
+		}
+	}
 }
