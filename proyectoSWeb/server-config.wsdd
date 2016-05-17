@@ -5,9 +5,9 @@
 		<parameter name="enableNamespacePrefixOptimization" value="false"/>
 		<parameter name="dotNetSoapEncFix" value="true"/>
 		<parameter name="disablePrettyXML" value="true"/>
-		<parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
-		<parameter name="sendXsiTypes" value="true"/>
 		<parameter name="sendMultiRefs" value="true"/>
+		<parameter name="sendXsiTypes" value="true"/>
+		<parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
 		<parameter name="sendXMLDeclaration" value="true"/>
 		<requestFlow>
 			<handler type="java:org.apache.axis.handlers.JWSHandler">
@@ -28,17 +28,17 @@
 		<parameter name="className" value="org.apache.axis.utils.Admin"/>
 		<namespace>http://xml.apache.org/axis/wsdd/</namespace>
 	</service>
-	<service name="Parking" provider="java:RPC">
-		<parameter name="allowedMethods" value="*"/>
-		<parameter name="className" value="parkingwebservice.Parking"/>
-		<parameter name="scope" value="application"/>
-		<beanMapping languageSpecificType="java:parkingwebservice.Coche" qname="ns1:Coche" xmlns:ns1="http://www.uc3m.es/WS/Parking"/>
-		<beanMapping languageSpecificType="java:parkingwebservice.Propietario" qname="ns2:Propietario" xmlns:ns2="http://www.uc3m.es/WS/Parking"/>
-		<arrayMapping innerType="ns3:Coche" languageSpecificType="java:parkingwebservice.Coche[]" qname="ns3:ArrayOfCoche" xmlns:ns3="http://www.uc3m.es/WS/Parking"/>
-	</service>
 	<service name="Version" provider="java:RPC">
 		<parameter name="allowedMethods" value="getVersion"/>
 		<parameter name="className" value="org.apache.axis.Version"/>
+	</service>
+	<service name="Parking" provider="java:RPC">
+		<parameter name="allowedMethods" value="*"/>
+		<parameter name="scope" value="application"/>
+		<parameter name="className" value="parkingwebservice.Parking"/>
+		<beanMapping languageSpecificType="java:parkingwebservice.Coche" qname="ns1:Coche" xmlns:ns1="http://www.uc3m.es/WS/Parking"/>
+		<beanMapping languageSpecificType="java:parkingwebservice.Propietario" qname="ns2:Propietario" xmlns:ns2="http://www.uc3m.es/WS/Parking"/>
+		<arrayMapping innerType="ns3:Coche" languageSpecificType="java:parkingwebservice.Coche[]" qname="ns3:ArrayOfCoche" xmlns:ns3="http://www.uc3m.es/WS/Parking"/>
 	</service>
 	<transport name="http">
 		<requestFlow>
