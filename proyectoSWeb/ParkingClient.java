@@ -60,6 +60,13 @@ public class ParkingClient
 					abonado = input.nextLine();
 				}
 				// Marca
+				String matricula = null;
+				while (matricula == null || matricula.isEmpty()){
+					System.out.print("\nCliente> ¿Marca del coche?\n");
+					System.out.print(nombre + "> ");
+					matricula = input.nextLine();
+				}
+				// Marca
 				String marca = null;
 				while (marca == null || marca.isEmpty()){
 					System.out.print("\nCliente> ¿Marca del coche?\n");
@@ -93,7 +100,7 @@ public class ParkingClient
 					propietario.setAbono(false);
 
 				try {
-					invoca_anadirCoche(matricula, propietario, marca, modelo, color);
+					invoca_addCoche(matricula, propietario, marca, modelo, color);
 					System.exit(0);
 				}
 				catch (Exception ex) {
@@ -313,8 +320,9 @@ public class ParkingClient
 			for (int k=0; k < obj.length; k++) {
 				Coche c = obj[k];
 				System.out.println("\nMatricula del coche: " + c.getMatricula());
+				System.out.println("Propietario: " + c.getPropietario().nombreComToString());
 			}
-			System.out.println("Propietario: " + c.getPropietario().nombreComToString());
+
 		}
 		catch (Exception e) {
 			System.out.println("\n" + e);
