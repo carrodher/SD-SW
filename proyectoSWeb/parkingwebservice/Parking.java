@@ -54,7 +54,7 @@ public class Parking {
 	// Indica que el coche se va a aparcar en el parking
 	public void aparcar(String matricula) throws Exception {
 		if (matricula != null && !matricula.isEmpty()){
-			int flag = 0;   			// flag = 0 => No encontrada
+			int flag = 0;   					// flag = 0 => No encontrada
 			// Recorre todo el vector de coches
 			for (int i = 0; i < coches.size(); i++) {
 				// Coche de la iteracción i
@@ -66,15 +66,15 @@ public class Parking {
 						throw new Exception("¡El coche ya está aparcado!");
 					}
 					else {
-						c.setAparcado(true);
-						flag = 1;			// flag = 1 => Encontrada
-						//Obtiene la fecha de llegada al aparcamiento
+						c.setAparcado(true);	// Marca el coche como aparcado
+						flag = 1;				// flag = 1 => Encontrada
+						// Obtiene la fecha de llegada al aparcamiento
 						c.setLlegada(new Date());
 					}
 				}
 			}
 			if (flag == 0) {
-				throw new Exception("Intentando acceder coche no registrado");
+				throw new Exception("Intentando entrar coche no registrado");
 			}
 		}
 		else {
@@ -82,41 +82,39 @@ public class Parking {
 		}
 	}
 
-    // Indica que el coche se va a salir del parking
-    public void salir(String matricula) throws Exception {
-        if (matricula != null){
-            int flag = 0;   // flag = 1 => Encontrada
-
-            // Recorre todo el vector de coches
-            for (int i=0; i < coches.size(); i++) {
-                // Cuenta de la iteracción i
-                Coche c = coches.get(i);
-
-                // Si el cooche c tiene la matricula que buscamos...
-                if (c.getMatricula().equals(matricula)) {
-
-                    // ... El coche no está aparcado
-                    if(!c.getAparcado()){
-                      throw new Exception("¡El coche no está aparcado!");
-                    } else {
-                      c.setAparcado(false);
-                      flag = 1;
-                      //Obtiene la fecha de llegada al aparcamiento
-                      c.setSalida(new Date());
-                      if(!c.getPropietario().getPlaza()){
-                        tarificar(matricula);
-                      }
-                    }
-                }
-            }
-
-            if (flag == 0) {
-                throw new Exception("¡El coche no existe!");
-            }
-        } else {
-            throw new Exception("Coche inválido");
-        }
-    }
+	// Indica que el coche se va a salir del parking
+	public void salir(String matricula) throws Exception {
+		if (matricula != null && !matricula.isEmpty()){
+			int flag = 0;   					// flag = 0 => No encontrada
+			// Recorre todo el vector de coches
+			for (int i = 0; i < coches.size(); i++) {
+				// Coche de la iteracción i
+				Coche c = coches.get(i);
+				// Si el coche c (con índice i) tiene la matricula que buscamos...
+				if (c.getMatricula().equals(matricula)) {
+					// ... El coche no está aparcado
+					if(!c.getAparcado()){
+						throw new Exception("¡El coche no está aparcado!");
+					}
+					else {
+						c.setAparcado(false);	// Marca el coche como no aparcado
+						flag = 1;				// flag = 1 => Encontrada
+						// Obtiene la fecha de salida del aparcamiento
+						c.setSalida(new Date());
+						if(!c.getPropietario().getPlaza()){
+							tarificar(matricula);
+						}
+					}
+				}
+			}
+			if (flag == 0) {
+				throw new Exception("Intentando salir coche no registrado");
+			}
+		}
+		else {
+			throw new Exception("Matrícula inválida");
+		}
+	}
 
     // Retira una cantidad de la cuenta indicada
     public void tarificar(String matricula) throws Exception {
