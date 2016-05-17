@@ -5,8 +5,9 @@ public class Propietario implements java.io.Serializable {
     private String apellidos;
     private String dni;
     private String telefono;
-    private boolean conPlaza = false;
+    private boolean abonado = false;		// Abonado => No tarifica
 
+	/* Métodos set */
     // Establece el dni
     public void setDni(String d) {
         this.dni = d;
@@ -28,10 +29,11 @@ public class Propietario implements java.io.Serializable {
     }
 
     // Establece si tiene plaza
-    public void setPlaza(boolean b) {
-        this.conPlaza = b;
+    public void setAbono(boolean b) {
+        this.abonado = b;
     }
 
+	/* Métodos get */
     // Obtiene el dni
     public String getDni() {
         return this.dni;
@@ -53,8 +55,8 @@ public class Propietario implements java.io.Serializable {
     }
 
     // Obtiene si tiene plaza
-    public boolean getPlaza() {
-        return this.conPlaza;
+    public boolean getAbono() {
+        return this.abonado;
     }
 
     // Devuelve el nombre y el DNI como una única cadena
