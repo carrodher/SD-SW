@@ -10,16 +10,20 @@ public class Parking {
         coches = new Vector<Coche>();
     }
 
-    // Añade un nuevo coche a partir de una matrícula y su propietario y la añade al vector
-    public void anadeCoche(String matricula, Propietario propietario) throws Exception {
-        if (propietario != null){
+    // Añade un nuevo coche al vector
+    public void addCoche(String matricula, Propietario propietario, String marca, String modelo, String color) throws Exception {
+        if (propietario != null && matricula != null && !matricula.isEmpty() && marca != null && !marca.isEmpty() &&
+		modelo != null && !modelo.isEmpty() && color != null && !color.isEmpty()){
             Coche c = new Coche();
             c.setMatricula(matricula);
             c.setPropietario(propietario);
+			c.setMarca(marca);
+			c.setModelo(modelo);
+			c.setColor(color);
             coches.add(c);
         }
         else {
-            throw new Exception("¡Propietario inválido!");
+            throw new Exception("Datos inválidos");
         }
     }
 
