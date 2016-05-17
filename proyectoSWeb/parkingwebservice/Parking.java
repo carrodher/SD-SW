@@ -101,8 +101,9 @@ public class Parking {
 						flag = 1;				// flag = 1 => Encontrada
 						// Obtiene la fecha de salida del aparcamiento
 						c.setSalida(new Date());
-						if(!c.getPropietario().getPlaza()){
-							tarificar(matricula);
+						// Si es un usuario NO abonado...
+						if(!c.getPropietario().getAbono()){
+							tarificar(c);
 						}
 					}
 				}
@@ -116,51 +117,15 @@ public class Parking {
 		}
 	}
 
-    // Retira una cantidad de la cuenta indicada
-    public void tarificar(String matricula) throws Exception {
-        if (matricula != null){
-            int flag = 0;   // flag = 1 => Encontrada
-
-            // Recorre todo el vector de coches
-            for (int i=0; i < coches.size(); i++) {
-                // Coche de la iteracción i
-                Coche c = coches.get(i);
-
-                // Si el coche c tiene la matricula que buscamos...
-                if (c.getMatricula().equals(matricula)) {
-                    // ... obtiene las fechas de llegada y salida y calcula la tarificacion si el propietario no tiene plaza alquilada
-                    if(!c.getPropietario().getPlaza()){
-                      Date fechaLlegada = c.getLlegada();
-                      Date fechaSalida = c.getSalida();
-                      int tiempo = calculaTiempo(fechaLlegada, fechaSalida);
-                      double precio = calculaPrecio(tiempo);
-                      c.setTarificacion(precio);
-                    }
-                    flag = 1;
-                }
-            }
-
-            if (flag == 0) {
-                throw new Exception("¡El coche no existe!");
-            }
-        }
-        else {
-            throw new Exception("Cuenta inválida");
-        }
-    }
-
-    //Devuelve el tiempo en minutos desde que el coche entra hasta que sale
-    public int calculaTiempo (Date fechaLlegada, Date fechaSalida){
-      long diferenciaEn_ms = fechaSalida.getTime() - fechaLlegada.getTime();
-      long minutos = diferenciaEn_ms / (1000 * 60 );
-      return (int) minutos;
-    }
-
-    //Devuelve el precio a pagar por el tiempo que se ha permanecido en el parking
-    public double calculaPrecio (int tiempo){
-      double precio = (tiempo * 0.06);
-      return precio;
-    }
+	// Calcula el coste en caso de ser usuario NO abonado
+	public void tarificar(Coche c) throws Exception {
+		// ... obtiene las fechas de llegada y salida y calcula la tarificacion
+		Date fechaLlegada = c.getLlegada();
+		Date fechaSalida = c.getSalida();
+		long tiempo = (fechaSalida.getTime()-fechaLlegada.getTime())/(1000*60);
+		double precio = tiempo*0.06;
+		c.setTarificacion(precio);
+	}
 
     // Devuelve un array con todos los coches asociados al titular del DNI
     public Coche[] cochesDelPropietario(String dni) throws Exception {
