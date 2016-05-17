@@ -8,24 +8,25 @@ public class Coche implements java.io.Serializable {
     private String modelo;
     private String color;
     private Propietario propietario;
-    private boolean aparcado;
+    private boolean aparcado = false;
     private Date llegada;
     private Date salida;
     private double tarificacion = 0;
 
+	/* Métodos set */
     // Establece la matricula
     public void setMatricula(String m) {
         this.matricula = m;
     }
 
     // Establece la marca
-    public void setMarca(String ma) {
-        this.marca = ma;
+    public void setMarca(String m) {
+        this.marca = m;
     }
 
     // Establece el modelo
-    public void setModelo(String mo) {
-        this.modelo = mo;
+    public void setModelo(String m) {
+        this.modelo = m;
     }
 
     // Establece el color
@@ -44,13 +45,13 @@ public class Coche implements java.io.Serializable {
     }
 
     // Establece la fecha de llegada al parking
-    public void setLlegada(Date dl) {
-        this.llegada = dl;
+    public void setLlegada(Date d) {
+        this.llegada = d;
     }
 
     // Establece la fecha de salida
-    public void setSalida(Date ds) {
-        this.salida = ds;
+    public void setSalida(Date d) {
+        this.salida = d;
     }
 
     // Establece el precio a pagar
@@ -58,6 +59,7 @@ public class Coche implements java.io.Serializable {
         this.tarificacion = t;
     }
 
+	/* Métodos get */
     // Obtiene la matricula
     public String getMatricula() {
         return this.matricula;
@@ -83,7 +85,7 @@ public class Coche implements java.io.Serializable {
         return this.propietario;
     }
 
-    // Obtiene si esta en el parking o no
+    // Obtiene si está en el parking o no
     public boolean getAparcado() {
         return this.aparcado;
     }
