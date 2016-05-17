@@ -164,42 +164,24 @@ public class ParkingClient
 			}
 		}
 
-        // Si parámetro introducido = alquilaPlaza...
-        else if (args[0].equals("alquilaPlaza")) {
-            // Debe haber 2 parámetros (alquilaPlaza + DNI)
-            if (args.length == 2) {
-                try {
-                    invoca_alquilaPlaza(args[1]);
-                    System.exit(0);
-                }
-                catch (Exception ex) {
-                    System.out.println("\n" + ex);
-                    System.exit(1);
-                }
-            }
-            else {
-                System.out.println("\nError en el paso de parámetros");
-                System.exit(1);
-            }
-        }
-
-        // Si parámetro introducido = coches...
-        else if (args[0].equals("coches")) {
-            // Debe haber 2 parámetros (coches + DNI)
-            if (args.length == 2) {
-                try {
-                    invoca_cochesDelPropietario(args[1]);
-                    System.exit(0);
-                }
-                catch (Exception ex) {
-                    System.out.println("\n" + ex);
-                    System.exit(1);
-                }
-            } else {
-                System.out.println("\nError en el paso de parámetros");
-                System.exit(1);
-            }
-        }
+		// Si parámetro introducido = getCoches...
+		else if (args[0].equals("getCoches")) {
+			// Debe haber 2 parámetros (getCoches + DNI)
+			if (args.length == 2) {
+				try {
+					invoca_getCochesDni(args[1]);
+					System.exit(0);
+				}
+				catch (Exception ex) {
+					System.out.println("\n" + ex);
+					System.exit(1);
+				}
+			}
+			else {
+				System.out.println("\nError en getCoches");
+				System.exit(1);
+			}
+		}
 
         // Si parámetro introducido = propietario...
         else if (args[0].equals("propietario")) {
@@ -305,57 +287,39 @@ public class ParkingClient
 		}
 	}
 
-    private static void invoca_alquilaPlaza(String dni) {
-        try {
-            Service service = new Service();
-            Call call = (Call) service.createCall();
+	private static void invoca_getCochesDni(String dni) {
+		try {
+			Service service = new Service();
+			Call call = (Call) service.createCall();
+			QName qn = new QName("http://www.uc3m.es/WS/Parking", "Coche");
+			QName qna = new QName("http://www.uc3m.es/WS/Parking", "ArrayOfCoche");
+			QName qnt = new QName("http://www.uc3m.es/WS/Parking", "Propietario");
 
-            call.setTargetEndpointAddress(new java.net.URL(endpoint));
-            call.setOperationName("alquilaPlaza");
-            call.addParameter("dni", XMLType.XSD_STRING, ParameterMode.IN);
-            call.setReturnType(XMLType.AXIS_VOID);
-            call.invoke(new Object [] { dni });
-        }
-        catch (Exception ex) {
-            System.out.println("\n" + ex);
-        }
-    }
+			call.registerTypeMapping(parkingwebservice.Coche.class, qn,
+			new org.apache.axis.encoding.ser.BeanSerializerFactory(parkingwebservice.Coche.class, qn),
+			new org.apache.axis.encoding.ser.BeanDeserializerFactory(parkingwebservice.Coche.class, qn));
 
-    private static void invoca_cochesDelPropietario(String dni) {
-        try {
-            Service service = new Service();
-            Call call = (Call) service.createCall();
-            QName qn = new QName("http://www.uc3m.es/WS/Parking", "Coche");
-            QName qna = new QName("http://www.uc3m.es/WS/Parking", "ArrayOfCoche");
-            QName qnt = new QName("http://www.uc3m.es/WS/Parking", "Propietario");
+			call.registerTypeMapping(parkingwebservice.Propietario.class, qnt,
+			new org.apache.axis.encoding.ser.BeanSerializerFactory(parkingwebservice.Propietario.class, qnt),
+			new org.apache.axis.encoding.ser.BeanDeserializerFactory(parkingwebservice.Propietario.class, qnt));
 
-            call.registerTypeMapping(parkingwebservice.Coche.class, qn,
-            new org.apache.axis.encoding.ser.BeanSerializerFactory(parkingwebservice.Coche.class, qn),
-            new org.apache.axis.encoding.ser.BeanDeserializerFactory(parkingwebservice.Coche.class, qn));
+			call.setTargetEndpointAddress(new java.net.URL(endpoint));
+			call.setOperationName("getCochesDni");
+			call.addParameter("dni", XMLType.XSD_STRING, ParameterMode.IN );
+			call.setReturnType(qna);
 
-            call.registerTypeMapping(parkingwebservice.Propietario.class, qnt,
-            new org.apache.axis.encoding.ser.BeanSerializerFactory(parkingwebservice.Propietario.class, qnt),
-            new org.apache.axis.encoding.ser.BeanDeserializerFactory(parkingwebservice.Propietario.class, qnt));
+			Coche obj[] = (Coche [])call.invoke(new Object [] { dni });
 
-            call.setTargetEndpointAddress(new java.net.URL(endpoint));
-            call.setOperationName("cochesDelPropietario");
-            call.addParameter("dni", XMLType.XSD_STRING, ParameterMode.IN );
-            call.setReturnType(qna);
-
-            Coche obj[] = (Coche [])call.invoke(new Object [] { dni });
-
-            for (int k=0; k < obj.length; k++) {
-                Coche c = obj[k];
-
-                System.out.println("\nMatricula del coche: " + c.getMatricula());
-                System.out.println("Propietario: " + c.getPropietario().toString());
-                //System.out.println("Balance: " + c.getBalance());
-            }
-        }
-        catch (Exception e) {
-            System.out.println("\n" + e);
-        }
-    }
+			for (int k=0; k < obj.length; k++) {
+				Coche c = obj[k];
+				System.out.println("\nMatricula del coche: " + c.getMatricula());
+			}
+			System.out.println("Propietario: " + c.getPropietario().nombreComToString());
+		}
+		catch (Exception e) {
+			System.out.println("\n" + e);
+		}
+	}
 
     private static void invoca_propietarioDeCoche(String matricula) {
         try {
