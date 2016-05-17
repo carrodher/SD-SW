@@ -118,7 +118,7 @@ public class Parking {
 	}
 
 	// Calcula el coste en caso de ser usuario NO abonado
-	public void tarificar(Coche c) throws Exception {
+	private void tarificar(Coche c) throws Exception {
 		// ... obtiene las fechas de llegada y salida y calcula la tarificacion
 		Date fechaLlegada = c.getLlegada();
 		Date fechaSalida = c.getSalida();
