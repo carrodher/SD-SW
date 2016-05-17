@@ -27,28 +27,29 @@ public class Parking {
         }
     }
 
-    // Borra un coche a partir de su matricula
-    public void borraCoche(String matricula) throws Exception {
-        if (matricula != null){
-            int flag = 0;   // flag = 1 => Encontrada
-            // Recorre todo el vector de coches
-            for (int i=0; i < coches.size(); i++) {
-                // Coche de la iteracción i
-                Coche c = coches.get(i);
-                // Si el coche c (con índice i) tiene la matricula que buscamos...
-                if (c.getMatricula().equals(matricula)) {
-                    // ... Borra esta matricula
-                    coches.removeElementAt(i);
-                    flag = 1;
-                }
-            }
-            if (flag == 0){
-                throw new Exception("¡El coche no existe!");
-            }
-        } else {
-            throw new Exception("Coche inválido.");
-        }
-    }
+	// Borra un coche del vector a partir de su matrícula
+	public void delCoche(String matricula) throws Exception {
+		if (matricula != null && !matricula.isEmpty()) {
+			int flag = 0;   			// flag = 0 => No encontrada
+			// Recorre todo el vector de coches
+			for (int i=0; i < coches.size(); i++) {
+				// Coche de la iteracción i
+				Coche c = coches.get(i);
+				// Si el coche c (con índice i) tiene la matricula que buscamos...
+				if (c.getMatricula().equals(matricula)) {
+					// ... Borra este coche
+					coches.removeElementAt(i);
+					flag = 1;			// flag = 1 => Encontrada
+				}
+			}
+			if (flag == 0){
+				throw new Exception("Intentando borrar coche no registrado");
+			}
+		}
+		else {
+			throw new Exception("Matrícula inválida");
+		}
+	}
 
     // Indica que el coche se va a aparcar en el parking
     public void aparcar(String matricula) throws Exception {
