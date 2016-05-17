@@ -3,11 +3,14 @@ package parkingwebservice;
 import java.util.Date;
 
 public class Coche implements java.io.Serializable {
-    private String matricula;
+	/* Atributos */
+	// Atributos fijos
+	private String matricula;
     private String marca;
     private String modelo;
     private String color;
     private Propietario propietario;
+	// Atributos variables
     private boolean aparcado = false;
     private Date llegada;
     private Date salida;
