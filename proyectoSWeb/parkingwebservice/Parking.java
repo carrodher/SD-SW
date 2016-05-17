@@ -165,7 +165,7 @@ public class Parking {
 	}
 
 	// Devuelve el propietario de la matricula indicada
-	public Propietario propietarioDeCoche(String matricula) throws Exception {
+	public Propietario getPropietarioMatricula(String matricula) throws Exception {
 		Propietario prop = new Propietario();
 
 		if (matricula != null && !matricula.isEmpty()) {
