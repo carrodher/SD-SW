@@ -106,23 +106,25 @@ public class ParkingClient
 				System.exit(1);
 			}
 		}
-        // Si parámetro introducido = eliminar...
-        else if (args[0].equals("eliminar")) {
-            // Debe haber 2 parámetros (eliminar + matricula)
-            if (args.length == 2) {
-                try {
-                    invoca_eliminarCoche(args[1]);
-                    System.exit(0);
-                }
-                catch (Exception ex) {
-                    System.out.println("\n" + ex);
-                    System.exit(1);
-                }
-            } else {
-                System.out.println("\nError en el paso de parámetros");
-                System.exit(1);
-            }
-        }
+
+		// Si parámetro introducido = eliminar...
+		else if (args[0].equals("eliminar")) {
+			// Debe haber 2 parámetros (eliminar + matricula)
+			if (args.length == 2) {
+				try {
+					invoca_delCoche(args[1]);
+					System.exit(0);
+				}
+				catch (Exception ex) {
+					System.out.println("\n" + ex);
+					System.exit(1);
+				}
+			}
+			else {
+				System.out.println("\nError en el paso de parámetros");
+				System.exit(1);
+			}
+		}
 
         // Si parámetro introducido = entrar...
         else if (args[0].equals("entrar")) {
@@ -239,30 +241,30 @@ public class ParkingClient
 			call.setReturnType(XMLType.AXIS_VOID);
 			call.invoke(new Object [] { matricula, propietario, marca, modelo, color });
 
-			System.out.println("\nCoche añadido.");
+			System.out.println("\nCoche añadido");
 		}
 		catch (Exception ex) {
 			System.out.println("\n" + ex);
 		}
 	}
 
-    private static void invoca_eliminarCoche(String matricula) {
-        try {
-            Service service = new Service();
-            Call call = (Call) service.createCall();
+	private static void invoca_delCoche(String matricula) {
+		try {
+			Service service = new Service();
+			Call call = (Call) service.createCall();
 
-            call.setTargetEndpointAddress(new java.net.URL(endpoint));
-            call.setOperationName("eliminarCoche");
-            call.addParameter("matricula", XMLType.XSD_STRING, ParameterMode.IN);
-            call.setReturnType(XMLType.AXIS_VOID);
-            call.invoke(new Object [] { matricula });
+			call.setTargetEndpointAddress(new java.net.URL(endpoint));
+			call.setOperationName("delCoche");
+			call.addParameter("matricula", XMLType.XSD_STRING, ParameterMode.IN);
+			call.setReturnType(XMLType.AXIS_VOID);
+			call.invoke(new Object [] { matricula });
 
-            System.out.println("\nCoche eliminado.");
-        }
-        catch (Exception ex) {
-            System.out.println("\n" + ex);
-        }
-    }
+			System.out.println("\nCoche eliminado");
+		}
+		catch (Exception ex) {
+			System.out.println("\n" + ex);
+		}
+	}
 
 
     private static void invoca_entrar(String matricula) {
