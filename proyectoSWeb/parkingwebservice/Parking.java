@@ -127,40 +127,42 @@ public class Parking {
 		c.setTarificacion(precio);
 	}
 
-    // Devuelve un array con todos los coches asociados al titular del DNI
-    public Coche[] cochesDelPropietario(String dni) throws Exception {
-        if (dni != null){
-            int flag = 0;   // flag = 1 => Encontrada
+	// Devuelve un array con todos los coches asociados al titular del DNI
+	public Coche[] getCochesDni(String dni) throws Exception {
+		if (dni != null && !dni.isEmpty()){
+			int flag = 0;   							// flag = 0 => No encontrada
+			Vector<Coche> v = new Vector<Coche>();    	// Vector temporal
 
-            Vector<Coche> v = new Vector<Coche>();    // Vector temporal
+			// Recorre todo el vector de coches
+			for (int i = 0; i < coches.size(); i++) {
+				// Coche de la iteracción i
+				Coche c = coches.get(i);
 
-            // Recorre todo el vector de coches
-            for (int i=0; i < coches.size(); i++) {
-                // Coche de la iteracción i
-                Coche c = coches.get(i);
+				// Si el propietario del coche c (con índice i) tiene el DNI que buscamos...
+				if (c.getPropietario().getDni().equals(dni)) {
+					// ... Añade este coche al vector temporal
+					v.add(c);
+					flag = 1;
+				}
+			}
 
-                // Si el coche c tiene el DNI que buscamos...
-                if (c.getPropietario().getDni().equals(dni)) {
-                    // ... Añade este coche al vector
-                    v.add(c);
-                    flag = 1;
-                }
-            }
+			if (v.size() > 0) {
+				Coche vc[] = new Coche[v.size()];     	// Array de coches
 
-            if (v.size() > 0) {
-                Coche vc[] = new Coche[v.size()];     // Array de cuentas
+				for (int k = 0; k < v.size(); k++) {
+					vc[k] = v.get(k);
+				}
 
-                for (int k = 0; k < v.size(); k++) {
-                    vc[k] = v.get(k);
-                }
-                return vc;
-            } else {
-                throw new Exception("¡El DNI no existe!");
-            }
-        } else {
-            throw new Exception("DNI inválido");
-        }
-    }
+				return vc;
+			}
+			else {
+				throw new Exception("Ningún coche asociado al DNI");
+			}
+		}
+		else {
+			throw new Exception("DNI inválido");
+		}
+	}
 
     // Devuelve el propietario de la matricula indicada
     public Propietario propietarioDeCoche(String matricula) throws Exception {
