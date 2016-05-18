@@ -20,7 +20,7 @@ public class ParkingClient
 		Propietario propietario;
 
 		// Si parámetro introducido = añadir...
-		if (args[0].equals("anadir")) {
+		if (args[0].equals("añadir")) {
 			if (args.length == 1) {
 				// Almacena los datos recibidos por el cliente
 				Scanner input = new Scanner(System.in);
@@ -59,31 +59,31 @@ public class ParkingClient
 					System.out.print(nombre + "> ");
 					abonado = input.nextLine();
 				}
-				// Marca
+				// Matrícula
 				String matricula = null;
 				while (matricula == null || matricula.isEmpty()){
-					System.out.print("\nCliente> ¿Marca del coche?\n");
+					System.out.print("\nCliente> Muy bien, hablemos sobre el coche. ¿Matrícula?\n");
 					System.out.print(nombre + "> ");
 					matricula = input.nextLine();
 				}
 				// Marca
 				String marca = null;
 				while (marca == null || marca.isEmpty()){
-					System.out.print("\nCliente> ¿Marca del coche?\n");
+					System.out.print("\nCliente> ¿Marca?\n");
 					System.out.print(nombre + "> ");
 					marca = input.nextLine();
 				}
 				// Modelo
 				String modelo = null;
 				while (modelo == null || modelo.isEmpty()){
-					System.out.print("\nCliente> ¿Modelo del coche?\n");
+					System.out.print("\nCliente> ¿Modelo?\n");
 					System.out.print(nombre + "> ");
 					modelo = input.nextLine();
 				}
 				// Color
 				String color = null;
 				while (color == null || color.isEmpty()){
-					System.out.print("\nCliente> ¿Color del coche?\n");
+					System.out.print("\nCliente> ¿Color?\n");
 					System.out.print(nombre + "> ");
 					color = input.nextLine();
 				}
