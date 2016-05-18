@@ -1,7 +1,7 @@
 // Este fichero usa las clases generadas por axis a partir del WSDL
 // Cambiado ubuntu por lenevo en el import
 import es.uc3m.www.WS.Periodico.*;
-import lenovo.axis.services.Periodico.*;
+import carlos.axis.services.Periodico.*;
 
 public class PeriodicoClient2 {
     public static void main(String [] args) throws Exception {
