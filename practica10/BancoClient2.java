@@ -1,7 +1,7 @@
 // Este fichero usa las clases generadas por axis a partir del WSDL
 // Cambiado ubuntu por lenevo en el import
 import es.uc3m.www.WS.Banco.*;
-import lenovo.axis.services.Banco.*;
+import carlos.axis.services.Banco.*;
 
 public class BancoClient2 {
     public static void main(String [] args) throws Exception {
