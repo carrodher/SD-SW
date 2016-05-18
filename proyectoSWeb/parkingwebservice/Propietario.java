@@ -61,7 +61,7 @@ public class Propietario implements java.io.Serializable {
 
 	// Devuelve el nombre y los apellidos como una única cadena
 	public String nombreComToString() {
-		return this.nombre +  this.apellidos + " | " + this.dni;
+		return this.nombre + " " + this.apellidos + " | " + this.dni;
 	}
 
 	// Devuelve el nombre y el DNI como una única cadena
