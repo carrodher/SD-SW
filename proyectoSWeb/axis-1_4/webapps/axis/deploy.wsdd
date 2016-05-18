@@ -6,7 +6,7 @@
 		<parameter name="allowedMethods" value="*"/>
 
 		<beanMapping qname="ns:Coche" xmlns:ns="http://www.uc3m.es/WS/Parking" languageSpecificType="java:parkingwebservice.Coche"/>
-		<beanMapping qname="ns:Titular" xmlns:ns="http://www.uc3m.es/WS/Parking" languageSpecificType="java:parkingwebservice.Titular"/>
+		<beanMapping qname="ns:Propietario" xmlns:ns="http://www.uc3m.es/WS/Parking" languageSpecificType="java:parkingwebservice.Propietario"/>
 
 		<arrayMapping qname="ns:ArrayOfCoche" xmlns:ns="http://www.uc3m.es/WS/Parking" languageSpecificType="java:parkingwebservice.Coche[]" innerType="ns:Coche" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
 
