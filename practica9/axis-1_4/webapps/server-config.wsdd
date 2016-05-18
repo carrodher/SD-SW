@@ -34,10 +34,10 @@
  </service>
  <service name="Agenda" provider="java:RPC">
   <parameter name="allowedMethods" value="*"/>
-  <parameter name="className" value="agendaPackage.Agenda"/>
+  <parameter name="className" value="agendawebservice.Agenda"/>
   <parameter name="scope" value="application"/>
-  <beanMapping languageSpecificType="java:agendaPackage.Telefono" qname="ns1:Telefono" xmlns:ns1="http://www.uc3m.es/WS/Agenda"/>
-  <arrayMapping innerType="ns2:Telefono" languageSpecificType="java:agendaPackage.Telefono[]" qname="ns2:ArrayOfTelefono" xmlns:ns2="http://www.uc3m.es/WS/Agenda"/>
+  <beanMapping languageSpecificType="java:agendawebservice.Telefono" qname="ns1:Telefono" xmlns:ns1="http://www.uc3m.es/WS/Agenda"/>
+  <arrayMapping innerType="ns2:Telefono" languageSpecificType="java:agendawebservice.Telefono[]" qname="ns2:ArrayOfTelefono" xmlns:ns2="http://www.uc3m.es/WS/Agenda"/>
  </service>
  <transport name="http">
   <requestFlow>

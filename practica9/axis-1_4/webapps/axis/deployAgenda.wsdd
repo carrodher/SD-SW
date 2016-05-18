@@ -1,0 +1,15 @@
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+	<service name="Agenda" provider="java:RPC">
+
+		<parameter name="scope" value="application"/>
+		<parameter name="className" value="agendawebservice.Agenda"/>
+		<parameter name="allowedMethods" value="*"/>
+
+		<beanMapping qname="ns:Telefono" xmlns:ns="http://www.uc3m.es/WS/Agenda" languageSpecificType="java:agendawebservice.Telefono"/>
+
+		<arrayMapping qname="ns:ArrayOfTelefono" xmlns:ns="http://www.uc3m.es/WS/Agenda" languageSpecificType="java:agendawebservice.Telefono[]" innerType="ns:Telefono" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+	</service>
+
+</deployment>
