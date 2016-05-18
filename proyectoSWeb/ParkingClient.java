@@ -19,12 +19,12 @@ public class ParkingClient
 		// Propietario
 		Propietario propietario;
 
+		// Almacena los datos recibidos por el usuario
+		Scanner input = new Scanner(System.in);
+
 		// Si parámetro introducido = añadir...
 		if (args[0].equals("añadir")) {
 			if (args.length == 1) {
-				// Almacena los datos recibidos por el cliente
-				Scanner input = new Scanner(System.in);
-
 				// Nombre
 				String nombre = null;
 				while (nombre == null || nombre.isEmpty()){
@@ -116,10 +116,16 @@ public class ParkingClient
 
 		// Si parámetro introducido = eliminar...
 		else if (args[0].equals("eliminar")) {
-			// Debe haber 2 parámetros (eliminar + matricula)
-			if (args.length == 2) {
+			if (args.length == 1) {
 				try {
-					invoca_delCoche(args[1]);
+					// Matrícula
+					String matricula = null;
+					while (matricula == null || matricula.isEmpty()){
+						System.out.print("\nCliente> ¿Cuál es la matricula del coche para eliminar?\n");
+						System.out.print("Usuario> ");
+						matricula = input.nextLine();
+					}
+					invoca_delCoche(matricula);
 					System.exit(0);
 				}
 				catch (Exception ex) {
@@ -232,7 +238,8 @@ public class ParkingClient
 			call.setReturnType(XMLType.AXIS_VOID);
 			call.invoke(new Object [] { matricula, propietario, marca, modelo, color });
 
-			System.out.println("\nCoche añadido");
+			System.out.println("\nPropietario " + nombre + " " + apellidos + " con dni " + dni + " añadido");
+			System.out.println("\nCoche " + marca + " " + modelo + " con matrícula " + matricula + " añadido");
 		}
 		catch (Exception ex) {
 			System.out.println("\n" + ex);
@@ -250,7 +257,7 @@ public class ParkingClient
 			call.setReturnType(XMLType.AXIS_VOID);
 			call.invoke(new Object [] { matricula });
 
-			System.out.println("\nCoche eliminado");
+			System.out.println("\nCoche con matrícula " + matricula + " eliminado");
 		}
 		catch (Exception ex) {
 			System.out.println("\n" + ex);
@@ -269,7 +276,7 @@ public class ParkingClient
 			call.setReturnType(XMLType.AXIS_VOID);
 			call.invoke(new Object [] { matricula });
 
-			System.out.println("\nCoche aparcado");
+			System.out.println("\nCoche con matrícula " + matricula + " aparcado");
 		}
 		catch (Exception ex) {
 			System.out.println("\n" + ex);
@@ -287,7 +294,7 @@ public class ParkingClient
 			call.setReturnType(XMLType.AXIS_VOID);
 			call.invoke(new Object [] { matricula });
 
-			System.out.println("\nCoche fuera");
+			System.out.println("\nCoche con matrícula " + matricula + " fuera");
 		}
 		catch (Exception ex) {
 			System.out.println("\n" + ex);
@@ -317,10 +324,13 @@ public class ParkingClient
 
 			Coche obj[] = (Coche [])call.invoke(new Object [] { dni });
 
-			for (int k=0; k < obj.length; k++) {
+			for (int k = 0; k < obj.length; k++) {
 				Coche c = obj[k];
+				// Imprime los datos del propietario la 1ª vez
+				if (k == 0)
+					System.out.println("Propietario: " + c.getPropietario().nombreComToString());
+
 				System.out.println("\nMatricula del coche: " + c.getMatricula());
-				System.out.println("Propietario: " + c.getPropietario().nombreComToString());
 			}
 
 		}
@@ -346,7 +356,7 @@ public class ParkingClient
 
 			Propietario obj = (Propietario) call.invoke(new Object [] { matricula });
 
-			System.out.println("\nPropietario: " + obj.toString());
+			System.out.println("\nPropietario: " + obj.nombreComToString());
 		}
 		catch (Exception ex) {
 			System.out.println("\n" + ex);
