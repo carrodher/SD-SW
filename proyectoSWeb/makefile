@@ -1,6 +1,6 @@
 .PHONY: clean parkingwebservice
 
-all: parking coche propietario parkingwebservice parkingClient parkingClient2
+all: parking coche propietario parkingwebservice parkingClient
 
 # Compilaciones
 parking:
@@ -67,3 +67,4 @@ parkingWsdl:
 clean:
 	rm -rf *.class
 	rm -rf parkingwebservice/*.class
+	rm -rf parkingwebservice.jar
