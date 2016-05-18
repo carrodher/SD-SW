@@ -1,7 +1,7 @@
 // Este fichero usa las clases generadas por axis a partir del WSDL
 // Cambiado ubuntu por lenevo en el import
 import es.uc3m.www.WS.Parking.*;
-import lenovo.axis.services.Parking.*;
+import carlos.axis.services.Parking.*;
 
 public class ParkingClient2 {
     public static void main(String [] args) throws Exception {
@@ -13,43 +13,58 @@ public class ParkingClient2 {
 
         /* Invocar los métodos */
         // Creamos 2 titulares
-        PRopietario t1 = new Propietario();
-        t1.setNombre("Carlos");
-        t1.setDni("05663221K");
+        Propietario p1 = new Propietario();
+        p1.setNombre("Carlos");
+		p1.setApellidos("Rodríguez Hernández");
+        p1.setDni("08889880N");
+		p1.setTelefono("609477932");
+		p1.setAbono(true);
 
-        Propietario t2 = new Propietario();
-        t2.setNombre("Antonio");
-        t2.setDni("96854750L");
+        Propietario p2 = new Propietario();
+		p2.setNombre("Antonio");
+		p2.setApellidos("Martinez Hernández");
+        p2.setDni("9451635S");
+		p2.setTelefono("65456932");
+		p2.setAbono(false);
 
-        // Cramos 4 cuentas
-        port.anadeCoche("1234BDS",t1);
-        port.anadeCoche("8520RTY",t1);
-        port.anadeCoche("7413JKL",t1);
-        port.anadeCoche("9510DCV",t2);
+        // Añadimos 3 coches
+		port.addCoche("7328FVT", p1, "Renault", "Megane", "Blanco");	// <-- Abonado
+		port.addCoche("5437CRM", p2, "BMW", "530d", "Azul");			// <-- No abonado
+		port.addCoche("9874MNJ", p2, "Audi", "A5", "Gris");				// <-- Eliminado
 
-        // Eliminamos una de las cuentas
-        port.borraCoche("7413JKL");
+        // Eliminamos uno
+        port.delCoche("9874MNJ");
 
-        // Ingresamos y retiramos dinero
-        port.ingresar("635478965",100);
-        port.retirar("635478965",10);
-        port.ingresar("480000221",200);
-        port.ingresar("006998525",30);
+        // Entran y salen coches
+        port.aparcar("7328FVT");	// Aparca coche1
+        port.aparcar("5437CRM");	// Aparca coche2
+        port.salir("7328FVT");		// Sale coche1
+        port.salir("5437CRM");		// Sale coche2
 
-        // Obtiene todas las cuentas de un titular en base a su DNI
-        Cuenta array[] = port.cuentasDelTitular("05663221K");
+		// Añade nuevamente el coche borrado antes
+		port.addCoche("9874MNJ", p2, "Audi", "A5", "Gris");
 
-        for (int k=0; k < array.length; k++) {
-            Cuenta c = array[k];
+        // Obtiene todas los coches de un propietario en base a su DNI
+        Coche array[] = port.getCochesDni("9451635S");
 
-            System.out.println("\nNúmero de Cuenta: " + c.getNumCuenta());
-            System.out.println("Titular nombre: " + c.getTitular().getNombre() + " | DNI: " + c.getTitular().getDni());
-            System.out.println("Balance: " + c.getBalance());
+        for (int k = 0; k < array.length; k++) {
+            Coche c = array[k];
+
+			if (k == 0)
+				System.out.println("Propietario nombre: " + c.getPropietario().getNombre() + " | DNI: " + c.getPropietario().getDni());
+
+            System.out.println("\nMatrícula del coche: " + c.getMatricula());
+			System.out.println("Marca: " + c.getMarca());
         }
 
-        // Obtiene el titular de una cuenta
-        Titular tit = port.titularDeCuenta("635478965");
+        // Obtiene el propietario de un coche
+        Propietario prop = port.getPropietarioMatricula("7328FVT");
 
-        System.out.println("\nTitular nombre: " + tit.getNombre() + " | DNI: " + tit.getDni());
+        System.out.println("\nPropietario nombre: " + prop.getNombre() + " | DNI: " + prop.getDni());
+
+		// Elimina todos los coches
+		port.delCoche("9874MNJ");
+		port.delCoche("5437CRM");
+		port.delCoche("7328FVT");
     }
 }
