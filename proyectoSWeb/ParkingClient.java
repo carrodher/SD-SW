@@ -141,10 +141,16 @@ public class ParkingClient
 
 		// Si parámetro introducido = aparcar...
 		else if (args[0].equals("aparcar")) {
-			// Debe haber 2 parámetros (aparcar + matricula)
-			if (args.length == 2) {
+			if (args.length == 1) {
 				try {
-					invoca_aparcar(args[1]);
+					// Matrícula
+					String matricula = null;
+					while (matricula == null || matricula.isEmpty()){
+						System.out.print("\nCliente> ¿Cuál es la matricula del coche que va a entrar?\n");
+						System.out.print("Usuario> ");
+						matricula = input.nextLine();
+					}
+					invoca_aparcar(matricula);
 					System.exit(0);
 				}
 				catch (Exception ex) {
@@ -160,10 +166,16 @@ public class ParkingClient
 
 		// Si parámetro introducido = salir...
 		else if (args[0].equals("salir")) {
-			// Debe haber 2 parámetros (salir + matricula)
-			if (args.length == 2) {
+			if (args.length == 1) {
 				try {
-					invoca_salir(args[1]);
+					// Matrícula
+					String matricula = null;
+					while (matricula == null || matricula.isEmpty()){
+						System.out.print("\nCliente> ¿Cuál es la matricula del coche que va a salir?\n");
+						System.out.print("Usuario> ");
+						matricula = input.nextLine();
+					}
+					invoca_salir(matricula);
 					System.exit(0);
 				}
 				catch (Exception ex) {
@@ -179,10 +191,16 @@ public class ParkingClient
 
 		// Si parámetro introducido = getCoches...
 		else if (args[0].equals("getCoches")) {
-			// Debe haber 2 parámetros (getCoches + DNI)
-			if (args.length == 2) {
+			if (args.length == 1) {
 				try {
-					invoca_getCochesDni(args[1]);
+					// Matrícula
+					String dni = null;
+					while (dni == null || dni.isEmpty()){
+						System.out.print("\nCliente> ¿Cuál es el DNI del propietario para buscar?\n");
+						System.out.print("Usuario> ");
+						dni = input.nextLine();
+					}
+					invoca_getCochesDni(dni);
 					System.exit(0);
 				}
 				catch (Exception ex) {
@@ -198,10 +216,16 @@ public class ParkingClient
 
 		// Si parámetro introducido = getPropietario...
 		else if (args[0].equals("getPropietario")) {
-			// Debe haber 2 parámetros (getPropietario + matricula)
-			if (args.length == 2) {
+			if (args.length == 1) {
 				try {
-					invoca_getPropietarioMatricula(args[1]);
+					// Matrícula
+					String matricula = null;
+					while (matricula == null || matricula.isEmpty()){
+						System.out.print("\nCliente> ¿Cuál es la matrícula del coche para buscar?\n");
+						System.out.print("Usuario> ");
+						matricula = input.nextLine();
+					}
+					invoca_getPropietarioMatricula(matricula);
 					System.exit(0);
 				}
 				catch (Exception ex) {
