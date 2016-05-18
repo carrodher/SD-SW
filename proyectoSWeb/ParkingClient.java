@@ -238,8 +238,8 @@ public class ParkingClient
 			call.setReturnType(XMLType.AXIS_VOID);
 			call.invoke(new Object [] { matricula, propietario, marca, modelo, color });
 
-			System.out.println("\nPropietario " + nombre + " " + apellidos + " con dni " + dni + " añadido");
-			System.out.println("\nCoche " + marca + " " + modelo + " con matrícula " + matricula + " añadido");
+			System.out.println("\nPropietario " + propietario.nombreComToString() + " añadido");
+			System.out.println("Coche " + marca + " " + modelo + " con matrícula " + matricula + " añadido");
 		}
 		catch (Exception ex) {
 			System.out.println("\n" + ex);
