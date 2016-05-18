@@ -51,10 +51,10 @@ public class ParkingClient2 {
             Coche c = array[k];
 
 			if (k == 0)
-				System.out.println("Propietario nombre: " + c.getPropietario().getNombre() + " | DNI: " + c.getPropietario().getDni());
+				System.out.println("\nPropietario nombre: " + c.getPropietario().getNombre() + " | DNI: " + c.getPropietario().getDni());
 
-            System.out.println("\nMatrícula del coche: " + c.getMatricula());
-			System.out.println("Marca: " + c.getMarca());
+            System.out.println("\tMatrícula del coche: " + c.getMatricula());
+			System.out.println("\tMarca: " + c.getMarca());
         }
 
         // Obtiene el propietario de un coche
