@@ -95,9 +95,9 @@ public class ParkingClient
 				propietario.setDni(dni);
 				propietario.setTelefono(tlf);
 				if (abonado.equals("Si"))
-					propietario.setAbono(true);
+				propietario.setAbono(true);
 				else
-					propietario.setAbono(false);
+				propietario.setAbono(false);
 
 				try {
 					invoca_addCoche(matricula, propietario, marca, modelo, color);
@@ -239,8 +239,8 @@ public class ParkingClient
 			}
 		}
 
-        System.exit(1);
-    }
+		System.exit(1);
+	}
 
 	private static void invoca_addCoche(String matricula, Propietario propietario, String marca, String modelo, String color) {
 		try {
@@ -315,9 +315,12 @@ public class ParkingClient
 			call.setTargetEndpointAddress(new java.net.URL(endpoint));
 			call.setOperationName("salir");
 			call.addParameter("matricula", XMLType.XSD_STRING, ParameterMode.IN);
-			call.setReturnType(XMLType.AXIS_VOID);
-			call.invoke(new Object [] { matricula });
+			call.setReturnType(XMLType.XSD_DOUBLE);
 
+			double tarifa = (double) call.invoke(new Object [] { matricula });
+
+
+			System.out.println("\nA pagar: " + tarifa + "€");
 			System.out.println("\nCoche con matrícula " + matricula + " fuera");
 		}
 		catch (Exception ex) {
@@ -352,7 +355,7 @@ public class ParkingClient
 				Coche c = obj[k];
 				// Imprime los datos del propietario la 1ª vez
 				if (k == 0)
-					System.out.println("Propietario: " + c.getPropietario().nombreComToString());
+				System.out.println("Propietario: " + c.getPropietario().nombreComToString());
 
 				System.out.println("\nMatricula del coche: " + c.getMatricula());
 			}
