@@ -196,4 +196,61 @@ public class Parking {
 			throw new Exception("Matrícula inválida");
 		}
 	}
+
+	// Devuelve un array con todos los coches registrados
+	public Coche[] getRegistrados() throws Exception {
+		Vector<Coche> v = new Vector<Coche>();    	// Vector temporal
+
+		// Recorre todo el vector de coches
+		for (int i = 0; i < coches.size(); i++) {
+			// Coche de la iteracción i
+			Coche c = coches.get(i);
+
+			// ... Añade este coche al vector temporal
+			v.add(c);
+		}
+
+		if (v.size() > 0) {
+			Coche vc[] = new Coche[v.size()];     	// Array de coches
+
+			for (int k = 0; k < v.size(); k++) {
+				vc[k] = v.get(k);
+			}
+
+			return vc;
+		}
+		else {
+			throw new Exception("Ningún coche registrado");
+		}
+	}
+
+	// Devuelve un array con todos los coches aparcados
+	public Coche[] getAparcados() throws Exception {
+		Vector<Coche> v = new Vector<Coche>();    	// Vector temporal
+
+		// Recorre todo el vector de coches
+		for (int i = 0; i < coches.size(); i++) {
+			// Coche de la iteracción i
+			Coche c = coches.get(i);
+
+			// Si el propietario del coche c (con índice i) tiene el DNI que buscamos...
+			if (c.getAparcado() == true) {
+				// ... Añade este coche al vector temporal
+				v.add(c);
+			}
+		}
+
+		if (v.size() > 0) {
+			Coche vc[] = new Coche[v.size()];     	// Array de coches
+
+			for (int k = 0; k < v.size(); k++) {
+				vc[k] = v.get(k);
+			}
+
+			return vc;
+		}
+		else {
+			throw new Exception("Ningún aparcado");
+		}
+	}
 }

@@ -239,6 +239,42 @@ public class ParkingClient
 			}
 		}
 
+		// Si parámetro introducido = getRegistrados...
+		else if (args[0].equals("getRegistrados")) {
+			if (args.length == 1) {
+				try {
+					invoca_getRegistrados();
+					System.exit(0);
+				}
+				catch (Exception ex) {
+					System.out.println("\n" + ex);
+					System.exit(1);
+				}
+			}
+			else {
+				System.out.println("\nError en getRegistrados");
+				System.exit(1);
+			}
+		}
+
+		// Si parámetro introducido = getAparcados...
+		else if (args[0].equals("getAparcados")) {
+			if (args.length == 1) {
+				try {
+					invoca_getAparcados();
+					System.exit(0);
+				}
+				catch (Exception ex) {
+					System.out.println("\n" + ex);
+					System.exit(1);
+				}
+			}
+			else {
+				System.out.println("\nError en getAparcados");
+				System.exit(1);
+			}
+		}
+
 		System.exit(1);
 	}
 
@@ -400,6 +436,86 @@ public class ParkingClient
 		}
 		catch (Exception ex) {
 			System.out.println("\n" + ex);
+		}
+	}
+
+	// Devuelve un array con todos los coches registrados
+	private static void invoca_getRegistrados() {
+		try {
+			Service service = new Service();
+			Call call = (Call) service.createCall();
+			QName qn = new QName("http://www.uc3m.es/WS/Parking", "Coche");
+			QName qna = new QName("http://www.uc3m.es/WS/Parking", "ArrayOfCoche");
+			QName qnt = new QName("http://www.uc3m.es/WS/Parking", "Propietario");
+
+			call.registerTypeMapping(parkingwebservice.Coche.class, qn,
+			new org.apache.axis.encoding.ser.BeanSerializerFactory(parkingwebservice.Coche.class, qn),
+			new org.apache.axis.encoding.ser.BeanDeserializerFactory(parkingwebservice.Coche.class, qn));
+
+			call.registerTypeMapping(parkingwebservice.Propietario.class, qnt,
+			new org.apache.axis.encoding.ser.BeanSerializerFactory(parkingwebservice.Propietario.class, qnt),
+			new org.apache.axis.encoding.ser.BeanDeserializerFactory(parkingwebservice.Propietario.class, qnt));
+
+			call.setTargetEndpointAddress(new java.net.URL(endpoint));
+			call.setOperationName("getRegistrados");
+			//call.addParameter("dni", XMLType.XSD_STRING, ParameterMode.IN );
+			call.setReturnType(qna);
+
+			Coche obj[] = (Coche [])call.invoke(new Object [] {  });
+
+			for (int k = 0; k < obj.length; k++) {
+				Coche c = obj[k];
+				System.out.println("\nPropietario: " + c.getPropietario().nombreComToString());
+				// Imprime los datos del coche
+				System.out.println("Matricula del coche: " + c.getMatricula());
+				System.out.println("\tMarca: " + c.getMarca());
+				System.out.println("\tModelo: " + c.getModelo());
+				System.out.println("\tColor: " + c.getColor());
+			}
+
+		}
+		catch (Exception e) {
+			System.out.println("\n" + e);
+		}
+	}
+
+	// Devuelve un array con todos los coches aparcados
+	private static void invoca_getAparcados() {
+		try {
+			Service service = new Service();
+			Call call = (Call) service.createCall();
+			QName qn = new QName("http://www.uc3m.es/WS/Parking", "Coche");
+			QName qna = new QName("http://www.uc3m.es/WS/Parking", "ArrayOfCoche");
+			QName qnt = new QName("http://www.uc3m.es/WS/Parking", "Propietario");
+
+			call.registerTypeMapping(parkingwebservice.Coche.class, qn,
+			new org.apache.axis.encoding.ser.BeanSerializerFactory(parkingwebservice.Coche.class, qn),
+			new org.apache.axis.encoding.ser.BeanDeserializerFactory(parkingwebservice.Coche.class, qn));
+
+			call.registerTypeMapping(parkingwebservice.Propietario.class, qnt,
+			new org.apache.axis.encoding.ser.BeanSerializerFactory(parkingwebservice.Propietario.class, qnt),
+			new org.apache.axis.encoding.ser.BeanDeserializerFactory(parkingwebservice.Propietario.class, qnt));
+
+			call.setTargetEndpointAddress(new java.net.URL(endpoint));
+			call.setOperationName("getAparcados");
+			//call.addParameter(XMLType.AXIS_VOID, ParameterMode.IN );
+			call.setReturnType(qna);
+
+			Coche obj[] = (Coche [])call.invoke(new Object [] {  });
+
+			for (int k = 0; k < obj.length; k++) {
+				Coche c = obj[k];
+				System.out.println("\nPropietario: " + c.getPropietario().nombreComToString());
+				// Imprime los datos del coche
+				System.out.println("Matricula del coche: " + c.getMatricula());
+				System.out.println("\tMarca: " + c.getMarca());
+				System.out.println("\tModelo: " + c.getModelo());
+				System.out.println("\tColor: " + c.getColor());
+			}
+
+		}
+		catch (Exception e) {
+			System.out.println("\n" + e);
 		}
 	}
 }
