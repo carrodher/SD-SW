@@ -18,8 +18,8 @@ make parkingClient
 ## 2.3 Ejecuta métodos
 make añadir				# Añade un coche a la BBDD de coches
 make eliminar			# Elimina un coche de la BBDD de coches
-make aparcar			# Entra coche en el párking en fucnión de la matrícula
-make salir				# Sale coche del párking en fucnión de la matrícula
+make aparcar			# Entra coche en el párking en función de la matrícula
+make salir				# Sale coche del párking en función de la matrícula
 make getCoches			# Obtiene los coches asociados a un DNI
 make getPropietario		# Obtiene el propietario de un coche en base a la matrícula
 
