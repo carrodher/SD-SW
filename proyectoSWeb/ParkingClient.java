@@ -242,6 +242,7 @@ public class ParkingClient
 		System.exit(1);
 	}
 
+	// Se da de alta un propietario
 	private static void invoca_addCoche(String matricula, Propietario propietario, String marca, String modelo, String color) {
 		try {
 			Service service = new Service();
@@ -270,6 +271,7 @@ public class ParkingClient
 		}
 	}
 
+	// Se da de baja un coche (y su propietario)
 	private static void invoca_delCoche(String matricula) {
 		try {
 			Service service = new Service();
@@ -288,7 +290,7 @@ public class ParkingClient
 		}
 	}
 
-
+	// Entra un coche en el párking
 	private static void invoca_aparcar(String matricula) {
 		try {
 			Service service = new Service();
@@ -307,6 +309,7 @@ public class ParkingClient
 		}
 	}
 
+	// Sale un coche del párking y se calcula su coste si no es abonado
 	private static void invoca_salir(String matricula) {
 		try {
 			Service service = new Service();
@@ -319,15 +322,20 @@ public class ParkingClient
 
 			double tarifa = (double) call.invoke(new Object [] { matricula });
 
-
-			System.out.println("\nA pagar: " + tarifa + "€");
-			System.out.println("\nCoche con matrícula " + matricula + " fuera");
+			if (tarifa > 0) {
+				System.out.println("\nUsuario NO abonado. A pagar: " + tarifa + "€");
+				System.out.println("Coche con matrícula " + matricula + " fuera");
+			}
+			else {
+				System.out.println("Usuario abonado. Coche con matrícula " + matricula + " fuera");
+			}
 		}
 		catch (Exception ex) {
 			System.out.println("\n" + ex);
 		}
 	}
 
+	// Obtiene los datos de un coche a partir del DNI de su propietario
 	private static void invoca_getCochesDni(String dni) {
 		try {
 			Service service = new Service();
@@ -354,10 +362,14 @@ public class ParkingClient
 			for (int k = 0; k < obj.length; k++) {
 				Coche c = obj[k];
 				// Imprime los datos del propietario la 1ª vez
-				if (k == 0)
-				System.out.println("Propietario: " + c.getPropietario().nombreComToString());
-
-				System.out.println("\nMatricula del coche: " + c.getMatricula());
+				if (k == 0) {
+					System.out.println("Propietario: " + c.getPropietario().nombreComToString());
+				}
+				// Imprime los datos del coche
+				System.out.println("Matricula del coche: " + c.getMatricula());
+				System.out.println("\tMarca: " + c.getMarca());
+				System.out.println("\tModelo: " + c.getModelo());
+				System.out.println("\tColor: " + c.getColor());
 			}
 
 		}
@@ -366,6 +378,7 @@ public class ParkingClient
 		}
 	}
 
+	// Obtiene los datos de un propietario a partir de la matrícula de su coche
 	private static void invoca_getPropietarioMatricula(String matricula) {
 		try {
 			Service service = new Service();
