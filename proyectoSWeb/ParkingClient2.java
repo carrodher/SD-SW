@@ -54,13 +54,12 @@ public class ParkingClient2 {
 			System.out.println("\nPropietario nombre: " + c.getPropietario().getNombre() + " | DNI: " + c.getPropietario().getDni());
 
 			System.out.println("\tMatrícula del coche: " + c.getMatricula());
-			System.out.println("\tMarca: " + c.getMarca());
+			System.out.println("\tMarca: " + c.getMarca() + "\n");
 		}
 
 		// Obtiene el propietario de un coche
 		Propietario prop = port.getPropietarioMatricula("7328FVT");
-
-		System.out.println("\nPropietario nombre: " + prop.getNombre() + " | DNI: " + prop.getDni());
+		System.out.println("Propietario nombre: " + prop.getNombre() + " | DNI: " + prop.getDni());
 
 		// Elimina todos los coches
 		port.delCoche("9874MNJ");
