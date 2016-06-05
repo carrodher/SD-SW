@@ -3,7 +3,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/6ce6cf62247540e5b7445c725e7b137e)](https://www.codacy.com/app/carrodher1179/SDSW)
 [![Linkedin](https://img.shields.io/badge/LinkedIn-Carlos-blue.svg)](https://es.linkedin.com/in/carlosrodriguezhernandez)
 [![Twitter](https://img.shields.io/badge/Twitter-carrodher-blue.svg)](https://twitter.com/carrodher)
-[![License](https://img.shields.io/badge/License-BY/NC-yellow.svg)](https://github.com/carrodher/SDSW/blob/master/LICENSE.md)
+[![License](https://img.shields.io/badge/License-GNU-yellow.svg)](https://github.com/carrodher/SDSW/blob/master/LICENSE.md)
 
 Prácticas y proyectos de la asignatura "Sistemas Distribuidos y Servicios Web" de 4º curso del Grado de Teleco.
 
@@ -22,6 +22,7 @@ Dentro de cada práctica se encuentra el enunciado y el README con el contenido 
     * [Práctica 7](https://github.com/carrodher/SDSW/tree/master/practica7)
     * [Práctica 9](https://github.com/carrodher/SDSW/tree/master/practica9)
     * [Práctica 10](https://github.com/carrodher/SDSW/tree/master/practica10)
+    * [Proyecto Servicios Web](https://github.com/carrodher/SDSW/tree/master/proyectoSWeb)
 
 ### RPC
 
@@ -61,4 +62,3 @@ Servicios Web II
 
 #### [Proyecto Servicios Web](https://github.com/carrodher/SDSW/tree/master/proyectoSWeb)
 Proyecto haciendo uso de Servicios Web
-
