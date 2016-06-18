@@ -5,7 +5,7 @@
 [![Twitter](https://img.shields.io/badge/Twitter-carrodher-blue.svg)](https://twitter.com/carrodher)
 [![License](https://img.shields.io/badge/License-GNU-yellow.svg)](https://github.com/carrodher/SDSW/blob/master/LICENSE.md)
 
-Prácticas y proyectos de la asignatura "Sistemas Distribuidos y Servicios Web" de 4º curso del Grado de Teleco.
+Prácticas de la asignatura "Sistemas Distribuidos y Servicios Web" de 4º curso del Grado de Teleco.
 
 Dentro de cada práctica se encuentra el enunciado y el README con el contenido y la explicación de todos los ficheros.
 
@@ -17,12 +17,10 @@ Dentro de cada práctica se encuentra el enunciado y el README con el contenido 
     * [Práctica 4](https://github.com/carrodher/SDSW/tree/master/practica4)
     * [Práctica 5](https://github.com/carrodher/SDSW/tree/master/practica5)
     * [Práctica 6](https://github.com/carrodher/SDSW/tree/master/practica6)
-    * [Proyecto RMI](https://github.com/carrodher/SDSW/tree/master/proyectoRMI)
   * [Servicios Web](#servicios-web)
     * [Práctica 7](https://github.com/carrodher/SDSW/tree/master/practica7)
     * [Práctica 9](https://github.com/carrodher/SDSW/tree/master/practica9)
     * [Práctica 10](https://github.com/carrodher/SDSW/tree/master/practica10)
-    * [Proyecto Servicios Web](https://github.com/carrodher/SDSW/tree/master/proyectoSWeb)
 
 ### RPC
 

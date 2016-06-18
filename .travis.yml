@@ -10,37 +10,6 @@ notifications:
     slack: proyectoscarlos:quyUXvpLXPctdsK53REk5ypl
 
 script:
-    # Practica 3
-        ## 1_eco
-    - cd practica3/1_eco/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
-        ## 2_log
-    - cd ../../2_log/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
-        ## ecoInv
-    - cd ../../ecoInv/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
-        ## marcaTiempo
-    - cd ../../marcaTiempo/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
-    # Practica 4
-        ## 3_chat
-    - cd ../../../practica4/3_chat/cliente && javac Cliente.java && cp *.class ../servidor && cd ../servidor && javac *.java
-    - cp *.class ../cliente && cd ../cliente && javac *.java
-        ## alarmaTemp
-    - cd ../../alarmaTemp/observer && javac Observer.java && javac ObserverImpl.java && cp *.class ../servidor && cd ../servidor && javac *.java
-    - cp *.class ../observer && cp *.class ../cliente && cd ../observer && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
-    # Practica 5
-        ## 4_banco
-    - cd ../../../practica5/4_banco_simple/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
-        ## fabricaLog
-    - cd ../../fabricalog/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
-    # Practica 6
-        ## 5_banco
-    - cd ../../../practica6/5_banco/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
-        ## fabricalogcompleta
-    - cd ../../fabricalogcompleta/servidor && javac *.java && cp *.class ../cliente && cd ../cliente && javac *.java
-    # Práctica 9
-    - cd ../../../practica9 && make all
-    # Práctica 10
-    - cd ../practica10 && make banco && make cuenta && make titular && make bancowebservice
-
     # Proyecto RMI
     - cd ../proyectoRMI/observador && make all && cd ../centralita && make all && cd ../cliente && make all
     - cd ../observador && make observador && cd ../centralita && make centralita
