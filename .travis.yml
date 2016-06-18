@@ -11,5 +11,5 @@ notifications:
 
 script:
     # Proyecto RMI
-    - cd ../proyectoRMI/observador && make all && cd ../centralita && make all && cd ../cliente && make all
+    - cd ./proyectoRMI/observador && make all && cd ../centralita && make all && cd ../cliente && make all
     - cd ../observador && make observador && cd ../centralita && make centralita
